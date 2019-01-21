@@ -1,0 +1,909 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01FAFAF21964A14700BF040D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01FAFAF11964A14700BF040D /* QuartzCore.framework */; };
+		1F73A01621F5EAA3008ABC26 /* Structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F73A01521F5EAA3008ABC26 /* Structure.framework */; };
+		2DFFE049199142E800761886 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFFE048199142E800761886 /* CoreMotion.framework */; };
+		431C6F5318455ABD00EDB38B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 431C6F5218455ABD00EDB38B /* AVFoundation.framework */; };
+		6F1239081862A59D00BD1D7A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1239071862A59D00BD1D7A /* Accelerate.framework */; };
+		6F12390A1862A5D300BD1D7A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1239091862A5D300BD1D7A /* ImageIO.framework */; };
+		6F2B4EDB1865324D00403B8C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC217F0EA0500692EC1 /* CoreGraphics.framework */; };
+		6F2B4EDD1865325D00403B8C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EDC1865325D00403B8C /* OpenGLES.framework */; };
+		6F2B4EDF1865326B00403B8C /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EDE1865326B00403B8C /* CoreImage.framework */; };
+		6F2B4EE1186532A500403B8C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EE0186532A500403B8C /* CoreMedia.framework */; };
+		6F2B4EE3186532CE00403B8C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EE2186532CE00403B8C /* CoreVideo.framework */; };
+		6F7C0CC117F0EA0500692EC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC017F0EA0500692EC1 /* Foundation.framework */; };
+		6F7C0CC517F0EA0500692EC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC417F0EA0500692EC1 /* UIKit.framework */; };
+		6F7C0CC717F0EA0500692EC1 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC617F0EA0500692EC1 /* ExternalAccessory.framework */; };
+		6F7C0CCD17F0EA0500692EC1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C0CCB17F0EA0500692EC1 /* InfoPlist.strings */; };
+		6F7C0CCF17F0EA0500692EC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C0CCE17F0EA0500692EC1 /* main.m */; };
+		6F7C0CD317F0EA0500692EC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C0CD217F0EA0500692EC1 /* AppDelegate.m */; };
+		6F7C0CDB17F0EA0500692EC1 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C0CDA17F0EA0500692EC1 /* ViewController.mm */; };
+		6F7C0CDE17F0EA0500692EC1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C0CDD17F0EA0500692EC1 /* Images.xcassets */; };
+		A626D7541A0F93660086B8BF /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A626D7531A0F93660086B8BF /* Metal.framework */; };
+		A626D7631A0F96F50086B8BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A626D7621A0F96F50086B8BF /* Main.storyboard */; };
+		A626D7651A0F98CF0086B8BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A626D7641A0F98CF0086B8BF /* LaunchScreen.xib */; };
+		A626D7E31A0F9A220086B8BF /* ImageSourceEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A626D7671A0F9A220086B8BF /* ImageSourceEngine.cpp */; };
+		A626D80B1A0F9A220086B8BF /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A626D7E11A0F9A220086B8BF /* FileUtils.cpp */; };
+		A62ECC4B1BB58439000CC25D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A62ECC4A1BB58439000CC25D /* libz.tbd */; };
+		A62ECD3D1BB59B98000CC25D /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD301BB59B98000CC25D /* CMakeLists.txt */; };
+		A62ECD3E1BB59B98000CC25D /* Dummy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD321BB59B98000CC25D /* Dummy.cpp */; };
+		A62ECD3F1BB59B98000CC25D /* MetalContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD3A1BB59B98000CC25D /* MetalContext.mm */; };
+		A62ECDD31BB59BAC000CC25D /* Android.mk in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD411BB59BAB000CC25D /* Android.mk */; };
+		A62ECDD41BB59BAC000CC25D /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD421BB59BAB000CC25D /* CMakeLists.txt */; };
+		A62ECDD51BB59BAC000CC25D /* ITMColorTracker_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD531BB59BAB000CC25D /* ITMColorTracker_CPU.cpp */; };
+		A62ECDD61BB59BAC000CC25D /* ITMDepthTracker_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD551BB59BAB000CC25D /* ITMDepthTracker_CPU.cpp */; };
+		A62ECDD71BB59BAC000CC25D /* ITMLowLevelEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD571BB59BAB000CC25D /* ITMLowLevelEngine_CPU.cpp */; };
+		A62ECDD81BB59BAC000CC25D /* ITMMeshingEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD591BB59BAB000CC25D /* ITMMeshingEngine_CPU.cpp */; };
+		A62ECDD91BB59BAC000CC25D /* ITMRenTracker_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD5B1BB59BAB000CC25D /* ITMRenTracker_CPU.cpp */; };
+		A62ECDDA1BB59BAC000CC25D /* ITMSceneReconstructionEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD5D1BB59BAB000CC25D /* ITMSceneReconstructionEngine_CPU.cpp */; };
+		A62ECDDB1BB59BAC000CC25D /* ITMSwappingEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD5F1BB59BAB000CC25D /* ITMSwappingEngine_CPU.cpp */; };
+		A62ECDDC1BB59BAC000CC25D /* ITMViewBuilder_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD611BB59BAB000CC25D /* ITMViewBuilder_CPU.cpp */; };
+		A62ECDDD1BB59BAC000CC25D /* ITMVisualisationEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD631BB59BAB000CC25D /* ITMVisualisationEngine_CPU.cpp */; };
+		A62ECDDE1BB59BAC000CC25D /* ITMWeightedICPTracker_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD651BB59BAB000CC25D /* ITMWeightedICPTracker_CPU.cpp */; };
+		A62ECDDF1BB59BAC000CC25D /* ITMColorTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD681BB59BAB000CC25D /* ITMColorTracker_CUDA.cu */; };
+		A62ECDE01BB59BAC000CC25D /* ITMDepthTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD6B1BB59BAB000CC25D /* ITMDepthTracker_CUDA.cu */; };
+		A62ECDE11BB59BAC000CC25D /* ITMLowLevelEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD6D1BB59BAB000CC25D /* ITMLowLevelEngine_CUDA.cu */; };
+		A62ECDE21BB59BAC000CC25D /* ITMMeshingEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD6F1BB59BAC000CC25D /* ITMMeshingEngine_CUDA.cu */; };
+		A62ECDE31BB59BAC000CC25D /* ITMRenTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD711BB59BAC000CC25D /* ITMRenTracker_CUDA.cu */; };
+		A62ECDE41BB59BAC000CC25D /* ITMSceneReconstructionEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD731BB59BAC000CC25D /* ITMSceneReconstructionEngine_CUDA.cu */; };
+		A62ECDE51BB59BAC000CC25D /* ITMSwappingEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD751BB59BAC000CC25D /* ITMSwappingEngine_CUDA.cu */; };
+		A62ECDE61BB59BAC000CC25D /* ITMViewBuilder_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD771BB59BAC000CC25D /* ITMViewBuilder_CUDA.cu */; };
+		A62ECDE71BB59BAC000CC25D /* ITMVisualisationEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD791BB59BAC000CC25D /* ITMVisualisationEngine_CUDA.cu */; };
+		A62ECDE81BB59BAC000CC25D /* ITMWeightedICPTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD7B1BB59BAC000CC25D /* ITMWeightedICPTracker_CUDA.cu */; };
+		A62ECDE91BB59BAC000CC25D /* ITMColorTracker.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD7E1BB59BAC000CC25D /* ITMColorTracker.metal */; };
+		A62ECDEA1BB59BAC000CC25D /* ITMColorTracker_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD801BB59BAC000CC25D /* ITMColorTracker_Metal.mm */; };
+		A62ECDEB1BB59BAC000CC25D /* ITMDepthTracker.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD811BB59BAC000CC25D /* ITMDepthTracker.metal */; };
+		A62ECDEC1BB59BAC000CC25D /* ITMDepthTracker_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD831BB59BAC000CC25D /* ITMDepthTracker_Metal.mm */; };
+		A62ECDED1BB59BAC000CC25D /* ITMLowLevelEngine.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD841BB59BAC000CC25D /* ITMLowLevelEngine.metal */; };
+		A62ECDEE1BB59BAC000CC25D /* ITMLowLevelEngine_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD861BB59BAC000CC25D /* ITMLowLevelEngine_Metal.mm */; };
+		A62ECDEF1BB59BAC000CC25D /* ITMRenTracker.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD871BB59BAC000CC25D /* ITMRenTracker.metal */; };
+		A62ECDF01BB59BAC000CC25D /* ITMRenTracker_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD891BB59BAC000CC25D /* ITMRenTracker_Metal.mm */; };
+		A62ECDF11BB59BAC000CC25D /* ITMSceneReconstructionEngine.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD8A1BB59BAC000CC25D /* ITMSceneReconstructionEngine.metal */; };
+		A62ECDF21BB59BAC000CC25D /* ITMSceneReconstructionEngine_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD8C1BB59BAC000CC25D /* ITMSceneReconstructionEngine_Metal.mm */; };
+		A62ECDF31BB59BAC000CC25D /* ITMSwappingEngine.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD8D1BB59BAC000CC25D /* ITMSwappingEngine.metal */; };
+		A62ECDF41BB59BAC000CC25D /* ITMSwappingEngine_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD8F1BB59BAC000CC25D /* ITMSwappingEngine_Metal.mm */; };
+		A62ECDF51BB59BAC000CC25D /* ITMViewBuilder.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD901BB59BAC000CC25D /* ITMViewBuilder.metal */; };
+		A62ECDF61BB59BAC000CC25D /* ITMViewBuilder_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD921BB59BAC000CC25D /* ITMViewBuilder_Metal.mm */; };
+		A62ECDF71BB59BAC000CC25D /* ITMVisualisationEngine.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD931BB59BAC000CC25D /* ITMVisualisationEngine.metal */; };
+		A62ECDF81BB59BAC000CC25D /* ITMVisualisationEngine_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD951BB59BAC000CC25D /* ITMVisualisationEngine_Metal.mm */; };
+		A62ECDF91BB59BAC000CC25D /* ITMColorTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD961BB59BAC000CC25D /* ITMColorTracker.cpp */; };
+		A62ECDFA1BB59BAC000CC25D /* ITMDenseMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD991BB59BAC000CC25D /* ITMDenseMapper.cpp */; };
+		A62ECDFB1BB59BAC000CC25D /* ITMDepthTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD9B1BB59BAC000CC25D /* ITMDepthTracker.cpp */; };
+		A62ECDFC1BB59BAC000CC25D /* ITMIMUTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD9E1BB59BAC000CC25D /* ITMIMUTracker.cpp */; };
+		A62ECDFD1BB59BAC000CC25D /* ITMMainEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDA11BB59BAC000CC25D /* ITMMainEngine.cpp */; };
+		A62ECDFE1BB59BAC000CC25D /* ITMRenTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDA41BB59BAC000CC25D /* ITMRenTracker.cpp */; };
+		A62ECDFF1BB59BAC000CC25D /* ITMTrackerFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDA91BB59BAC000CC25D /* ITMTrackerFactory.cpp */; };
+		A62ECE001BB59BAC000CC25D /* ITMTrackingController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDAB1BB59BAC000CC25D /* ITMTrackingController.cpp */; };
+		A62ECE011BB59BAC000CC25D /* ITMVisualisationEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDAE1BB59BAC000CC25D /* ITMVisualisationEngine.cpp */; };
+		A62ECE021BB59BAC000CC25D /* ITMWeightedICPTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDB01BB59BAC000CC25D /* ITMWeightedICPTracker.cpp */; };
+		A62ECE031BB59BAC000CC25D /* ITMPose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDBE1BB59BAC000CC25D /* ITMPose.cpp */; };
+		A62ECE041BB59BAC000CC25D /* ITMCalibIO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDCD1BB59BAC000CC25D /* ITMCalibIO.cpp */; };
+		A62ECE051BB59BAC000CC25D /* ITMLibSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDD01BB59BAC000CC25D /* ITMLibSettings.cpp */; };
+		A65A33E91A7BABA200F65FA2 /* IMUSourceEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A65A33E71A7BABA200F65FA2 /* IMUSourceEngine.cpp */; };
+		A68436821A1F9C190010E0C5 /* calib.txt in Resources */ = {isa = PBXBuildFile; fileRef = A68436811A1F9C190010E0C5 /* calib.txt */; };
+		A6CA7EF91A0FDE0C0070848F /* iPhone_Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CA7EF81A0FDE0C0070848F /* iPhone_Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01FAFAF11964A14700BF040D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1F73A01521F5EAA3008ABC26 /* Structure.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Structure.framework; path = Frameworks/Structure.framework; sourceTree = "<group>"; };
+		2DFFE048199142E800761886 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		431C6F5218455ABD00EDB38B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6F1239071862A59D00BD1D7A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		6F1239091862A5D300BD1D7A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		6F2B4EDC1865325D00403B8C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		6F2B4EDE1865326B00403B8C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		6F2B4EE0186532A500403B8C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		6F2B4EE2186532CE00403B8C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		6F7C0CBD17F0EA0500692EC1 /* InfiniTAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniTAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F7C0CC017F0EA0500692EC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6F7C0CC217F0EA0500692EC1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6F7C0CC417F0EA0500692EC1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6F7C0CC617F0EA0500692EC1 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		6F7C0CCA17F0EA0500692EC1 /* InfiniTAM-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InfiniTAM-Info.plist"; sourceTree = "<group>"; };
+		6F7C0CCC17F0EA0500692EC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6F7C0CCE17F0EA0500692EC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6F7C0CD017F0EA0500692EC1 /* InfiniTAM-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InfiniTAM-Prefix.pch"; sourceTree = "<group>"; };
+		6F7C0CD117F0EA0500692EC1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6F7C0CD217F0EA0500692EC1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6F7C0CDA17F0EA0500692EC1 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		6F7C0CDC17F0EA0500692EC1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6F7C0CDD17F0EA0500692EC1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A626D7531A0F93660086B8BF /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		A626D7621A0F96F50086B8BF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A626D7641A0F98CF0086B8BF /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		A626D7671A0F9A220086B8BF /* ImageSourceEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageSourceEngine.cpp; sourceTree = "<group>"; };
+		A626D7681A0F9A220086B8BF /* ImageSourceEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSourceEngine.h; sourceTree = "<group>"; };
+		A626D7E11A0F9A220086B8BF /* FileUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileUtils.cpp; sourceTree = "<group>"; };
+		A626D7E21A0F9A220086B8BF /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
+		A62ECC4A1BB58439000CC25D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		A62ECD2F1BB59B98000CC25D /* Cholesky.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cholesky.h; sourceTree = "<group>"; };
+		A62ECD301BB59B98000CC25D /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		A62ECD311BB59B98000CC25D /* CUDADefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUDADefines.h; sourceTree = "<group>"; };
+		A62ECD321BB59B98000CC25D /* Dummy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dummy.cpp; sourceTree = "<group>"; };
+		A62ECD331BB59B98000CC25D /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		A62ECD341BB59B98000CC25D /* LexicalCast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LexicalCast.h; sourceTree = "<group>"; };
+		A62ECD351BB59B98000CC25D /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtils.h; sourceTree = "<group>"; };
+		A62ECD361BB59B98000CC25D /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
+		A62ECD371BB59B98000CC25D /* MemoryBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBlock.h; sourceTree = "<group>"; };
+		A62ECD381BB59B98000CC25D /* MemoryBlockPersister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBlockPersister.h; sourceTree = "<group>"; };
+		A62ECD391BB59B98000CC25D /* MetalContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalContext.h; sourceTree = "<group>"; };
+		A62ECD3A1BB59B98000CC25D /* MetalContext.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MetalContext.mm; sourceTree = "<group>"; };
+		A62ECD3B1BB59B98000CC25D /* PlatformIndependence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformIndependence.h; sourceTree = "<group>"; };
+		A62ECD3C1BB59B98000CC25D /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
+		A62ECD411BB59BAB000CC25D /* Android.mk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Android.mk; sourceTree = "<group>"; };
+		A62ECD421BB59BAB000CC25D /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		A62ECD451BB59BAB000CC25D /* ITMColorTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMColorTracker.h; sourceTree = "<group>"; };
+		A62ECD461BB59BAB000CC25D /* ITMDepthTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMDepthTracker.h; sourceTree = "<group>"; };
+		A62ECD471BB59BAB000CC25D /* ITMLowLevelEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMLowLevelEngine.h; sourceTree = "<group>"; };
+		A62ECD481BB59BAB000CC25D /* ITMMeshingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMMeshingEngine.h; sourceTree = "<group>"; };
+		A62ECD491BB59BAB000CC25D /* ITMPixelUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMPixelUtils.h; sourceTree = "<group>"; };
+		A62ECD4A1BB59BAB000CC25D /* ITMRenTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMRenTracker.h; sourceTree = "<group>"; };
+		A62ECD4B1BB59BAB000CC25D /* ITMRepresentationAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMRepresentationAccess.h; sourceTree = "<group>"; };
+		A62ECD4C1BB59BAB000CC25D /* ITMSceneReconstructionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMSceneReconstructionEngine.h; sourceTree = "<group>"; };
+		A62ECD4D1BB59BAB000CC25D /* ITMSwappingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMSwappingEngine.h; sourceTree = "<group>"; };
+		A62ECD4E1BB59BAB000CC25D /* ITMViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMViewBuilder.h; sourceTree = "<group>"; };
+		A62ECD4F1BB59BAB000CC25D /* ITMVisualisationEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMVisualisationEngine.h; sourceTree = "<group>"; };
+		A62ECD501BB59BAB000CC25D /* ITMWeightedICPTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMWeightedICPTracker.h; sourceTree = "<group>"; };
+		A62ECD531BB59BAB000CC25D /* ITMColorTracker_CPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMColorTracker_CPU.cpp; sourceTree = "<group>"; };
+		A62ECD541BB59BAB000CC25D /* ITMColorTracker_CPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMColorTracker_CPU.h; sourceTree = "<group>"; };
+		A62ECD551BB59BAB000CC25D /* ITMDepthTracker_CPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMDepthTracker_CPU.cpp; sourceTree = "<group>"; };
+		A62ECD561BB59BAB000CC25D /* ITMDepthTracker_CPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMDepthTracker_CPU.h; sourceTree = "<group>"; };
+		A62ECD571BB59BAB000CC25D /* ITMLowLevelEngine_CPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMLowLevelEngine_CPU.cpp; sourceTree = "<group>"; };
+		A62ECD581BB59BAB000CC25D /* ITMLowLevelEngine_CPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMLowLevelEngine_CPU.h; sourceTree = "<group>"; };
+		A62ECD591BB59BAB000CC25D /* ITMMeshingEngine_CPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMMeshingEngine_CPU.cpp; sourceTree = "<group>"; };
+		A62ECD5A1BB59BAB000CC25D /* ITMMeshingEngine_CPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMMeshingEngine_CPU.h; sourceTree = "<group>"; };
+		A62ECD5B1BB59BAB000CC25D /* ITMRenTracker_CPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMRenTracker_CPU.cpp; sourceTree = "<group>"; };
+		A62ECD5C1BB59BAB000CC25D /* ITMRenTracker_CPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMRenTracker_CPU.h; sourceTree = "<group>"; };
+		A62ECD5D1BB59BAB000CC25D /* ITMSceneReconstructionEngine_CPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMSceneReconstructionEngine_CPU.cpp; sourceTree = "<group>"; };
+		A62ECD5E1BB59BAB000CC25D /* ITMSceneReconstructionEngine_CPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMSceneReconstructionEngine_CPU.h; sourceTree = "<group>"; };
+		A62ECD5F1BB59BAB000CC25D /* ITMSwappingEngine_CPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMSwappingEngine_CPU.cpp; sourceTree = "<group>"; };
+		A62ECD601BB59BAB000CC25D /* ITMSwappingEngine_CPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMSwappingEngine_CPU.h; sourceTree = "<group>"; };
+		A62ECD611BB59BAB000CC25D /* ITMViewBuilder_CPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMViewBuilder_CPU.cpp; sourceTree = "<group>"; };
+		A62ECD621BB59BAB000CC25D /* ITMViewBuilder_CPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMViewBuilder_CPU.h; sourceTree = "<group>"; };
+		A62ECD631BB59BAB000CC25D /* ITMVisualisationEngine_CPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMVisualisationEngine_CPU.cpp; sourceTree = "<group>"; };
+		A62ECD641BB59BAB000CC25D /* ITMVisualisationEngine_CPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMVisualisationEngine_CPU.h; sourceTree = "<group>"; };
+		A62ECD651BB59BAB000CC25D /* ITMWeightedICPTracker_CPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMWeightedICPTracker_CPU.cpp; sourceTree = "<group>"; };
+		A62ECD661BB59BAB000CC25D /* ITMWeightedICPTracker_CPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMWeightedICPTracker_CPU.h; sourceTree = "<group>"; };
+		A62ECD681BB59BAB000CC25D /* ITMColorTracker_CUDA.cu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ITMColorTracker_CUDA.cu; sourceTree = "<group>"; };
+		A62ECD691BB59BAB000CC25D /* ITMColorTracker_CUDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMColorTracker_CUDA.h; sourceTree = "<group>"; };
+		A62ECD6A1BB59BAB000CC25D /* ITMCUDAUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMCUDAUtils.h; sourceTree = "<group>"; };
+		A62ECD6B1BB59BAB000CC25D /* ITMDepthTracker_CUDA.cu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ITMDepthTracker_CUDA.cu; sourceTree = "<group>"; };
+		A62ECD6C1BB59BAB000CC25D /* ITMDepthTracker_CUDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMDepthTracker_CUDA.h; sourceTree = "<group>"; };
+		A62ECD6D1BB59BAB000CC25D /* ITMLowLevelEngine_CUDA.cu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ITMLowLevelEngine_CUDA.cu; sourceTree = "<group>"; };
+		A62ECD6E1BB59BAC000CC25D /* ITMLowLevelEngine_CUDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMLowLevelEngine_CUDA.h; sourceTree = "<group>"; };
+		A62ECD6F1BB59BAC000CC25D /* ITMMeshingEngine_CUDA.cu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ITMMeshingEngine_CUDA.cu; sourceTree = "<group>"; };
+		A62ECD701BB59BAC000CC25D /* ITMMeshingEngine_CUDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMMeshingEngine_CUDA.h; sourceTree = "<group>"; };
+		A62ECD711BB59BAC000CC25D /* ITMRenTracker_CUDA.cu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ITMRenTracker_CUDA.cu; sourceTree = "<group>"; };
+		A62ECD721BB59BAC000CC25D /* ITMRenTracker_CUDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMRenTracker_CUDA.h; sourceTree = "<group>"; };
+		A62ECD731BB59BAC000CC25D /* ITMSceneReconstructionEngine_CUDA.cu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ITMSceneReconstructionEngine_CUDA.cu; sourceTree = "<group>"; };
+		A62ECD741BB59BAC000CC25D /* ITMSceneReconstructionEngine_CUDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMSceneReconstructionEngine_CUDA.h; sourceTree = "<group>"; };
+		A62ECD751BB59BAC000CC25D /* ITMSwappingEngine_CUDA.cu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ITMSwappingEngine_CUDA.cu; sourceTree = "<group>"; };
+		A62ECD761BB59BAC000CC25D /* ITMSwappingEngine_CUDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMSwappingEngine_CUDA.h; sourceTree = "<group>"; };
+		A62ECD771BB59BAC000CC25D /* ITMViewBuilder_CUDA.cu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ITMViewBuilder_CUDA.cu; sourceTree = "<group>"; };
+		A62ECD781BB59BAC000CC25D /* ITMViewBuilder_CUDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMViewBuilder_CUDA.h; sourceTree = "<group>"; };
+		A62ECD791BB59BAC000CC25D /* ITMVisualisationEngine_CUDA.cu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ITMVisualisationEngine_CUDA.cu; sourceTree = "<group>"; };
+		A62ECD7A1BB59BAC000CC25D /* ITMVisualisationEngine_CUDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMVisualisationEngine_CUDA.h; sourceTree = "<group>"; };
+		A62ECD7B1BB59BAC000CC25D /* ITMWeightedICPTracker_CUDA.cu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ITMWeightedICPTracker_CUDA.cu; sourceTree = "<group>"; };
+		A62ECD7C1BB59BAC000CC25D /* ITMWeightedICPTracker_CUDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMWeightedICPTracker_CUDA.h; sourceTree = "<group>"; };
+		A62ECD7E1BB59BAC000CC25D /* ITMColorTracker.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = ITMColorTracker.metal; sourceTree = "<group>"; };
+		A62ECD7F1BB59BAC000CC25D /* ITMColorTracker_Metal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMColorTracker_Metal.h; sourceTree = "<group>"; };
+		A62ECD801BB59BAC000CC25D /* ITMColorTracker_Metal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ITMColorTracker_Metal.mm; sourceTree = "<group>"; };
+		A62ECD811BB59BAC000CC25D /* ITMDepthTracker.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = ITMDepthTracker.metal; sourceTree = "<group>"; };
+		A62ECD821BB59BAC000CC25D /* ITMDepthTracker_Metal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMDepthTracker_Metal.h; sourceTree = "<group>"; };
+		A62ECD831BB59BAC000CC25D /* ITMDepthTracker_Metal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ITMDepthTracker_Metal.mm; sourceTree = "<group>"; };
+		A62ECD841BB59BAC000CC25D /* ITMLowLevelEngine.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = ITMLowLevelEngine.metal; sourceTree = "<group>"; };
+		A62ECD851BB59BAC000CC25D /* ITMLowLevelEngine_Metal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMLowLevelEngine_Metal.h; sourceTree = "<group>"; };
+		A62ECD861BB59BAC000CC25D /* ITMLowLevelEngine_Metal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ITMLowLevelEngine_Metal.mm; sourceTree = "<group>"; };
+		A62ECD871BB59BAC000CC25D /* ITMRenTracker.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = ITMRenTracker.metal; sourceTree = "<group>"; };
+		A62ECD881BB59BAC000CC25D /* ITMRenTracker_Metal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMRenTracker_Metal.h; sourceTree = "<group>"; };
+		A62ECD891BB59BAC000CC25D /* ITMRenTracker_Metal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ITMRenTracker_Metal.mm; sourceTree = "<group>"; };
+		A62ECD8A1BB59BAC000CC25D /* ITMSceneReconstructionEngine.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = ITMSceneReconstructionEngine.metal; sourceTree = "<group>"; };
+		A62ECD8B1BB59BAC000CC25D /* ITMSceneReconstructionEngine_Metal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMSceneReconstructionEngine_Metal.h; sourceTree = "<group>"; };
+		A62ECD8C1BB59BAC000CC25D /* ITMSceneReconstructionEngine_Metal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ITMSceneReconstructionEngine_Metal.mm; sourceTree = "<group>"; };
+		A62ECD8D1BB59BAC000CC25D /* ITMSwappingEngine.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = ITMSwappingEngine.metal; sourceTree = "<group>"; };
+		A62ECD8E1BB59BAC000CC25D /* ITMSwappingEngine_Metal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMSwappingEngine_Metal.h; sourceTree = "<group>"; };
+		A62ECD8F1BB59BAC000CC25D /* ITMSwappingEngine_Metal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ITMSwappingEngine_Metal.mm; sourceTree = "<group>"; };
+		A62ECD901BB59BAC000CC25D /* ITMViewBuilder.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = ITMViewBuilder.metal; sourceTree = "<group>"; };
+		A62ECD911BB59BAC000CC25D /* ITMViewBuilder_Metal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMViewBuilder_Metal.h; sourceTree = "<group>"; };
+		A62ECD921BB59BAC000CC25D /* ITMViewBuilder_Metal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ITMViewBuilder_Metal.mm; sourceTree = "<group>"; };
+		A62ECD931BB59BAC000CC25D /* ITMVisualisationEngine.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = ITMVisualisationEngine.metal; sourceTree = "<group>"; };
+		A62ECD941BB59BAC000CC25D /* ITMVisualisationEngine_Metal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMVisualisationEngine_Metal.h; sourceTree = "<group>"; };
+		A62ECD951BB59BAC000CC25D /* ITMVisualisationEngine_Metal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ITMVisualisationEngine_Metal.mm; sourceTree = "<group>"; };
+		A62ECD961BB59BAC000CC25D /* ITMColorTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMColorTracker.cpp; sourceTree = "<group>"; };
+		A62ECD971BB59BAC000CC25D /* ITMColorTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMColorTracker.h; sourceTree = "<group>"; };
+		A62ECD981BB59BAC000CC25D /* ITMCompositeTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMCompositeTracker.h; sourceTree = "<group>"; };
+		A62ECD991BB59BAC000CC25D /* ITMDenseMapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMDenseMapper.cpp; sourceTree = "<group>"; };
+		A62ECD9A1BB59BAC000CC25D /* ITMDenseMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMDenseMapper.h; sourceTree = "<group>"; };
+		A62ECD9B1BB59BAC000CC25D /* ITMDepthTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMDepthTracker.cpp; sourceTree = "<group>"; };
+		A62ECD9C1BB59BAC000CC25D /* ITMDepthTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMDepthTracker.h; sourceTree = "<group>"; };
+		A62ECD9D1BB59BAC000CC25D /* ITMIMUCalibrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMIMUCalibrator.h; sourceTree = "<group>"; };
+		A62ECD9E1BB59BAC000CC25D /* ITMIMUTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMIMUTracker.cpp; sourceTree = "<group>"; };
+		A62ECD9F1BB59BAC000CC25D /* ITMIMUTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMIMUTracker.h; sourceTree = "<group>"; };
+		A62ECDA01BB59BAC000CC25D /* ITMLowLevelEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMLowLevelEngine.h; sourceTree = "<group>"; };
+		A62ECDA11BB59BAC000CC25D /* ITMMainEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMMainEngine.cpp; sourceTree = "<group>"; };
+		A62ECDA21BB59BAC000CC25D /* ITMMainEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMMainEngine.h; sourceTree = "<group>"; };
+		A62ECDA31BB59BAC000CC25D /* ITMMeshingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMMeshingEngine.h; sourceTree = "<group>"; };
+		A62ECDA41BB59BAC000CC25D /* ITMRenTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMRenTracker.cpp; sourceTree = "<group>"; };
+		A62ECDA51BB59BAC000CC25D /* ITMRenTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMRenTracker.h; sourceTree = "<group>"; };
+		A62ECDA61BB59BAC000CC25D /* ITMSceneReconstructionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMSceneReconstructionEngine.h; sourceTree = "<group>"; };
+		A62ECDA71BB59BAC000CC25D /* ITMSwappingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMSwappingEngine.h; sourceTree = "<group>"; };
+		A62ECDA81BB59BAC000CC25D /* ITMTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMTracker.h; sourceTree = "<group>"; };
+		A62ECDA91BB59BAC000CC25D /* ITMTrackerFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMTrackerFactory.cpp; sourceTree = "<group>"; };
+		A62ECDAA1BB59BAC000CC25D /* ITMTrackerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMTrackerFactory.h; sourceTree = "<group>"; };
+		A62ECDAB1BB59BAC000CC25D /* ITMTrackingController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMTrackingController.cpp; sourceTree = "<group>"; };
+		A62ECDAC1BB59BAC000CC25D /* ITMTrackingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMTrackingController.h; sourceTree = "<group>"; };
+		A62ECDAD1BB59BAC000CC25D /* ITMViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMViewBuilder.h; sourceTree = "<group>"; };
+		A62ECDAE1BB59BAC000CC25D /* ITMVisualisationEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMVisualisationEngine.cpp; sourceTree = "<group>"; };
+		A62ECDAF1BB59BAC000CC25D /* ITMVisualisationEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMVisualisationEngine.h; sourceTree = "<group>"; };
+		A62ECDB01BB59BAC000CC25D /* ITMWeightedICPTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMWeightedICPTracker.cpp; sourceTree = "<group>"; };
+		A62ECDB11BB59BAC000CC25D /* ITMWeightedICPTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMWeightedICPTracker.h; sourceTree = "<group>"; };
+		A62ECDB21BB59BAC000CC25D /* ITMLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMLib.h; sourceTree = "<group>"; };
+		A62ECDB41BB59BAC000CC25D /* ITMDisparityCalib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMDisparityCalib.h; sourceTree = "<group>"; };
+		A62ECDB51BB59BAC000CC25D /* ITMExtrinsics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMExtrinsics.h; sourceTree = "<group>"; };
+		A62ECDB61BB59BAC000CC25D /* ITMGlobalCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMGlobalCache.h; sourceTree = "<group>"; };
+		A62ECDB71BB59BAC000CC25D /* ITMImageHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMImageHierarchy.h; sourceTree = "<group>"; };
+		A62ECDB81BB59BAC000CC25D /* ITMIMUMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMIMUMeasurement.h; sourceTree = "<group>"; };
+		A62ECDB91BB59BAC000CC25D /* ITMIntrinsics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMIntrinsics.h; sourceTree = "<group>"; };
+		A62ECDBA1BB59BAC000CC25D /* ITMLocalVBA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMLocalVBA.h; sourceTree = "<group>"; };
+		A62ECDBB1BB59BAC000CC25D /* ITMMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMMesh.h; sourceTree = "<group>"; };
+		A62ECDBC1BB59BAC000CC25D /* ITMPlainVoxelArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMPlainVoxelArray.h; sourceTree = "<group>"; };
+		A62ECDBD1BB59BAC000CC25D /* ITMPointCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMPointCloud.h; sourceTree = "<group>"; };
+		A62ECDBE1BB59BAC000CC25D /* ITMPose.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMPose.cpp; sourceTree = "<group>"; };
+		A62ECDBF1BB59BAC000CC25D /* ITMPose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMPose.h; sourceTree = "<group>"; };
+		A62ECDC01BB59BAC000CC25D /* ITMRenderState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMRenderState.h; sourceTree = "<group>"; };
+		A62ECDC11BB59BAC000CC25D /* ITMRenderState_VH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMRenderState_VH.h; sourceTree = "<group>"; };
+		A62ECDC21BB59BAC000CC25D /* ITMRGBDCalib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMRGBDCalib.h; sourceTree = "<group>"; };
+		A62ECDC31BB59BAC000CC25D /* ITMScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMScene.h; sourceTree = "<group>"; };
+		A62ECDC41BB59BAC000CC25D /* ITMSceneHierarchyLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMSceneHierarchyLevel.h; sourceTree = "<group>"; };
+		A62ECDC51BB59BAC000CC25D /* ITMSceneParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMSceneParams.h; sourceTree = "<group>"; };
+		A62ECDC61BB59BAC000CC25D /* ITMTemplatedHierarchyLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMTemplatedHierarchyLevel.h; sourceTree = "<group>"; };
+		A62ECDC71BB59BAC000CC25D /* ITMTrackingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMTrackingState.h; sourceTree = "<group>"; };
+		A62ECDC81BB59BAC000CC25D /* ITMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMView.h; sourceTree = "<group>"; };
+		A62ECDC91BB59BAC000CC25D /* ITMViewHierarchyLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMViewHierarchyLevel.h; sourceTree = "<group>"; };
+		A62ECDCA1BB59BAC000CC25D /* ITMViewIMU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMViewIMU.h; sourceTree = "<group>"; };
+		A62ECDCB1BB59BAC000CC25D /* ITMVoxelBlockHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMVoxelBlockHash.h; sourceTree = "<group>"; };
+		A62ECDCD1BB59BAC000CC25D /* ITMCalibIO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMCalibIO.cpp; sourceTree = "<group>"; };
+		A62ECDCE1BB59BAC000CC25D /* ITMCalibIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMCalibIO.h; sourceTree = "<group>"; };
+		A62ECDCF1BB59BAC000CC25D /* ITMLibDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMLibDefines.h; sourceTree = "<group>"; };
+		A62ECDD01BB59BAC000CC25D /* ITMLibSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITMLibSettings.cpp; sourceTree = "<group>"; };
+		A62ECDD11BB59BAC000CC25D /* ITMLibSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMLibSettings.h; sourceTree = "<group>"; };
+		A62ECDD21BB59BAC000CC25D /* ITMMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMMath.h; sourceTree = "<group>"; };
+		A65A33E71A7BABA200F65FA2 /* IMUSourceEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSourceEngine.cpp; sourceTree = "<group>"; };
+		A65A33E81A7BABA200F65FA2 /* IMUSourceEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSourceEngine.h; sourceTree = "<group>"; };
+		A68436811A1F9C190010E0C5 /* calib.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calib.txt; sourceTree = "<group>"; };
+		A68436831A1F9C430010E0C5 /* InfiniTAM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = InfiniTAM.entitlements; path = ../InfiniTAM.entitlements; sourceTree = "<group>"; };
+		A6CA7EF81A0FDE0C0070848F /* iPhone_Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_Main.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6F7C0CBA17F0EA0500692EC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A62ECC4B1BB58439000CC25D /* libz.tbd in Frameworks */,
+				A626D7541A0F93660086B8BF /* Metal.framework in Frameworks */,
+				2DFFE049199142E800761886 /* CoreMotion.framework in Frameworks */,
+				01FAFAF21964A14700BF040D /* QuartzCore.framework in Frameworks */,
+				6F7C0CC117F0EA0500692EC1 /* Foundation.framework in Frameworks */,
+				431C6F5318455ABD00EDB38B /* AVFoundation.framework in Frameworks */,
+				6F1239081862A59D00BD1D7A /* Accelerate.framework in Frameworks */,
+				6F2B4EDD1865325D00403B8C /* OpenGLES.framework in Frameworks */,
+				6F12390A1862A5D300BD1D7A /* ImageIO.framework in Frameworks */,
+				6F2B4EE1186532A500403B8C /* CoreMedia.framework in Frameworks */,
+				6F2B4EDB1865324D00403B8C /* CoreGraphics.framework in Frameworks */,
+				6F2B4EDF1865326B00403B8C /* CoreImage.framework in Frameworks */,
+				6F2B4EE3186532CE00403B8C /* CoreVideo.framework in Frameworks */,
+				6F7C0CC517F0EA0500692EC1 /* UIKit.framework in Frameworks */,
+				1F73A01621F5EAA3008ABC26 /* Structure.framework in Frameworks */,
+				6F7C0CC717F0EA0500692EC1 /* ExternalAccessory.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6F7C0CB417F0EA0500692EC1 = {
+			isa = PBXGroup;
+			children = (
+				A68436801A1F9C190010E0C5 /* Files */,
+				6F7C0CC817F0EA0500692EC1 /* Main */,
+				6F7C0CBF17F0EA0500692EC1 /* Frameworks */,
+				6F7C0CBE17F0EA0500692EC1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6F7C0CBE17F0EA0500692EC1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6F7C0CBD17F0EA0500692EC1 /* InfiniTAM.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6F7C0CBF17F0EA0500692EC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A62ECC4A1BB58439000CC25D /* libz.tbd */,
+				A626D7531A0F93660086B8BF /* Metal.framework */,
+				2DFFE048199142E800761886 /* CoreMotion.framework */,
+				01FAFAF11964A14700BF040D /* QuartzCore.framework */,
+				6F7C0CC017F0EA0500692EC1 /* Foundation.framework */,
+				431C6F5218455ABD00EDB38B /* AVFoundation.framework */,
+				6F1239071862A59D00BD1D7A /* Accelerate.framework */,
+				6F2B4EDC1865325D00403B8C /* OpenGLES.framework */,
+				6F1239091862A5D300BD1D7A /* ImageIO.framework */,
+				6F2B4EE0186532A500403B8C /* CoreMedia.framework */,
+				6F7C0CC217F0EA0500692EC1 /* CoreGraphics.framework */,
+				6F2B4EDE1865326B00403B8C /* CoreImage.framework */,
+				6F2B4EE2186532CE00403B8C /* CoreVideo.framework */,
+				6F7C0CC417F0EA0500692EC1 /* UIKit.framework */,
+				1F73A01521F5EAA3008ABC26 /* Structure.framework */,
+				6F7C0CC617F0EA0500692EC1 /* ExternalAccessory.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6F7C0CC817F0EA0500692EC1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A62ECD401BB59BAB000CC25D /* ITMLib */,
+				A62ECD2E1BB59B98000CC25D /* ORUtils */,
+				A626D7661A0F9A220086B8BF /* Engine */,
+				A626D7E01A0F9A220086B8BF /* Utils */,
+				6F7C0CD117F0EA0500692EC1 /* AppDelegate.h */,
+				6F7C0CD217F0EA0500692EC1 /* AppDelegate.m */,
+				6F7C0CDC17F0EA0500692EC1 /* ViewController.h */,
+				6F7C0CDA17F0EA0500692EC1 /* ViewController.mm */,
+				6F7C0CC917F0EA0500692EC1 /* Supporting Files */,
+			);
+			name = Main;
+			path = Viewer;
+			sourceTree = "<group>";
+		};
+		6F7C0CC917F0EA0500692EC1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A68436831A1F9C430010E0C5 /* InfiniTAM.entitlements */,
+				A626D7641A0F98CF0086B8BF /* LaunchScreen.xib */,
+				A626D7621A0F96F50086B8BF /* Main.storyboard */,
+				A6CA7EF81A0FDE0C0070848F /* iPhone_Main.storyboard */,
+				6F7C0CDD17F0EA0500692EC1 /* Images.xcassets */,
+				6F7C0CCB17F0EA0500692EC1 /* InfoPlist.strings */,
+				6F7C0CCA17F0EA0500692EC1 /* InfiniTAM-Info.plist */,
+				6F7C0CD017F0EA0500692EC1 /* InfiniTAM-Prefix.pch */,
+				6F7C0CCE17F0EA0500692EC1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A626D7661A0F9A220086B8BF /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				A65A33E71A7BABA200F65FA2 /* IMUSourceEngine.cpp */,
+				A65A33E81A7BABA200F65FA2 /* IMUSourceEngine.h */,
+				A626D7671A0F9A220086B8BF /* ImageSourceEngine.cpp */,
+				A626D7681A0F9A220086B8BF /* ImageSourceEngine.h */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		A626D7E01A0F9A220086B8BF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A626D7E11A0F9A220086B8BF /* FileUtils.cpp */,
+				A626D7E21A0F9A220086B8BF /* FileUtils.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A62ECD2E1BB59B98000CC25D /* ORUtils */ = {
+			isa = PBXGroup;
+			children = (
+				A62ECD2F1BB59B98000CC25D /* Cholesky.h */,
+				A62ECD301BB59B98000CC25D /* CMakeLists.txt */,
+				A62ECD311BB59B98000CC25D /* CUDADefines.h */,
+				A62ECD321BB59B98000CC25D /* Dummy.cpp */,
+				A62ECD331BB59B98000CC25D /* Image.h */,
+				A62ECD341BB59B98000CC25D /* LexicalCast.h */,
+				A62ECD351BB59B98000CC25D /* MathUtils.h */,
+				A62ECD361BB59B98000CC25D /* Matrix.h */,
+				A62ECD371BB59B98000CC25D /* MemoryBlock.h */,
+				A62ECD381BB59B98000CC25D /* MemoryBlockPersister.h */,
+				A62ECD391BB59B98000CC25D /* MetalContext.h */,
+				A62ECD3A1BB59B98000CC25D /* MetalContext.mm */,
+				A62ECD3B1BB59B98000CC25D /* PlatformIndependence.h */,
+				A62ECD3C1BB59B98000CC25D /* Vector.h */,
+			);
+			path = ORUtils;
+			sourceTree = "<group>";
+		};
+		A62ECD401BB59BAB000CC25D /* ITMLib */ = {
+			isa = PBXGroup;
+			children = (
+				A62ECD411BB59BAB000CC25D /* Android.mk */,
+				A62ECD421BB59BAB000CC25D /* CMakeLists.txt */,
+				A62ECD431BB59BAB000CC25D /* Engine */,
+				A62ECDB21BB59BAC000CC25D /* ITMLib.h */,
+				A62ECDB31BB59BAC000CC25D /* Objects */,
+				A62ECDCC1BB59BAC000CC25D /* Utils */,
+			);
+			path = ITMLib;
+			sourceTree = "<group>";
+		};
+		A62ECD431BB59BAB000CC25D /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				A62ECD441BB59BAB000CC25D /* DeviceAgnostic */,
+				A62ECD511BB59BAB000CC25D /* DeviceSpecific */,
+				A62ECD961BB59BAC000CC25D /* ITMColorTracker.cpp */,
+				A62ECD971BB59BAC000CC25D /* ITMColorTracker.h */,
+				A62ECD981BB59BAC000CC25D /* ITMCompositeTracker.h */,
+				A62ECD991BB59BAC000CC25D /* ITMDenseMapper.cpp */,
+				A62ECD9A1BB59BAC000CC25D /* ITMDenseMapper.h */,
+				A62ECD9B1BB59BAC000CC25D /* ITMDepthTracker.cpp */,
+				A62ECD9C1BB59BAC000CC25D /* ITMDepthTracker.h */,
+				A62ECD9D1BB59BAC000CC25D /* ITMIMUCalibrator.h */,
+				A62ECD9E1BB59BAC000CC25D /* ITMIMUTracker.cpp */,
+				A62ECD9F1BB59BAC000CC25D /* ITMIMUTracker.h */,
+				A62ECDA01BB59BAC000CC25D /* ITMLowLevelEngine.h */,
+				A62ECDA11BB59BAC000CC25D /* ITMMainEngine.cpp */,
+				A62ECDA21BB59BAC000CC25D /* ITMMainEngine.h */,
+				A62ECDA31BB59BAC000CC25D /* ITMMeshingEngine.h */,
+				A62ECDA41BB59BAC000CC25D /* ITMRenTracker.cpp */,
+				A62ECDA51BB59BAC000CC25D /* ITMRenTracker.h */,
+				A62ECDA61BB59BAC000CC25D /* ITMSceneReconstructionEngine.h */,
+				A62ECDA71BB59BAC000CC25D /* ITMSwappingEngine.h */,
+				A62ECDA81BB59BAC000CC25D /* ITMTracker.h */,
+				A62ECDA91BB59BAC000CC25D /* ITMTrackerFactory.cpp */,
+				A62ECDAA1BB59BAC000CC25D /* ITMTrackerFactory.h */,
+				A62ECDAB1BB59BAC000CC25D /* ITMTrackingController.cpp */,
+				A62ECDAC1BB59BAC000CC25D /* ITMTrackingController.h */,
+				A62ECDAD1BB59BAC000CC25D /* ITMViewBuilder.h */,
+				A62ECDAE1BB59BAC000CC25D /* ITMVisualisationEngine.cpp */,
+				A62ECDAF1BB59BAC000CC25D /* ITMVisualisationEngine.h */,
+				A62ECDB01BB59BAC000CC25D /* ITMWeightedICPTracker.cpp */,
+				A62ECDB11BB59BAC000CC25D /* ITMWeightedICPTracker.h */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		A62ECD441BB59BAB000CC25D /* DeviceAgnostic */ = {
+			isa = PBXGroup;
+			children = (
+				A62ECD451BB59BAB000CC25D /* ITMColorTracker.h */,
+				A62ECD461BB59BAB000CC25D /* ITMDepthTracker.h */,
+				A62ECD471BB59BAB000CC25D /* ITMLowLevelEngine.h */,
+				A62ECD481BB59BAB000CC25D /* ITMMeshingEngine.h */,
+				A62ECD491BB59BAB000CC25D /* ITMPixelUtils.h */,
+				A62ECD4A1BB59BAB000CC25D /* ITMRenTracker.h */,
+				A62ECD4B1BB59BAB000CC25D /* ITMRepresentationAccess.h */,
+				A62ECD4C1BB59BAB000CC25D /* ITMSceneReconstructionEngine.h */,
+				A62ECD4D1BB59BAB000CC25D /* ITMSwappingEngine.h */,
+				A62ECD4E1BB59BAB000CC25D /* ITMViewBuilder.h */,
+				A62ECD4F1BB59BAB000CC25D /* ITMVisualisationEngine.h */,
+				A62ECD501BB59BAB000CC25D /* ITMWeightedICPTracker.h */,
+			);
+			path = DeviceAgnostic;
+			sourceTree = "<group>";
+		};
+		A62ECD511BB59BAB000CC25D /* DeviceSpecific */ = {
+			isa = PBXGroup;
+			children = (
+				A62ECD521BB59BAB000CC25D /* CPU */,
+				A62ECD671BB59BAB000CC25D /* CUDA */,
+				A62ECD7D1BB59BAC000CC25D /* Metal */,
+			);
+			path = DeviceSpecific;
+			sourceTree = "<group>";
+		};
+		A62ECD521BB59BAB000CC25D /* CPU */ = {
+			isa = PBXGroup;
+			children = (
+				A62ECD531BB59BAB000CC25D /* ITMColorTracker_CPU.cpp */,
+				A62ECD541BB59BAB000CC25D /* ITMColorTracker_CPU.h */,
+				A62ECD551BB59BAB000CC25D /* ITMDepthTracker_CPU.cpp */,
+				A62ECD561BB59BAB000CC25D /* ITMDepthTracker_CPU.h */,
+				A62ECD571BB59BAB000CC25D /* ITMLowLevelEngine_CPU.cpp */,
+				A62ECD581BB59BAB000CC25D /* ITMLowLevelEngine_CPU.h */,
+				A62ECD591BB59BAB000CC25D /* ITMMeshingEngine_CPU.cpp */,
+				A62ECD5A1BB59BAB000CC25D /* ITMMeshingEngine_CPU.h */,
+				A62ECD5B1BB59BAB000CC25D /* ITMRenTracker_CPU.cpp */,
+				A62ECD5C1BB59BAB000CC25D /* ITMRenTracker_CPU.h */,
+				A62ECD5D1BB59BAB000CC25D /* ITMSceneReconstructionEngine_CPU.cpp */,
+				A62ECD5E1BB59BAB000CC25D /* ITMSceneReconstructionEngine_CPU.h */,
+				A62ECD5F1BB59BAB000CC25D /* ITMSwappingEngine_CPU.cpp */,
+				A62ECD601BB59BAB000CC25D /* ITMSwappingEngine_CPU.h */,
+				A62ECD611BB59BAB000CC25D /* ITMViewBuilder_CPU.cpp */,
+				A62ECD621BB59BAB000CC25D /* ITMViewBuilder_CPU.h */,
+				A62ECD631BB59BAB000CC25D /* ITMVisualisationEngine_CPU.cpp */,
+				A62ECD641BB59BAB000CC25D /* ITMVisualisationEngine_CPU.h */,
+				A62ECD651BB59BAB000CC25D /* ITMWeightedICPTracker_CPU.cpp */,
+				A62ECD661BB59BAB000CC25D /* ITMWeightedICPTracker_CPU.h */,
+			);
+			path = CPU;
+			sourceTree = "<group>";
+		};
+		A62ECD671BB59BAB000CC25D /* CUDA */ = {
+			isa = PBXGroup;
+			children = (
+				A62ECD681BB59BAB000CC25D /* ITMColorTracker_CUDA.cu */,
+				A62ECD691BB59BAB000CC25D /* ITMColorTracker_CUDA.h */,
+				A62ECD6A1BB59BAB000CC25D /* ITMCUDAUtils.h */,
+				A62ECD6B1BB59BAB000CC25D /* ITMDepthTracker_CUDA.cu */,
+				A62ECD6C1BB59BAB000CC25D /* ITMDepthTracker_CUDA.h */,
+				A62ECD6D1BB59BAB000CC25D /* ITMLowLevelEngine_CUDA.cu */,
+				A62ECD6E1BB59BAC000CC25D /* ITMLowLevelEngine_CUDA.h */,
+				A62ECD6F1BB59BAC000CC25D /* ITMMeshingEngine_CUDA.cu */,
+				A62ECD701BB59BAC000CC25D /* ITMMeshingEngine_CUDA.h */,
+				A62ECD711BB59BAC000CC25D /* ITMRenTracker_CUDA.cu */,
+				A62ECD721BB59BAC000CC25D /* ITMRenTracker_CUDA.h */,
+				A62ECD731BB59BAC000CC25D /* ITMSceneReconstructionEngine_CUDA.cu */,
+				A62ECD741BB59BAC000CC25D /* ITMSceneReconstructionEngine_CUDA.h */,
+				A62ECD751BB59BAC000CC25D /* ITMSwappingEngine_CUDA.cu */,
+				A62ECD761BB59BAC000CC25D /* ITMSwappingEngine_CUDA.h */,
+				A62ECD771BB59BAC000CC25D /* ITMViewBuilder_CUDA.cu */,
+				A62ECD781BB59BAC000CC25D /* ITMViewBuilder_CUDA.h */,
+				A62ECD791BB59BAC000CC25D /* ITMVisualisationEngine_CUDA.cu */,
+				A62ECD7A1BB59BAC000CC25D /* ITMVisualisationEngine_CUDA.h */,
+				A62ECD7B1BB59BAC000CC25D /* ITMWeightedICPTracker_CUDA.cu */,
+				A62ECD7C1BB59BAC000CC25D /* ITMWeightedICPTracker_CUDA.h */,
+			);
+			path = CUDA;
+			sourceTree = "<group>";
+		};
+		A62ECD7D1BB59BAC000CC25D /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				A62ECD7E1BB59BAC000CC25D /* ITMColorTracker.metal */,
+				A62ECD7F1BB59BAC000CC25D /* ITMColorTracker_Metal.h */,
+				A62ECD801BB59BAC000CC25D /* ITMColorTracker_Metal.mm */,
+				A62ECD811BB59BAC000CC25D /* ITMDepthTracker.metal */,
+				A62ECD821BB59BAC000CC25D /* ITMDepthTracker_Metal.h */,
+				A62ECD831BB59BAC000CC25D /* ITMDepthTracker_Metal.mm */,
+				A62ECD841BB59BAC000CC25D /* ITMLowLevelEngine.metal */,
+				A62ECD851BB59BAC000CC25D /* ITMLowLevelEngine_Metal.h */,
+				A62ECD861BB59BAC000CC25D /* ITMLowLevelEngine_Metal.mm */,
+				A62ECD871BB59BAC000CC25D /* ITMRenTracker.metal */,
+				A62ECD881BB59BAC000CC25D /* ITMRenTracker_Metal.h */,
+				A62ECD891BB59BAC000CC25D /* ITMRenTracker_Metal.mm */,
+				A62ECD8A1BB59BAC000CC25D /* ITMSceneReconstructionEngine.metal */,
+				A62ECD8B1BB59BAC000CC25D /* ITMSceneReconstructionEngine_Metal.h */,
+				A62ECD8C1BB59BAC000CC25D /* ITMSceneReconstructionEngine_Metal.mm */,
+				A62ECD8D1BB59BAC000CC25D /* ITMSwappingEngine.metal */,
+				A62ECD8E1BB59BAC000CC25D /* ITMSwappingEngine_Metal.h */,
+				A62ECD8F1BB59BAC000CC25D /* ITMSwappingEngine_Metal.mm */,
+				A62ECD901BB59BAC000CC25D /* ITMViewBuilder.metal */,
+				A62ECD911BB59BAC000CC25D /* ITMViewBuilder_Metal.h */,
+				A62ECD921BB59BAC000CC25D /* ITMViewBuilder_Metal.mm */,
+				A62ECD931BB59BAC000CC25D /* ITMVisualisationEngine.metal */,
+				A62ECD941BB59BAC000CC25D /* ITMVisualisationEngine_Metal.h */,
+				A62ECD951BB59BAC000CC25D /* ITMVisualisationEngine_Metal.mm */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
+		A62ECDB31BB59BAC000CC25D /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				A62ECDB41BB59BAC000CC25D /* ITMDisparityCalib.h */,
+				A62ECDB51BB59BAC000CC25D /* ITMExtrinsics.h */,
+				A62ECDB61BB59BAC000CC25D /* ITMGlobalCache.h */,
+				A62ECDB71BB59BAC000CC25D /* ITMImageHierarchy.h */,
+				A62ECDB81BB59BAC000CC25D /* ITMIMUMeasurement.h */,
+				A62ECDB91BB59BAC000CC25D /* ITMIntrinsics.h */,
+				A62ECDBA1BB59BAC000CC25D /* ITMLocalVBA.h */,
+				A62ECDBB1BB59BAC000CC25D /* ITMMesh.h */,
+				A62ECDBC1BB59BAC000CC25D /* ITMPlainVoxelArray.h */,
+				A62ECDBD1BB59BAC000CC25D /* ITMPointCloud.h */,
+				A62ECDBE1BB59BAC000CC25D /* ITMPose.cpp */,
+				A62ECDBF1BB59BAC000CC25D /* ITMPose.h */,
+				A62ECDC01BB59BAC000CC25D /* ITMRenderState.h */,
+				A62ECDC11BB59BAC000CC25D /* ITMRenderState_VH.h */,
+				A62ECDC21BB59BAC000CC25D /* ITMRGBDCalib.h */,
+				A62ECDC31BB59BAC000CC25D /* ITMScene.h */,
+				A62ECDC41BB59BAC000CC25D /* ITMSceneHierarchyLevel.h */,
+				A62ECDC51BB59BAC000CC25D /* ITMSceneParams.h */,
+				A62ECDC61BB59BAC000CC25D /* ITMTemplatedHierarchyLevel.h */,
+				A62ECDC71BB59BAC000CC25D /* ITMTrackingState.h */,
+				A62ECDC81BB59BAC000CC25D /* ITMView.h */,
+				A62ECDC91BB59BAC000CC25D /* ITMViewHierarchyLevel.h */,
+				A62ECDCA1BB59BAC000CC25D /* ITMViewIMU.h */,
+				A62ECDCB1BB59BAC000CC25D /* ITMVoxelBlockHash.h */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		A62ECDCC1BB59BAC000CC25D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A62ECDCD1BB59BAC000CC25D /* ITMCalibIO.cpp */,
+				A62ECDCE1BB59BAC000CC25D /* ITMCalibIO.h */,
+				A62ECDCF1BB59BAC000CC25D /* ITMLibDefines.h */,
+				A62ECDD01BB59BAC000CC25D /* ITMLibSettings.cpp */,
+				A62ECDD11BB59BAC000CC25D /* ITMLibSettings.h */,
+				A62ECDD21BB59BAC000CC25D /* ITMMath.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A68436801A1F9C190010E0C5 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				A68436811A1F9C190010E0C5 /* calib.txt */,
+			);
+			name = Files;
+			path = Viewer/Files;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6F7C0CBC17F0EA0500692EC1 /* InfiniTAM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F7C0CF417F0EA0500692EC1 /* Build configuration list for PBXNativeTarget "InfiniTAM" */;
+			buildPhases = (
+				6F7C0CB917F0EA0500692EC1 /* Sources */,
+				6F7C0CBA17F0EA0500692EC1 /* Frameworks */,
+				6F7C0CBB17F0EA0500692EC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InfiniTAM;
+			productName = DepthViewer;
+			productReference = 6F7C0CBD17F0EA0500692EC1 /* InfiniTAM.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6F7C0CB517F0EA0500692EC1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Occipital;
+				TargetAttributes = {
+					6F7C0CBC17F0EA0500692EC1 = {
+						DevelopmentTeam = JT6G548J8N;
+					};
+				};
+			};
+			buildConfigurationList = 6F7C0CB817F0EA0500692EC1 /* Build configuration list for PBXProject "InfiniTAM" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6F7C0CB417F0EA0500692EC1;
+			productRefGroup = 6F7C0CBE17F0EA0500692EC1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6F7C0CBC17F0EA0500692EC1 /* InfiniTAM */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6F7C0CBB17F0EA0500692EC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A626D7651A0F98CF0086B8BF /* LaunchScreen.xib in Resources */,
+				A62ECDE11BB59BAC000CC25D /* ITMLowLevelEngine_CUDA.cu in Resources */,
+				A62ECDE21BB59BAC000CC25D /* ITMMeshingEngine_CUDA.cu in Resources */,
+				A62ECDD31BB59BAC000CC25D /* Android.mk in Resources */,
+				A62ECDE51BB59BAC000CC25D /* ITMSwappingEngine_CUDA.cu in Resources */,
+				A62ECDE71BB59BAC000CC25D /* ITMVisualisationEngine_CUDA.cu in Resources */,
+				A62ECDDF1BB59BAC000CC25D /* ITMColorTracker_CUDA.cu in Resources */,
+				6F7C0CCD17F0EA0500692EC1 /* InfoPlist.strings in Resources */,
+				A6CA7EF91A0FDE0C0070848F /* iPhone_Main.storyboard in Resources */,
+				A62ECDE01BB59BAC000CC25D /* ITMDepthTracker_CUDA.cu in Resources */,
+				A62ECDE41BB59BAC000CC25D /* ITMSceneReconstructionEngine_CUDA.cu in Resources */,
+				A62ECDE31BB59BAC000CC25D /* ITMRenTracker_CUDA.cu in Resources */,
+				A68436821A1F9C190010E0C5 /* calib.txt in Resources */,
+				A62ECD3D1BB59B98000CC25D /* CMakeLists.txt in Resources */,
+				A62ECDE81BB59BAC000CC25D /* ITMWeightedICPTracker_CUDA.cu in Resources */,
+				A62ECDE61BB59BAC000CC25D /* ITMViewBuilder_CUDA.cu in Resources */,
+				6F7C0CDE17F0EA0500692EC1 /* Images.xcassets in Resources */,
+				A626D7631A0F96F50086B8BF /* Main.storyboard in Resources */,
+				A62ECDD41BB59BAC000CC25D /* CMakeLists.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6F7C0CB917F0EA0500692EC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A62ECDEB1BB59BAC000CC25D /* ITMDepthTracker.metal in Sources */,
+				A62ECDFF1BB59BAC000CC25D /* ITMTrackerFactory.cpp in Sources */,
+				A62ECDF91BB59BAC000CC25D /* ITMColorTracker.cpp in Sources */,
+				A62ECE001BB59BAC000CC25D /* ITMTrackingController.cpp in Sources */,
+				A62ECDF11BB59BAC000CC25D /* ITMSceneReconstructionEngine.metal in Sources */,
+				A626D7E31A0F9A220086B8BF /* ImageSourceEngine.cpp in Sources */,
+				6F7C0CDB17F0EA0500692EC1 /* ViewController.mm in Sources */,
+				A62ECDFE1BB59BAC000CC25D /* ITMRenTracker.cpp in Sources */,
+				A62ECDD51BB59BAC000CC25D /* ITMColorTracker_CPU.cpp in Sources */,
+				A65A33E91A7BABA200F65FA2 /* IMUSourceEngine.cpp in Sources */,
+				A62ECDDE1BB59BAC000CC25D /* ITMWeightedICPTracker_CPU.cpp in Sources */,
+				A62ECDD61BB59BAC000CC25D /* ITMDepthTracker_CPU.cpp in Sources */,
+				A62ECDF71BB59BAC000CC25D /* ITMVisualisationEngine.metal in Sources */,
+				A62ECD3E1BB59B98000CC25D /* Dummy.cpp in Sources */,
+				6F7C0CD317F0EA0500692EC1 /* AppDelegate.m in Sources */,
+				A62ECDDB1BB59BAC000CC25D /* ITMSwappingEngine_CPU.cpp in Sources */,
+				A62ECDD91BB59BAC000CC25D /* ITMRenTracker_CPU.cpp in Sources */,
+				A62ECE011BB59BAC000CC25D /* ITMVisualisationEngine.cpp in Sources */,
+				A62ECDD81BB59BAC000CC25D /* ITMMeshingEngine_CPU.cpp in Sources */,
+				A62ECDFB1BB59BAC000CC25D /* ITMDepthTracker.cpp in Sources */,
+				A62ECDEA1BB59BAC000CC25D /* ITMColorTracker_Metal.mm in Sources */,
+				A62ECDDC1BB59BAC000CC25D /* ITMViewBuilder_CPU.cpp in Sources */,
+				A62ECDFA1BB59BAC000CC25D /* ITMDenseMapper.cpp in Sources */,
+				A62ECDF31BB59BAC000CC25D /* ITMSwappingEngine.metal in Sources */,
+				A62ECE041BB59BAC000CC25D /* ITMCalibIO.cpp in Sources */,
+				A62ECE051BB59BAC000CC25D /* ITMLibSettings.cpp in Sources */,
+				A62ECDF21BB59BAC000CC25D /* ITMSceneReconstructionEngine_Metal.mm in Sources */,
+				A62ECDEE1BB59BAC000CC25D /* ITMLowLevelEngine_Metal.mm in Sources */,
+				A62ECDDD1BB59BAC000CC25D /* ITMVisualisationEngine_CPU.cpp in Sources */,
+				A62ECDFC1BB59BAC000CC25D /* ITMIMUTracker.cpp in Sources */,
+				A62ECDED1BB59BAC000CC25D /* ITMLowLevelEngine.metal in Sources */,
+				A62ECE021BB59BAC000CC25D /* ITMWeightedICPTracker.cpp in Sources */,
+				A62ECE031BB59BAC000CC25D /* ITMPose.cpp in Sources */,
+				A62ECDD71BB59BAC000CC25D /* ITMLowLevelEngine_CPU.cpp in Sources */,
+				A62ECDF51BB59BAC000CC25D /* ITMViewBuilder.metal in Sources */,
+				A62ECDE91BB59BAC000CC25D /* ITMColorTracker.metal in Sources */,
+				6F7C0CCF17F0EA0500692EC1 /* main.m in Sources */,
+				A62ECDEF1BB59BAC000CC25D /* ITMRenTracker.metal in Sources */,
+				A62ECDFD1BB59BAC000CC25D /* ITMMainEngine.cpp in Sources */,
+				A626D80B1A0F9A220086B8BF /* FileUtils.cpp in Sources */,
+				A62ECDDA1BB59BAC000CC25D /* ITMSceneReconstructionEngine_CPU.cpp in Sources */,
+				A62ECDF01BB59BAC000CC25D /* ITMRenTracker_Metal.mm in Sources */,
+				A62ECD3F1BB59B98000CC25D /* MetalContext.mm in Sources */,
+				A62ECDF81BB59BAC000CC25D /* ITMVisualisationEngine_Metal.mm in Sources */,
+				A62ECDF61BB59BAC000CC25D /* ITMViewBuilder_Metal.mm in Sources */,
+				A62ECDEC1BB59BAC000CC25D /* ITMDepthTracker_Metal.mm in Sources */,
+				A62ECDF41BB59BAC000CC25D /* ITMSwappingEngine_Metal.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6F7C0CCB17F0EA0500692EC1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F7C0CCC17F0EA0500692EC1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6F7C0CF217F0EA0500692EC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: shi yan (P4R63B8MV7)";
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = JT6G548J8N;
+				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Frameworks";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6F7C0CF317F0EA0500692EC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: shi yan (P4R63B8MV7)";
+				DEVELOPMENT_TEAM = JT6G548J8N;
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6F7C0CF517F0EA0500692EC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = InfiniTAM.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Viewer/InfiniTAM-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					COMPILE_WITHOUT_CUDA,
+					COMPILE_WITH_METAL,
+				);
+				INFOPLIST_FILE = "Viewer/InfiniTAM-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_PREPROCESSOR_DEFINITIONS = "COMPILE_WITHOUT_CUDA __METALC__";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shi.infinitam;
+				PRODUCT_NAME = InfiniTAM;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		6F7C0CF617F0EA0500692EC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = InfiniTAM.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Viewer/InfiniTAM-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					COMPILE_WITHOUT_CUDA,
+					COMPILE_WITH_METAL,
+				);
+				INFOPLIST_FILE = "Viewer/InfiniTAM-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_PREPROCESSOR_DEFINITIONS = "COMPILE_WITHOUT_CUDA __METALC__";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shi.infinitam;
+				PRODUCT_NAME = InfiniTAM;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6F7C0CB817F0EA0500692EC1 /* Build configuration list for PBXProject "InfiniTAM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F7C0CF217F0EA0500692EC1 /* Debug */,
+				6F7C0CF317F0EA0500692EC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F7C0CF417F0EA0500692EC1 /* Build configuration list for PBXNativeTarget "InfiniTAM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F7C0CF517F0EA0500692EC1 /* Debug */,
+				6F7C0CF617F0EA0500692EC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6F7C0CB517F0EA0500692EC1 /* Project object */;
+}
