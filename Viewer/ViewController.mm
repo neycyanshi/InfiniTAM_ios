@@ -2,8 +2,8 @@
 //  ViewController.m
 //  InfiniTAM
 //
-//  Created by Victor Adrian Prisacariu on 29/10/2014.
-//  Copyright (c) 2014 Victor Adrian Prisacariu. All rights reserved.
+//  Created by yanshi on 23/01/2019.
+//  Copyright (c) 2019 yanshi. All rights reserved.
 //
 
 #import "ViewController.h"
