@@ -25,4 +25,3 @@ template <typename T> void WriteToBIN(const T *data, int dataSize, const char *f
 	fwrite(data, dataSize * sizeof(T), 1, f);
 	fclose(f);
 }
-

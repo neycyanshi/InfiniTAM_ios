@@ -273,4 +273,3 @@ bool ReadImageFromFile(ITMShortImage *image, const char *fileName)
 
 	return true;
 }
-
