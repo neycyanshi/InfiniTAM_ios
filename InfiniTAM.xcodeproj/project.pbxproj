@@ -35,8 +35,6 @@
 		A62ECD3D1BB59B98000CC25D /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD301BB59B98000CC25D /* CMakeLists.txt */; };
 		A62ECD3E1BB59B98000CC25D /* Dummy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD321BB59B98000CC25D /* Dummy.cpp */; };
 		A62ECD3F1BB59B98000CC25D /* MetalContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD3A1BB59B98000CC25D /* MetalContext.mm */; };
-		A62ECDD31BB59BAC000CC25D /* Android.mk in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD411BB59BAB000CC25D /* Android.mk */; };
-		A62ECDD41BB59BAC000CC25D /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD421BB59BAB000CC25D /* CMakeLists.txt */; };
 		A62ECDD51BB59BAC000CC25D /* ITMColorTracker_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD531BB59BAB000CC25D /* ITMColorTracker_CPU.cpp */; };
 		A62ECDD61BB59BAC000CC25D /* ITMDepthTracker_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD551BB59BAB000CC25D /* ITMDepthTracker_CPU.cpp */; };
 		A62ECDD71BB59BAC000CC25D /* ITMLowLevelEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD571BB59BAB000CC25D /* ITMLowLevelEngine_CPU.cpp */; };
@@ -138,8 +136,6 @@
 		A62ECD3A1BB59B98000CC25D /* MetalContext.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MetalContext.mm; sourceTree = "<group>"; };
 		A62ECD3B1BB59B98000CC25D /* PlatformIndependence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformIndependence.h; sourceTree = "<group>"; };
 		A62ECD3C1BB59B98000CC25D /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
-		A62ECD411BB59BAB000CC25D /* Android.mk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Android.mk; sourceTree = "<group>"; };
-		A62ECD421BB59BAB000CC25D /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		A62ECD451BB59BAB000CC25D /* ITMColorTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMColorTracker.h; sourceTree = "<group>"; };
 		A62ECD461BB59BAB000CC25D /* ITMDepthTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMDepthTracker.h; sourceTree = "<group>"; };
 		A62ECD471BB59BAB000CC25D /* ITMLowLevelEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMLowLevelEngine.h; sourceTree = "<group>"; };
@@ -428,8 +424,6 @@
 		A62ECD401BB59BAB000CC25D /* ITMLib */ = {
 			isa = PBXGroup;
 			children = (
-				A62ECD411BB59BAB000CC25D /* Android.mk */,
-				A62ECD421BB59BAB000CC25D /* CMakeLists.txt */,
 				A62ECD431BB59BAB000CC25D /* Engine */,
 				A62ECDB21BB59BAC000CC25D /* ITMLib.h */,
 				A62ECDB31BB59BAC000CC25D /* Objects */,
@@ -702,7 +696,6 @@
 				A626D7651A0F98CF0086B8BF /* LaunchScreen.xib in Resources */,
 				A62ECDE11BB59BAC000CC25D /* ITMLowLevelEngine_CUDA.cu in Resources */,
 				A62ECDE21BB59BAC000CC25D /* ITMMeshingEngine_CUDA.cu in Resources */,
-				A62ECDD31BB59BAC000CC25D /* Android.mk in Resources */,
 				A62ECDE51BB59BAC000CC25D /* ITMSwappingEngine_CUDA.cu in Resources */,
 				A62ECDE71BB59BAC000CC25D /* ITMVisualisationEngine_CUDA.cu in Resources */,
 				A62ECDDF1BB59BAC000CC25D /* ITMColorTracker_CUDA.cu in Resources */,
@@ -717,7 +710,6 @@
 				A62ECDE61BB59BAC000CC25D /* ITMViewBuilder_CUDA.cu in Resources */,
 				6F7C0CDE17F0EA0500692EC1 /* Images.xcassets in Resources */,
 				A626D7631A0F96F50086B8BF /* Main.storyboard in Resources */,
-				A62ECDD41BB59BAC000CC25D /* CMakeLists.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
