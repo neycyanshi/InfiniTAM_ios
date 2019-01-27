@@ -1,5 +1,3 @@
-// Copyright 2014-2015 Isis Innovation Limited and the authors of InfiniTAM
-
 #ifndef __InfiniTAM_LIB__
 #define __InfiniTAM_LIB__
 
@@ -31,8 +29,6 @@
 #ifndef COMPILE_WITHOUT_CUDA
 #include "Engine/DeviceSpecific/CUDA/ITMWeightedICPTracker_CUDA.h"
 #endif
-
-
 
 #include "Engine/ITMSceneReconstructionEngine.h"
 #include "Engine/DeviceSpecific/CPU/ITMSceneReconstructionEngine_CPU.h"

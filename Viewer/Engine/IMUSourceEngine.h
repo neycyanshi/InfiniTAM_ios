@@ -1,5 +1,3 @@
-// Copyright 2014 Isis Innovation Limited and the authors of InfiniTAM
-
 #pragma once
 
 #include "../ITMLib/ITMLib.h"

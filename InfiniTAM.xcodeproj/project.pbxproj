@@ -32,7 +32,6 @@
 		A626D7E31A0F9A220086B8BF /* ImageSourceEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A626D7671A0F9A220086B8BF /* ImageSourceEngine.cpp */; };
 		A626D80B1A0F9A220086B8BF /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A626D7E11A0F9A220086B8BF /* FileUtils.cpp */; };
 		A62ECC4B1BB58439000CC25D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A62ECC4A1BB58439000CC25D /* libz.tbd */; };
-		A62ECD3D1BB59B98000CC25D /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD301BB59B98000CC25D /* CMakeLists.txt */; };
 		A62ECD3E1BB59B98000CC25D /* Dummy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD321BB59B98000CC25D /* Dummy.cpp */; };
 		A62ECD3F1BB59B98000CC25D /* MetalContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD3A1BB59B98000CC25D /* MetalContext.mm */; };
 		A62ECDD51BB59BAC000CC25D /* ITMColorTracker_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD531BB59BAB000CC25D /* ITMColorTracker_CPU.cpp */; };
@@ -123,7 +122,6 @@
 		A626D7E21A0F9A220086B8BF /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
 		A62ECC4A1BB58439000CC25D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		A62ECD2F1BB59B98000CC25D /* Cholesky.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cholesky.h; sourceTree = "<group>"; };
-		A62ECD301BB59B98000CC25D /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		A62ECD311BB59B98000CC25D /* CUDADefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUDADefines.h; sourceTree = "<group>"; };
 		A62ECD321BB59B98000CC25D /* Dummy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dummy.cpp; sourceTree = "<group>"; };
 		A62ECD331BB59B98000CC25D /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -404,7 +402,6 @@
 			isa = PBXGroup;
 			children = (
 				A62ECD2F1BB59B98000CC25D /* Cholesky.h */,
-				A62ECD301BB59B98000CC25D /* CMakeLists.txt */,
 				A62ECD311BB59B98000CC25D /* CUDADefines.h */,
 				A62ECD321BB59B98000CC25D /* Dummy.cpp */,
 				A62ECD331BB59B98000CC25D /* Image.h */,
@@ -705,7 +702,6 @@
 				A62ECDE41BB59BAC000CC25D /* ITMSceneReconstructionEngine_CUDA.cu in Resources */,
 				A62ECDE31BB59BAC000CC25D /* ITMRenTracker_CUDA.cu in Resources */,
 				A68436821A1F9C190010E0C5 /* calib.txt in Resources */,
-				A62ECD3D1BB59B98000CC25D /* CMakeLists.txt in Resources */,
 				A62ECDE81BB59BAC000CC25D /* ITMWeightedICPTracker_CUDA.cu in Resources */,
 				A62ECDE61BB59BAC000CC25D /* ITMViewBuilder_CUDA.cu in Resources */,
 				6F7C0CDE17F0EA0500692EC1 /* Images.xcassets in Resources */,
