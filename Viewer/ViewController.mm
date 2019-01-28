@@ -115,7 +115,7 @@ using namespace InfiniTAM::Engine;
 //        sprintf(imageSource_part1, "%s/Teddy/Frames/%%04i.ppm", documentsPath);
 //        sprintf(imageSource_part2, "%s/Teddy/Frames/%%04i.pgm", documentsPath);
 
-        //TODO deallocate somewhere
+//        TODO deallocate somewhere
 //        imageSource = new ImageFileReader(calibFile, imageSource_part1, imageSource_part2);
 
         
@@ -124,7 +124,7 @@ using namespace InfiniTAM::Engine;
         sprintf(imageSource_part2, "%s/CAsmall/Frames/img_%%08d.irw", documentsPath);
         sprintf(imageSource_part3, "%s/CAsmall/Frames/imu_%%08d.txt", documentsPath);
         
-//        TODO deallocate somewhere
+//      TODO deallocate somewhere
         imageSource = new RawFileReader(calibFile, imageSource_part1, imageSource_part2, Vector2i(320, 240), 0.5f);
         inputRGBImage = new ITMUChar4Image(imageSource->getRGBImageSize(), true, false);
         inputRawDepthImage = new ITMShortImage(imageSource->getDepthImageSize(), true, false);
