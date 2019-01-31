@@ -203,6 +203,7 @@ using namespace InfiniTAM::Engine;
         return;
     }
     
+    // Read previously saved rgb and depth image from documentsPath/Out (following named currentFrameNo), process and then render to UI.
     dispatch_async(self.renderingQueue, ^{
         while (imageSource->hasMoreImages()&&imuSource->hasMoreMeasurements())
         {
@@ -233,7 +234,7 @@ using namespace InfiniTAM::Engine;
         totalProcessedFrames++;
         totalProcessingTime += executionTime;
     }
-    
+    // Get and update output rendered raycasted image.
     if (fullProcess) mainEngine->GetImage(result, ITMMainEngine::InfiniTAM_IMAGE_SCENERAYCAST);
     else mainEngine->GetImage(result, ITMMainEngine::InfiniTAM_IMAGE_ORIGINAL_DEPTH);
     
@@ -274,13 +275,15 @@ using namespace InfiniTAM::Engine;
     [self.tbOut setText:@"stopped streaming"];
 }
 
--(void) sensorDidOutputSynchronizedDepthFrame:(STDepthFrame *)depthFrame andColorBuffer:(CMSampleBufferRef)sampleBuffer
+- (void)sensorDidOutputSynchronizedDepthFrame:(STDepthFrame *)depthFrame andColorBuffer:(CMSampleBufferRef)sampleBuffer
 {
     [self.tbOut setText:@"got frame c"];
 }
 
+// Save sensor captured rgb and depth images to documentsPath/Out naming currentFrameNo
 - (void)sensorDidOutputDepthFrame:(STDepthFrame *)depthFrame
 {
+    // setupApp() is done
     if (isDone)
     {
         isDone = false;
