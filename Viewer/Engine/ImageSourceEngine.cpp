@@ -42,6 +42,7 @@ void ImageFileReader::loadIntoCache(void)
 	char str[2048];
 
 	sprintf(str, rgbImageMask, currentFrameNo);
+    // Read 3 channel rgb file to 4 channel cached_rgb
 	if (!ReadImageFromFile(cached_rgb, str)) 
 	{
 		delete cached_rgb; cached_rgb = NULL;

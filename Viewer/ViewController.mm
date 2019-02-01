@@ -197,13 +197,17 @@ using namespace InfiniTAM::Engine;
 
 - (IBAction)bProcessCont_clicked:(id)sender
 {
+    // If usingSensor, update UI when sensorDidOutputDepthFrame()
     if (usingSensor)
     {
         fullProcess = true;
-        return;
+        return;  // return if usingSensor, using CalibSource imageSource Engine.
     }
     
+    // If not usingSensor, using RawFileReader imageSource Engine, update UI in while loop in renderingQueue.
     // Read previously saved rgb and depth image from documentsPath/Out (following named currentFrameNo), process and then render to UI.
+    // Process and update each frame in another thread other than main_queue
+    // dispatch_async allows to operate (e.g. click in main UI) in main thread 1, while processing frames in renderingQueue in another thread.
     dispatch_async(self.renderingQueue, ^{
         while (imageSource->hasMoreImages()&&imuSource->hasMoreMeasurements())
         {
@@ -217,7 +221,6 @@ using namespace InfiniTAM::Engine;
 
 - (void) updateImage
 {
-    
     if (fullProcess) mainEngine->turnOnMainProcessing();
     else mainEngine->turnOffMainProcessing();
         
@@ -242,6 +245,7 @@ using namespace InfiniTAM::Engine;
                                                    4 * imageSize.x, rgbSpace, kCGImageAlphaNoneSkipLast);
     CGImageRef cgImageRef = CGBitmapContextCreateImage(cgContext);
     
+    // After processing one frame in rendering_queue, callback and send notification to main_queue.
     dispatch_sync(dispatch_get_main_queue(), ^{
         self.renderView.layer.contents = (__bridge id)cgImageRef;
         
@@ -280,10 +284,9 @@ using namespace InfiniTAM::Engine;
     [self.tbOut setText:@"got frame c"];
 }
 
-// Save sensor captured rgb and depth images to documentsPath/Out naming currentFrameNo
+// Once receive one depth frame, reload rotationMatrix and inputRawDepthImage, then update rendering image in UI.
 - (void)sensorDidOutputDepthFrame:(STDepthFrame *)depthFrame
 {
-    // setupApp() is done
     if (isDone)
     {
         isDone = false;
@@ -301,7 +304,7 @@ using namespace InfiniTAM::Engine;
         
         dispatch_async(self.renderingQueue, ^{
             if (isRecording)
-            {
+            {  // If recording, save sensor captured depth images and IMU rotationMatrix to documentsPath/Out naming currentFrameNo
                 FILE *f; char fileName[2000];
                 
                 sprintf(fileName, "%s/Output/img_%08d.irw", documentsPath, currentFrameNo);

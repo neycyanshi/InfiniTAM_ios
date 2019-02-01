@@ -1,5 +1,3 @@
-// Copyright 2014-2015 Isis Innovation Limited and the authors of InfiniTAM
-
 #include "ITMMainEngine.h"
 
 using namespace ITMLib::Engine;
