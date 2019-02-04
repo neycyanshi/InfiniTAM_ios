@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #define HAS_LIBCXX
-#import <Structure/Structure.h>
+#import <AVFoundation/AVFoundation.h>
 #import <CoreMotion/CoreMotion.h>
 
-@interface ViewController : UIViewController <STSensorControllerDelegate>
+@interface ViewController : UIViewController <AVCaptureDepthDataOutputDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *renderView;
 @property (weak, nonatomic) IBOutlet UITextField *tbOut;

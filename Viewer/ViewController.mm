@@ -20,6 +20,7 @@ using namespace InfiniTAM::Engine;
 
 @interface ViewController()
 
+@property (nonatomic, strong) dispatch_queue_t captureQueue;
 @property (nonatomic, strong) dispatch_queue_t renderingQueue;
 @property (nonatomic, strong) MetalContext *context;
 
@@ -40,7 +41,8 @@ using namespace InfiniTAM::Engine;
     
     ITMUChar4Image *inputRGBImage; ITMShortImage *inputRawDepthImage;
     
-    STSensorController *_sensorController;
+    AVCaptureSession* session;
+    AVCaptureDepthDataOutput *depthOutput;
     
     bool isDone;
     bool fullProcess;
@@ -61,8 +63,8 @@ using namespace InfiniTAM::Engine;
     
     self.renderingQueue = dispatch_queue_create("rendering", DISPATCH_QUEUE_SERIAL);
     
-    _sensorController = [STSensorController sharedController];
-    _sensorController.delegate = self;
+//    _sensorController = [STSensorController sharedController];
+//    _sensorController.delegate = self;
     
     _motionManager = [[CMMotionManager alloc]init];
     _motionManager.deviceMotionUpdateInterval = 1.0f / 60.0f;
@@ -100,9 +102,31 @@ using namespace InfiniTAM::Engine;
     if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
         [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error];
     
-    STSensorControllerInitStatus resultSensor = [_sensorController initializeSensorConnection];
+    // Init AVCapture session
+    session = [[AVCaptureSession alloc] init];
+    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInTrueDepthCamera
+                                                                 mediaType:AVMediaTypeDepthData
+                                                                  position:AVCaptureDevicePositionFront];
+    BOOL didSucceed = NO;
+    if(device != nil){
+        didSucceed = YES;
+        [_tbOut setText:@"from front depth camera"];
+    }
     
-    BOOL didSucceed = (resultSensor == STSensorControllerInitStatusSuccess || resultSensor == STSensorControllerInitStatusAlreadyInitialized);
+    // Set input and output
+    AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:NULL];
+    [session addInput:deviceInput];
+    depthOutput = [[AVCaptureDepthDataOutput alloc] init];
+    [session addOutput:depthOutput];
+    
+    // Create capture queue for depth
+    self.captureQueue = dispatch_queue_create("capture", DISPATCH_QUEUE_SERIAL);
+    [depthOutput setDelegate:self callbackQueue:self.captureQueue];
+//    depthOutput.alwaysDiscardsLateDepthData = NO;  // deliver unprocessed old data as soon as possible.
+//    depthOutput.filteringEnabled = NO;
+    
+//    STSensorControllerInitStatus resultSensor = [_sensorController initializeSensorConnection];
+//    BOOL didSucceed = (resultSensor == STSensorControllerInitStatusSuccess || resultSensor == STSensorControllerInitStatusAlreadyInitialized);
     
     if (!didSucceed)
     {
@@ -143,17 +167,18 @@ using namespace InfiniTAM::Engine;
         
         imuMeasurement = new ITMIMUMeasurement();
         
-        STStreamConfig streamConfig = STStreamConfigDepth320x240;
+//        STStreamConfig streamConfig = STStreamConfigDepth320x240;
         
         NSError* error = nil;
-        BOOL optionsAreValid = [_sensorController startStreamingWithOptions:@{kSTStreamConfigKey : @(streamConfig),
-                                                                              kSTFrameSyncConfigKey : @(STFrameSyncOff)} error:&error];
-        if (!optionsAreValid)
-        {
-            NSString *string = [NSString stringWithFormat:@"Error during streaming start: %s", [[error localizedDescription] UTF8String]];
-            [_tbOut setText:@"from camera"];
-            return;
-        }
+        [session startRunning];
+//        BOOL optionsAreValid = [_sensorController startStreamingWithOptions:@{kSTStreamConfigKey : @(streamConfig),
+//                                                                              kSTFrameSyncConfigKey : @(STFrameSyncOff)} error:&error];
+//        if (!optionsAreValid)
+//        {
+//            NSString *string = [NSString stringWithFormat:@"Error during streaming start: %s", [[error localizedDescription] UTF8String]];
+//            [_tbOut setText:@"from camera"];
+//            return;
+//        }
         
         const char *calibFile = [[[NSBundle mainBundle]pathForResource:@"calib" ofType:@"txt"] cStringUsingEncoding:[NSString defaultCStringEncoding]];
         imageSource = new CalibSource(calibFile, Vector2i(320, 240), 0.5f);
@@ -257,35 +282,35 @@ using namespace InfiniTAM::Engine;
     CGContextRelease(cgContext);
 }
 
-- (void)sensorDidDisconnect
-{
-    [self.tbOut setText:@"disconnected "];
-}
-
-- (void)sensorDidConnect
-{
-}
-
-- (void)sensorDidLeaveLowPowerMode
-{
-}
-
-- (void)sensorBatteryNeedsCharging
-{
-}
-
-- (void)sensorDidStopStreaming:(STSensorControllerDidStopStreamingReason)reason
-{
-    [self.tbOut setText:@"stopped streaming"];
-}
-
-- (void)sensorDidOutputSynchronizedDepthFrame:(STDepthFrame *)depthFrame andColorBuffer:(CMSampleBufferRef)sampleBuffer
-{
-    [self.tbOut setText:@"got frame c"];
-}
+//- (void)sensorDidDisconnect
+//{
+//    [self.tbOut setText:@"disconnected "];
+//}
+//
+//- (void)sensorDidConnect
+//{
+//}
+//
+//- (void)sensorDidLeaveLowPowerMode
+//{
+//}
+//
+//- (void)sensorBatteryNeedsCharging
+//{
+//}
+//
+//- (void)sensorDidStopStreaming:(STSensorControllerDidStopStreamingReason)reason
+//{
+//    [self.tbOut setText:@"stopped streaming"];
+//}
+//
+//- (void)sensorDidOutputSynchronizedDepthFrame:(STDepthFrame *)depthFrame andColorBuffer:(CMSampleBufferRef)sampleBuffer
+//{
+//    [self.tbOut setText:@"got frame c"];
+//}
 
 // Once receive one depth frame, reload rotationMatrix and inputRawDepthImage, then update rendering image in UI.
-- (void)sensorDidOutputDepthFrame:(STDepthFrame *)depthFrame
+- (void)depthDataOutput:(AVCaptureDepthDataOutput *)output didOutputDepthData:(AVDepthData *)depthData timestamp:(CMTime)timestamp connection:(AVCaptureConnection *)connection
 {
     if (isDone)
     {
@@ -300,7 +325,12 @@ using namespace InfiniTAM::Engine;
             imuMeasurement->R.m20 = rotationMatrix.m31; imuMeasurement->R.m21 = rotationMatrix.m32; imuMeasurement->R.m22 = rotationMatrix.m33;
         }
         
-        memcpy(inputRawDepthImage->GetData(MEMORYDEVICE_CPU), [depthFrame shiftData], imageSize.x * imageSize.y * sizeof(short));
+        if (depthData.depthDataType != kCVPixelFormatType_DepthFloat16) {
+            depthData = [depthData depthDataByConvertingToDepthDataType:kCVPixelFormatType_DepthFloat16];
+        }
+        CVPixelBufferLockBaseAddress(depthData.depthDataMap, kCVPixelBufferLock_ReadOnly);
+        memcpy(inputRawDepthImage->GetData(MEMORYDEVICE_CPU), CVPixelBufferGetBaseAddress(depthData.depthDataMap), imageSize.x * imageSize.y * sizeof(short));
+        CVPixelBufferUnlockBaseAddress(depthData.depthDataMap, kCVPixelBufferLock_ReadOnly);
         
         dispatch_async(self.renderingQueue, ^{
             if (isRecording)
