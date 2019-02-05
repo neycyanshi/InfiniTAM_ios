@@ -23,6 +23,7 @@ using namespace InfiniTAM::Engine;
 @property (nonatomic, strong) dispatch_queue_t captureQueue;
 @property (nonatomic, strong) dispatch_queue_t renderingQueue;
 @property (nonatomic, strong) MetalContext *context;
+@property (nonatomic, strong) CMMotionManager *motionManager;
 
 @end
 
@@ -66,8 +67,8 @@ using namespace InfiniTAM::Engine;
 {
     [super viewDidLoad];
     
-    // TODO: Disable UI. The UI is enabled if and only if the session starts running.
-//    self.tbOut.enabled = NO;
+    // Disable UI. The UI is enabled if and only if the session starts running.
+    self.tbOut.enabled = NO;
     
     // Create the motionManager.
     _motionManager = [[CMMotionManager alloc]init];
@@ -185,9 +186,6 @@ using namespace InfiniTAM::Engine;
                                                                   position:AVCaptureDevicePositionFront];
     if(device != nil){
         setupResult = YES;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tbOut setText:@"using front depth camera."];
-        });
         NSLog(@"from front depth camera");
     }
     
@@ -253,14 +251,6 @@ using namespace InfiniTAM::Engine;
         
         fullProcess = true;
         
-//        char imageSource_part1[2000], imageSource_part2[2000];
-//        sprintf(imageSource_part1, "%s/Teddy/Frames/%%04i.ppm", documentsPath);
-//        sprintf(imageSource_part2, "%s/Teddy/Frames/%%04i.pgm", documentsPath);
-
-//        TODO deallocate somewhere
-//        imageSource = new ImageFileReader(calibFile, imageSource_part1, imageSource_part2);
-
-        
         char imageSource_part1[2000], imageSource_part2[2000], imageSource_part3[2000];
         sprintf(imageSource_part1, "%s/CAsmall/Frames/img_%%08d.ppm", documentsPath);
         sprintf(imageSource_part2, "%s/CAsmall/Frames/img_%%08d.irw", documentsPath);
@@ -280,6 +270,7 @@ using namespace InfiniTAM::Engine;
     else
     {
         fullProcess = false;
+        [self.tbOut setText:@"front depth"];
         
         [_motionManager startDeviceMotionUpdates];
         
@@ -289,7 +280,7 @@ using namespace InfiniTAM::Engine;
         
         inputRGBImage = new ITMUChar4Image(imageSource->getRGBImageSize(), true, false);
         inputRawDepthImage = new ITMShortImage(imageSource->getDepthImageSize(), true, false);
-        
+
         usingSensor = true;
     }
     
@@ -380,8 +371,8 @@ using namespace InfiniTAM::Engine;
     dispatch_sync(dispatch_get_main_queue(), ^{
         self.renderView.layer.contents = (__bridge id)cgImageRef;
         
-        NSString *theValue = [NSString stringWithFormat:@"%5.4lf", totalProcessingTime / totalProcessedFrames];
-//        [self.tbOut setText:theValue];
+        NSString *theValue = [NSString stringWithFormat:@"%5.4lf spf", totalProcessingTime / totalProcessedFrames];
+        [self.tbOut setText:theValue];
     });
 
     CGImageRelease(cgImageRef);

@@ -18,8 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *bProcessOne;
 @property (weak, nonatomic) IBOutlet UIButton *bProcessCont;
 
-@property (nonatomic, strong) CMMotionManager *motionManager;
-
 - (IBAction)bProcessOne_clicked:(id)sender;
 - (IBAction)bProcessCont_clicked:(id)sender;
 
