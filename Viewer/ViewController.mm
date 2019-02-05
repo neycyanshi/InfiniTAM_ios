@@ -28,6 +28,8 @@ using namespace InfiniTAM::Engine;
 
 @implementation ViewController
 {
+    // MARK: - Properties
+    
     CGColorSpaceRef rgbSpace;
     Vector2i imageSize;
     ITMUChar4Image *result;
@@ -44,6 +46,7 @@ using namespace InfiniTAM::Engine;
     AVCaptureSession* session;
     AVCaptureDepthDataOutput *depthOutput;
     
+    bool setupResult;
     bool isDone;
     bool fullProcess;
     bool isRecording;
@@ -57,25 +60,105 @@ using namespace InfiniTAM::Engine;
     char documentsPath[1000], *docsPath;
 }
 
+// MARK: - View Controller Life Cycle
+
 - (void) viewDidLoad
 {
     [super viewDidLoad];
     
-    self.renderingQueue = dispatch_queue_create("rendering", DISPATCH_QUEUE_SERIAL);
+    // TODO: Disable UI. The UI is enabled if and only if the session starts running.
+//    self.tbOut.enabled = NO;
     
-//    _sensorController = [STSensorController sharedController];
-//    _sensorController.delegate = self;
-    
+    // Create the motionManager.
     _motionManager = [[CMMotionManager alloc]init];
     _motionManager.deviceMotionUpdateInterval = 1.0f / 60.0f;
     
+    // Create the AVCaptureSession.
+    session = [[AVCaptureSession alloc] init];
+    
+    // Create queue, communicate with the session and on captureQueue.
+    self.captureQueue = dispatch_queue_create("capture", DISPATCH_QUEUE_SERIAL);
+    self.renderingQueue = dispatch_queue_create("rendering", DISPATCH_QUEUE_SERIAL);
+    
+    setupResult = YES;
+    
+    /*
+     Check video authorization status. Video access is required and audio
+     access is optional. If audio access is denied, audio is not recorded
+     during movie recording.
+     */
+    switch ([AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo])
+    {
+        case AVAuthorizationStatusAuthorized:
+        {
+            // The user has previously granted access to the camera.
+            break;
+        }
+        case AVAuthorizationStatusNotDetermined:
+        {
+            /*
+             The user has not yet been presented with the option to grant
+             video access. We suspend the session queue to delay session
+             setup until the access request has completed.
+             
+             Note that audio access will be implicitly requested when we
+             create an AVCaptureDeviceInput for audio during session setup.
+             */
+            dispatch_suspend(self.captureQueue);
+            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+                if (!granted) {
+                    setupResult = NO;
+                }
+                dispatch_resume(self.captureQueue);
+            }];
+            break;
+        }
+        default:
+        {
+            // The user has previously denied access.
+            setupResult = NO;
+            break;
+        }
+    }
+    
+    /*
+     Setup the capture session.
+     In general, it is not safe to mutate an AVCaptureSession or any of its
+     inputs, outputs, or connections from multiple threads at the same time.
+     
+     Don't perform these tasks on the main queue because
+     AVCaptureSession.startRunning() is a blocking call, which can
+     take a long time. We dispatch session setup to the sessionQueue, so
+     that the main queue isn't blocked, which keeps the UI responsive.
+     */
+    dispatch_async(self.captureQueue, ^{
+        [self configureSession];
+    });
+    
+    // Record time and frames.
     totalProcessingTime = 0;
     totalProcessedFrames = 0;
+    
+    // Setup main engine.
+    [self setupEngine];
 }
 
-- (void) viewDidAppear:(BOOL)animated
+- (void) viewWillAppear:(BOOL)animated
 {
-    [self setupApp];
+    [super viewWillAppear:animated];
+    dispatch_async(self.captureQueue, ^{
+        [session startRunning];
+        NSLog(@"session startRunning.");
+    });
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    dispatch_async(self.captureQueue, ^{
+        [session stopRunning];
+    });
+    
+    [super viewDidDisappear:animated];
 }
 
 - (void) didReceiveMemoryWarning
@@ -83,7 +166,68 @@ using namespace InfiniTAM::Engine;
     [super didReceiveMemoryWarning];
 }
 
-- (void) setupApp
+// MARK: - Session Management
+
+// Call this on the captureQueue.
+- (void) configureSession
+{
+    if (setupResult != YES) {
+        return;
+    }
+    
+    NSError* error = nil;
+    
+    [session beginConfiguration];
+    
+    // Create device or device dicovery session.
+    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInTrueDepthCamera
+                                                                 mediaType:AVMediaTypeDepthData
+                                                                  position:AVCaptureDevicePositionFront];
+    if(device != nil){
+        setupResult = YES;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tbOut setText:@"using front depth camera."];
+        });
+        NSLog(@"from front depth camera");
+    }
+    
+    // Set depth input
+    AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
+    if (!deviceInput) {
+        NSLog(@"Could not create depth device input: %@", error);
+        setupResult = NO;
+        [session commitConfiguration];
+        return;
+    }
+    if ([session canAddInput:deviceInput]) {
+        [session addInput:deviceInput];
+    }
+    else {
+        NSLog(@"Could not add depth device input to the session");
+        setupResult = NO;
+        [session commitConfiguration];
+        return;
+    }
+    
+    // Add depth output
+    depthOutput = [[AVCaptureDepthDataOutput alloc] init];
+    if ([session canAddOutput:depthOutput]) {
+        [session addOutput:depthOutput];
+        // Output to capture queue for depth
+        [depthOutput setDelegate:self callbackQueue:self.captureQueue];
+        //    depthOutput.alwaysDiscardsLateDepthData = NO;  // deliver unprocessed old data as soon as possible.
+        //    depthOutput.filteringEnabled = NO;
+    }else {
+        NSLog(@"Could not add depth output to the session");
+        setupResult = NO;
+        [session commitConfiguration];
+        return;
+    }
+    
+    [session commitConfiguration];
+}
+
+- (void) setupEngine
 {
     isDone = false;
     fullProcess = false;
@@ -101,34 +245,8 @@ using namespace InfiniTAM::Engine;
     NSString *dataPath = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:@"/Output"];
     if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
         [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error];
-    
-    // Init AVCapture session
-    session = [[AVCaptureSession alloc] init];
-    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInTrueDepthCamera
-                                                                 mediaType:AVMediaTypeDepthData
-                                                                  position:AVCaptureDevicePositionFront];
-    BOOL didSucceed = NO;
-    if(device != nil){
-        didSucceed = YES;
-        [_tbOut setText:@"from front depth camera"];
-    }
-    
-    // Set input and output
-    AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:NULL];
-    [session addInput:deviceInput];
-    depthOutput = [[AVCaptureDepthDataOutput alloc] init];
-    [session addOutput:depthOutput];
-    
-    // Create capture queue for depth
-    self.captureQueue = dispatch_queue_create("capture", DISPATCH_QUEUE_SERIAL);
-    [depthOutput setDelegate:self callbackQueue:self.captureQueue];
-//    depthOutput.alwaysDiscardsLateDepthData = NO;  // deliver unprocessed old data as soon as possible.
-//    depthOutput.filteringEnabled = NO;
-    
-//    STSensorControllerInitStatus resultSensor = [_sensorController initializeSensorConnection];
-//    BOOL didSucceed = (resultSensor == STSensorControllerInitStatusSuccess || resultSensor == STSensorControllerInitStatusAlreadyInitialized);
-    
-    if (!didSucceed)
+
+    if (!setupResult)
     {
         char calibFile[2000];
         sprintf(calibFile, "%s/Teddy/calib.txt", documentsPath);
@@ -148,7 +266,7 @@ using namespace InfiniTAM::Engine;
         sprintf(imageSource_part2, "%s/CAsmall/Frames/img_%%08d.irw", documentsPath);
         sprintf(imageSource_part3, "%s/CAsmall/Frames/imu_%%08d.txt", documentsPath);
         
-//      TODO deallocate somewhere
+        // TODO: deallocate somewhere
         imageSource = new RawFileReader(calibFile, imageSource_part1, imageSource_part2, Vector2i(320, 240), 0.5f);
         inputRGBImage = new ITMUChar4Image(imageSource->getRGBImageSize(), true, false);
         inputRawDepthImage = new ITMShortImage(imageSource->getDepthImageSize(), true, false);
@@ -166,25 +284,8 @@ using namespace InfiniTAM::Engine;
         [_motionManager startDeviceMotionUpdates];
         
         imuMeasurement = new ITMIMUMeasurement();
-        
-//        STStreamConfig streamConfig = STStreamConfigDepth320x240;
-        
-        NSError* error = nil;
-        [session startRunning];
-//        BOOL optionsAreValid = [_sensorController startStreamingWithOptions:@{kSTStreamConfigKey : @(streamConfig),
-//                                                                              kSTFrameSyncConfigKey : @(STFrameSyncOff)} error:&error];
-//        if (!optionsAreValid)
-//        {
-//            NSString *string = [NSString stringWithFormat:@"Error during streaming start: %s", [[error localizedDescription] UTF8String]];
-//            [_tbOut setText:@"from camera"];
-//            return;
-//        }
-        
         const char *calibFile = [[[NSBundle mainBundle]pathForResource:@"calib" ofType:@"txt"] cStringUsingEncoding:[NSString defaultCStringEncoding]];
         imageSource = new CalibSource(calibFile, Vector2i(320, 240), 0.5f);
-
-        if (error != nil) [_tbOut setText:@"from camera -- errors"];
-        else [_tbOut setText:@"from camera"];
         
         inputRGBImage = new ITMUChar4Image(imageSource->getRGBImageSize(), true, false);
         inputRawDepthImage = new ITMShortImage(imageSource->getDepthImageSize(), true, false);
@@ -202,6 +303,8 @@ using namespace InfiniTAM::Engine;
     
     isDone = true;
 }
+
+// MARK: - IBAction Functions
 
 - (IBAction)bProcessOne_clicked:(id)sender
 {
@@ -244,6 +347,9 @@ using namespace InfiniTAM::Engine;
     });
 }
 
+// MARK: - UI Utility Functions
+
+// Call this on the renderingQueue.
 - (void) updateImage
 {
     if (fullProcess) mainEngine->turnOnMainProcessing();
@@ -275,39 +381,14 @@ using namespace InfiniTAM::Engine;
         self.renderView.layer.contents = (__bridge id)cgImageRef;
         
         NSString *theValue = [NSString stringWithFormat:@"%5.4lf", totalProcessingTime / totalProcessedFrames];
-        [self.tbOut setText:theValue];
+//        [self.tbOut setText:theValue];
     });
 
     CGImageRelease(cgImageRef);
     CGContextRelease(cgContext);
 }
 
-//- (void)sensorDidDisconnect
-//{
-//    [self.tbOut setText:@"disconnected "];
-//}
-//
-//- (void)sensorDidConnect
-//{
-//}
-//
-//- (void)sensorDidLeaveLowPowerMode
-//{
-//}
-//
-//- (void)sensorBatteryNeedsCharging
-//{
-//}
-//
-//- (void)sensorDidStopStreaming:(STSensorControllerDidStopStreamingReason)reason
-//{
-//    [self.tbOut setText:@"stopped streaming"];
-//}
-//
-//- (void)sensorDidOutputSynchronizedDepthFrame:(STDepthFrame *)depthFrame andColorBuffer:(CMSampleBufferRef)sampleBuffer
-//{
-//    [self.tbOut setText:@"got frame c"];
-//}
+// MARK: - Depth Data Output Delegate
 
 // Once receive one depth frame, reload rotationMatrix and inputRawDepthImage, then update rendering image in UI.
 - (void)depthDataOutput:(AVCaptureDepthDataOutput *)output didOutputDepthData:(AVDepthData *)depthData timestamp:(CMTime)timestamp connection:(AVCaptureConnection *)connection
