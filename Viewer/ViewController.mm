@@ -359,6 +359,7 @@ using namespace InfiniTAM::Engine;
         totalProcessedFrames++;
         totalProcessingTime += executionTime;
     }
+    
     // Get and update output rendered raycasted image.
     if (fullProcess) mainEngine->GetImage(result, ITMMainEngine::InfiniTAM_IMAGE_SCENERAYCAST);
     else mainEngine->GetImage(result, ITMMainEngine::InfiniTAM_IMAGE_ORIGINAL_DEPTH);
