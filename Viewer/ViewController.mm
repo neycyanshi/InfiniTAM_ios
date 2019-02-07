@@ -368,7 +368,7 @@ using namespace InfiniTAM::Engine;
                                                    4 * imageSize.x, rgbSpace, kCGImageAlphaNoneSkipLast);
     CGImageRef cgImageRef = CGBitmapContextCreateImage(cgContext);
     
-    // After processing one frame in rendering_queue, callback and send notification to main_queue.
+    // After processing one frame in rendering_queue, callback and send notification to the main_queue.
     dispatch_sync(dispatch_get_main_queue(), ^{
         self.renderView.layer.contents = (__bridge id)cgImageRef;
         
