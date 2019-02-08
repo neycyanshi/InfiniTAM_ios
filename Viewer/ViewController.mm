@@ -41,8 +41,10 @@ using namespace InfiniTAM::Engine;
     ITMMainEngine *mainEngine;
     
     ITMIMUMeasurement *imuMeasurement;
-    
-    ITMUChar4Image *inputRGBImage; ITMShortImage *inputRawDepthImage;
+
+    // For iPhone front depth, ITMShortImage short type is half/float16 actually.
+    ITMUChar4Image *inputRGBImage;
+    ITMShortImage *inputRawDepthImage;
     
     AVCaptureSession* session;
     AVCaptureDepthDataOutput *depthOutput;
@@ -398,6 +400,7 @@ using namespace InfiniTAM::Engine;
             imuMeasurement->R.m20 = rotationMatrix.m31; imuMeasurement->R.m21 = rotationMatrix.m32; imuMeasurement->R.m22 = rotationMatrix.m33;
         }
         
+        // Original depthDataType is kCVPixelFormatType_DisparityFloat16.
         if (depthData.depthDataType != kCVPixelFormatType_DepthFloat16) {
             depthData = [depthData depthDataByConvertingToDepthDataType:kCVPixelFormatType_DepthFloat16];
         }

@@ -116,6 +116,17 @@ void ITMViewBuilder_CPU::ConvertDepthAffineToFloat(ITMFloatImage *depth_out, con
 		convertDepthAffineToFloat(d_out, x, y, d_in, imgSize, depthCalibParams);
 }
 
+void ITMViewBuilder_CPU::ConvertFP16ToFP32(ITMFloatImage *depth_out, const ITMShortImage *depth_in, const Vector2f depthCalibParams)
+{
+    Vector2i imgSize = depth_in->noDims;
+    
+    const short *d_in = depth_in->GetData(MEMORYDEVICE_CPU);
+    float *d_out = depth_out->GetData(MEMORYDEVICE_CPU);
+    
+    for (int y = 0; y < imgSize.y; y++) for (int x = 0; x < imgSize.x; x++)
+        convertFP16ToFP32(d_out, x, y, d_in, imgSize, depthCalibParams);
+}
+
 void ITMViewBuilder_CPU::DepthFiltering(ITMFloatImage *image_out, const ITMFloatImage *image_in)
 {
 	Vector2i imgSize = image_in->noDims;

@@ -1,5 +1,3 @@
-// Copyright 2014-2015 Isis Innovation Limited and the authors of InfiniTAM
-
 #pragma once
 
 #include "../../ITMViewBuilder.h"
@@ -14,6 +12,7 @@ namespace ITMLib
 			void ConvertDisparityToDepth(ITMFloatImage *depth_out, const ITMShortImage *disp_in, const ITMIntrinsics *depthIntrinsics, 
 				Vector2f disparityCalibParams);
 			void ConvertDepthAffineToFloat(ITMFloatImage *depth_out, const ITMShortImage *depth_in, Vector2f depthCalibParams);
+            void ConvertFP16ToFP32(ITMFloatImage *depth_out, const ITMShortImage *depth_in, Vector2f depthCalibParams);
 
 			void DepthFiltering(ITMFloatImage *image_out, const ITMFloatImage *image_in);
 			void ComputeNormalAndWeights(ITMFloat4Image *normal_out, ITMFloatImage *sigmaZ_out, const ITMFloatImage *depth_in, Vector4f intrinsic);

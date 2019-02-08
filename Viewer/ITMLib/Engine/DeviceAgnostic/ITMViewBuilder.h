@@ -27,6 +27,26 @@ _CPU_AND_GPU_CODE_ inline void convertDepthAffineToFloat(DEVICEPTR(float) *d_out
 	d_out[locId] = ((depth_in <= 0)||(depth_in > 32000)) ? -1.0f : (float)depth_in * depthCalibParams.x + depthCalibParams.y;
 }
 
+_CPU_AND_GPU_CODE_ inline void convertFP16ToFP32(DEVICEPTR(float) *d_out, int x, int y, const CONSTPTR(short) *d_in, Vector2i imgSize, Vector2f depthCalibParams)
+{
+    int locId = x + y * imgSize.x;
+    
+    short depth_in = d_in[locId];
+    
+    int fs, fe, fm, rlt;
+    fs = ((depth_in)&0x8000) << 16;
+    fe = ((depth_in)&0x7c00) >> 10;
+    fe = fe + 0x70;
+    fe = fe << 23;
+    fm = ((depth_in)&0x03ff) << 13;
+    rlt = fs | fe | fm;
+    
+//    float depth_out = *((float *)&rlt);
+    float depth_out = (float)rlt;
+    
+    d_out[locId] = (depth_out > 0) ? -1.0f : depth_out * depthCalibParams.x + depthCalibParams.y;
+}
+
 #define MEAN_SIGMA_L 1.2232f
 _CPU_AND_GPU_CODE_ inline void filterDepth(DEVICEPTR(float) *imageData_out, const CONSTPTR(float) *imageData_in, int x, int y, Vector2i imgDims)
 {
