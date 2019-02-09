@@ -1,5 +1,3 @@
-// Copyright 2014-2015 Isis Innovation Limited and the authors of InfiniTAM
-
 #include "ITMViewBuilder_CPU.h"
 
 #include "../../DeviceAgnostic/ITMViewBuilder.h"
@@ -36,11 +34,14 @@ void ITMViewBuilder_CPU::UpdateView(ITMView **view_ptr, ITMUChar4Image *rgbImage
 
 	switch (view->calib->disparityCalib.type)
 	{
+    case ITMDisparityCalib::TRAFO_IPHONE:
+        this->ConvertFP16ToFP32(view->depth, this->shortImage, view->calib->disparityCalib.params);
+        break;
 	case ITMDisparityCalib::TRAFO_KINECT:
 		this->ConvertDisparityToDepth(view->depth, this->shortImage, &(view->calib->intrinsics_d), view->calib->disparityCalib.params);
 		break;
 	case ITMDisparityCalib::TRAFO_AFFINE:
-		this->ConvertDepthAffineToFloat(view->depth, this->shortImage, view->calib->disparityCalib.params);
+        this->ConvertDepthAffineToFloat(view->depth, this->shortImage, view->calib->disparityCalib.params);
 		break;
 	default:
 		break;
@@ -124,7 +125,24 @@ void ITMViewBuilder_CPU::ConvertFP16ToFP32(ITMFloatImage *depth_out, const ITMSh
     float *d_out = depth_out->GetData(MEMORYDEVICE_CPU);
     
     for (int y = 0; y < imgSize.y; y++) for (int x = 0; x < imgSize.x; x++)
-        convertFP16ToFP32(d_out, x, y, d_in, imgSize, depthCalibParams);
+    {
+//        convertFP16ToFP32(d_out, x, y, d_in, imgSize, depthCalibParams);
+        int locId = x + y * imgSize.x;
+        
+        short depth_in = d_in[locId];
+        
+        int fs, fe, fm, rlt;
+        fs = ((depth_in)&0x8000) << 16;
+        fe = ((depth_in)&0x7c00) >> 10;
+        fe = fe + 0x70;
+        fe = fe << 23;
+        fm = ((depth_in)&0x03ff) << 13;
+        rlt = fs | fe | fm;
+
+        float depth_out = *((float *)&rlt);
+        d_out[locId] = (depth_out > 0) ? depth_out : -1.0f;
+//        d_out[locId] = (depth_out > 0) ? depth_out * depthCalibParams.x + depthCalibParams.y : -1.0f;
+    }
 }
 
 void ITMViewBuilder_CPU::DepthFiltering(ITMFloatImage *image_out, const ITMFloatImage *image_in)

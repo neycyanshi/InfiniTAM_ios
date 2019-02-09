@@ -55,10 +55,13 @@ bool ITMLib::Objects::readDisparityCalib(std::istream & src, ITMDisparityCalib &
 	ITMDisparityCalib::TrafoType type = ITMDisparityCalib::TRAFO_KINECT;
 	float a,b;
 
-	if (word.compare("kinect") == 0) {
-		type = ITMDisparityCalib::TRAFO_KINECT;
+	if (word.compare("iphone") == 0) {
+		type = ITMDisparityCalib::TRAFO_IPHONE;
 		src >> a;
-	} else if (word.compare("affine") == 0) {
+    } else if (word.compare("kinect") == 0) {
+        type = ITMDisparityCalib::TRAFO_KINECT;
+        src >> a;
+    } else if (word.compare("affine") == 0) {
 		type = ITMDisparityCalib::TRAFO_AFFINE;
 		src >> a;
 	} else {

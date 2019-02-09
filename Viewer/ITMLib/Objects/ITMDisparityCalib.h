@@ -20,6 +20,8 @@ namespace ITMLib
 			    values to depths.
 			*/
 			typedef enum {
+                /// Raw values are transformed from FP16 to FP32 absolute depth in meter.
+                TRAFO_IPHONE,
 				/// Raw values are transformed according to \f$\frac{8c_2f_x}{c_1 - d}\f$
 				TRAFO_KINECT,
 				/// Raw values are transformed according to \f$c_1 d + c_2\f$
@@ -39,7 +41,7 @@ namespace ITMLib
 			{
 				// standard calibration parameters - converts mm to metres by dividing by 1000
 				params.x = 1.0f/1000.0f; params.y = 0.0f;
-				type = TRAFO_AFFINE;
+				type = TRAFO_IPHONE;
 			}
 		};
 	}
