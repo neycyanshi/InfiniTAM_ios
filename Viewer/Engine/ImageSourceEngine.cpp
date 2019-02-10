@@ -122,6 +122,26 @@ void CalibSource::ResizeIntrinsics(ITMIntrinsics &intrinsics, float ratio)
 	intrinsics.projectionParamsSimple.all *= ratio;
 }
 
+iPhoneSource::iPhoneSource(Vector2i setImageSize) : ImageSourceEngine()
+{
+    this->imgSize = setImageSize;
+}
+
+void iPhoneSource::ResizeIntrinsics(ITMIntrinsics &intrinsics, float ratio)
+{
+    intrinsics.projectionParamsSimple.fx *= ratio;
+    intrinsics.projectionParamsSimple.fy *= ratio;
+    intrinsics.projectionParamsSimple.px *= ratio;
+    intrinsics.projectionParamsSimple.py *= ratio;
+    intrinsics.projectionParamsSimple.all *= ratio;
+}
+
+void iPhoneSource::calibrate(float fx, float fy, float cx, float cy, float ratio)
+{
+    calib.intrinsics_d.SetFrom(fx, fy, cx, cy, 0, 0);
+    this->ResizeIntrinsics(calib.intrinsics_d, ratio);
+}
+
 RawFileReader::RawFileReader(const char *calibFilename, const char *rgbImageMask, const char *depthImageMask, Vector2i setImageSize, float ratio) 
 	: ImageSourceEngine(calibFilename)
 {

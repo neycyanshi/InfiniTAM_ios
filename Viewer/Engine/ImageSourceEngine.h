@@ -12,6 +12,7 @@ namespace InfiniTAM
 			ITMRGBDCalib calib;
 
 			ImageSourceEngine(const char *calibFilename);
+            ImageSourceEngine() {}
 			virtual ~ImageSourceEngine() {}
 
 			virtual bool hasMoreImages(void) = 0;
@@ -59,6 +60,23 @@ namespace InfiniTAM
 			Vector2i getDepthImageSize(void) { return imgSize; }
 			Vector2i getRGBImageSize(void) { return imgSize; }
 		};
+        
+        class iPhoneSource : public ImageSourceEngine
+        {
+        private:
+            Vector2i imgSize;
+            void ResizeIntrinsics(ITMIntrinsics &intrinsics, float ratio);
+            
+        public:
+            iPhoneSource(Vector2i setImageSize);
+            ~iPhoneSource() { }
+            
+            void calibrate(float fx, float fy, float cx, float cy, float ratio);
+            bool hasMoreImages(void) { return true; }
+            void getImages(ITMUChar4Image *rgb, ITMShortImage *rawDepth) { }
+            Vector2i getDepthImageSize(void) { return imgSize; }
+            Vector2i getRGBImageSize(void) { return imgSize; }
+        };
 
 		class RawFileReader : public ImageSourceEngine
 		{
