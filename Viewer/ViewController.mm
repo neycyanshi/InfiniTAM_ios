@@ -33,7 +33,6 @@ using namespace InfiniTAM::Engine;
     
     CGColorSpaceRef rgbSpace;
     Vector2i imageSize;
-    Vector2f rawImageSize;
     Vector2f scaleFactor;
     ITMUChar4Image *result;
     
@@ -87,6 +86,7 @@ using namespace InfiniTAM::Engine;
     self.renderingQueue = dispatch_queue_create("rendering", DISPATCH_QUEUE_SERIAL);
     
     setupResult = YES;
+    imageSize = Vector2i(320, 180);
     
     /*
      Check video authorization status. Video access is required and audio
@@ -293,7 +293,7 @@ using namespace InfiniTAM::Engine;
         imuMeasurement = new ITMIMUMeasurement();
 //        const char *calibFile = [[[NSBundle mainBundle]pathForResource:@"calib" ofType:@"txt"] cStringUsingEncoding:[NSString defaultCStringEncoding]];
 //        imageSource = new CalibSource(calibFile, Vector2i(320, 240), 0.5f);
-        imageSource = new iPhoneSource(Vector2i(320, 180));
+        imageSource = new iPhoneSource(imageSize);
         
         inputRGBImage = new ITMUChar4Image(imageSource->getRGBImageSize(), true, false);
         inputRawDepthImage = new ITMShortImage(imageSource->getDepthImageSize(), true, false);
@@ -415,7 +415,7 @@ using namespace InfiniTAM::Engine;
             imuMeasurement->R.m20 = rotationMatrix.m31; imuMeasurement->R.m21 = rotationMatrix.m32; imuMeasurement->R.m22 = rotationMatrix.m33;
         }
         
-        // Calibration iPhone depth first and only once
+        // Calibration iPhone depth first and only once, intrinsic reference to imageSize(320, 180).
         if (!calibrated)
         {
             AVCameraCalibrationData* calibData = depthData.cameraCalibrationData;
@@ -437,8 +437,9 @@ using namespace InfiniTAM::Engine;
             ((iPhoneSource*)imageSource)->calibrate(fx, fy, cx, cy, scaleFactor[0]);
             calibrated = true;
             
-            rawImageSize[0] = CVPixelBufferGetWidth(depthData.depthDataMap);  // 640
-            rawImageSize[1] = CVPixelBufferGetHeight(depthData.depthDataMap);  // 320
+            // TODO: remove these 2 lines.
+            float tmpw = CVPixelBufferGetWidth(depthData.depthDataMap);  // 640
+            float tmph = CVPixelBufferGetHeight(depthData.depthDataMap);  // 320
         }
         
         // Original depthDataType is kCVPixelFormatType_DisparityFloat16.
@@ -446,21 +447,10 @@ using namespace InfiniTAM::Engine;
             depthData = [depthData depthDataByConvertingToDepthDataType:kCVPixelFormatType_DepthFloat16];
         }
         
-        // Downsample depthMap from original to imageSize
-        CVPixelBufferRef depthDataMap = depthData.depthDataMap;
-        CVPixelBufferLockBaseAddress(depthDataMap, kCVPixelBufferLock_ReadOnly);
-        CIImage* ciDepth = [CIImage imageWithCVPixelBuffer:depthDataMap];
-        CIImage* ciDepthScaled = [ciDepth imageByApplyingTransform:CGAffineTransformMakeScale(scaleFactor[0], scaleFactor[1])];
-        CVPixelBufferRef scaledDepthMap;
-//        CIContext* ciContext = [CIContext context];
-        CIContext* ciContext = [CIContext contextWithCGContext:UIGraphicsGetCurrentContext() options:nil];
-        [ciContext render:ciDepthScaled toCVPixelBuffer:scaledDepthMap];
-        CVPixelBufferUnlockBaseAddress(depthDataMap, kCVPixelBufferLock_ReadOnly);
-        
         // Copy depth pixelBuffer to inputRawDepthImage
-        CVPixelBufferLockBaseAddress(scaledDepthMap, kCVPixelBufferLock_ReadOnly);
-        memcpy(inputRawDepthImage->GetData(MEMORYDEVICE_CPU), CVPixelBufferGetBaseAddress(scaledDepthMap), imageSize.x * imageSize.y * sizeof(short));
-        CVPixelBufferUnlockBaseAddress(scaledDepthMap, kCVPixelBufferLock_ReadOnly);
+        CVPixelBufferLockBaseAddress(depthData.depthDataMap, kCVPixelBufferLock_ReadOnly);
+        memcpy(inputRawDepthImage->GetData(MEMORYDEVICE_CPU), CVPixelBufferGetBaseAddress(depthData.depthDataMap), imageSize.x * imageSize.y * sizeof(short));
+        CVPixelBufferUnlockBaseAddress(depthData.depthDataMap, kCVPixelBufferLock_ReadOnly);
         
         dispatch_async(self.renderingQueue, ^{
             if (isRecording)
