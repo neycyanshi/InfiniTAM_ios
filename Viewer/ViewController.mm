@@ -184,6 +184,7 @@ using namespace InfiniTAM::Engine;
     NSError* error = nil;
     
     [session beginConfiguration];
+//    [session setSessionPreset:AVCaptureSessionPreset640x480];
     
     // Create device or device dicovery session.
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInTrueDepthCamera
@@ -192,15 +193,10 @@ using namespace InfiniTAM::Engine;
     if(device != nil){
         setupResult = YES;
         NSArray* formats = device.activeFormat.supportedDepthDataFormats;
-        AVCaptureDeviceFormat* tmp = formats[0];
-//        let depthFormats = videoDevice.activeFormat.supportedDepthDataFormats
-//        let filtered = depthFormats.filter({
-//            CMFormatDescriptionGetMediaSubType($0.formatDescription) == kCVPixelFormatType_DepthFloat16
-//        })
-//        let selectedFormat = filtered.max(by: {
-//            first, second in CMVideoFormatDescriptionGetDimensions(first.formatDescription).width < CMVideoFormatDescriptionGetDimensions(second.formatDescription).width
-//        })
-//        device.activeDepthDataFormat =
+        AVCaptureDeviceFormat* selectedFormat = formats[6]; // kCVPixelFormatType_DepthFloat16: 'dpth'/'hdep'  320x 180, { 2- 30 fps}, HRSI: 640x 360, fov:67.564
+        [device lockForConfiguration:NULL];
+        device.activeDepthDataFormat = selectedFormat;
+        [device unlockForConfiguration];
         NSLog(@"from front depth camera");
     }
     
@@ -436,10 +432,6 @@ using namespace InfiniTAM::Engine;
             NSAssert(scaleFactor[0] == scaleFactor[1], @"scaleX and scaleY must be the same.");
             ((iPhoneSource*)imageSource)->calibrate(fx, fy, cx, cy, scaleFactor[0]);
             calibrated = true;
-            
-            // TODO: remove these 2 lines.
-            float tmpw = CVPixelBufferGetWidth(depthData.depthDataMap);  // 640
-            float tmph = CVPixelBufferGetHeight(depthData.depthDataMap);  // 320
         }
         
         // Original depthDataType is kCVPixelFormatType_DisparityFloat16.
