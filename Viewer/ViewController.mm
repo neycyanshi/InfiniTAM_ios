@@ -412,6 +412,7 @@ using namespace InfiniTAM::Engine;
         }
         
         // Calibration iPhone depth first and only once, intrinsic reference to imageSize(320, 180).
+        // TODO: depth distortion correction.
         if (!calibrated)
         {
             AVCameraCalibrationData* calibData = depthData.cameraCalibrationData;
@@ -434,10 +435,10 @@ using namespace InfiniTAM::Engine;
             calibrated = true;
         }
         
-        // Original depthDataType is kCVPixelFormatType_DisparityFloat16.
-        if (depthData.depthDataType != kCVPixelFormatType_DepthFloat16) {
-            depthData = [depthData depthDataByConvertingToDepthDataType:kCVPixelFormatType_DepthFloat16];
-        }
+//        // Maybe depthDataType is kCVPixelFormatType_DisparityFloat16.
+//        if (depthData.depthDataType != kCVPixelFormatType_DepthFloat16) {
+//            depthData = [depthData depthDataByConvertingToDepthDataType:kCVPixelFormatType_DepthFloat16];
+//        }
         
         // Copy depth pixelBuffer to inputRawDepthImage
         CVPixelBufferLockBaseAddress(depthData.depthDataMap, kCVPixelBufferLock_ReadOnly);
