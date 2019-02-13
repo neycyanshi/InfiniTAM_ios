@@ -379,17 +379,24 @@ using namespace InfiniTAM::Engine;
     
     CGContextRef cgContext = CGBitmapContextCreate(result->GetData(MEMORYDEVICE_CPU), imageSize.x, imageSize.y, 8,
                                                    4 * imageSize.x, rgbSpace, kCGImageAlphaNoneSkipLast);
-    CGImageRef cgImageRef = CGBitmapContextCreateImage(cgContext);
+    CGImageRef cgImage = CGBitmapContextCreateImage(cgContext);  // copy original depth from memory to CGImageRef
+    
+    // Mirror rendered image if using front camera
+    CGAffineTransform mirrorTransform = CGAffineTransformMake(1, 0, 0, -1, 0, imageSize.y);
+    CGContextConcatCTM(cgContext, mirrorTransform);  // transforms the user coordinate system in a context using a specified matrix
+    CGContextDrawImage(cgContext, CGRectMake(0, 0, imageSize.x, imageSize.y), cgImage);  // draw cgImage to cgContext memory
+    CGImageRef cgImageMirrored = CGBitmapContextCreateImage(cgContext);  // copy mirrored cgImageMirrored from cgContext memory
     
     // After processing one frame in rendering_queue, callback and send notification to the main_queue.
     dispatch_sync(dispatch_get_main_queue(), ^{
-        self.renderView.layer.contents = (__bridge id)cgImageRef;
+        self.renderView.layer.contents = (__bridge id)cgImageMirrored;
         
         NSString *theValue = [NSString stringWithFormat:@"%5.4lf spf", totalProcessingTime / totalProcessedFrames];
         [self.tbOut setText:theValue];
     });
 
-    CGImageRelease(cgImageRef);
+    CGImageRelease(cgImageMirrored);
+    CGImageRelease(cgImage);
     CGContextRelease(cgContext);
 }
 
