@@ -184,20 +184,17 @@ using namespace InfiniTAM::Engine;
     NSError* error = nil;
     
     [session beginConfiguration];
-//    [session setSessionPreset:AVCaptureSessionPreset640x480];
+    //    [session setSessionPreset:AVCaptureSessionPreset640x480];  // uncomment to set 4:3 depth, otherwise 16:9
     
     // Create device or device dicovery session.
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInTrueDepthCamera
                                                                  mediaType:AVMediaTypeDepthData
                                                                   position:AVCaptureDevicePositionFront];
-    if(device != nil){
+    if (device != nil){
         setupResult = YES;
-        NSArray* formats = device.activeFormat.supportedDepthDataFormats;
-        AVCaptureDeviceFormat* selectedFormat = formats[6]; // kCVPixelFormatType_DepthFloat16: 'dpth'/'hdep'  320x 180, { 2- 30 fps}, HRSI: 640x 360, fov:67.564
-        [device lockForConfiguration:NULL];
-        device.activeDepthDataFormat = selectedFormat;
-        [device unlockForConfiguration];
-        NSLog(@"from front depth camera");
+    } else{
+        NSLog(@"Could not find any depth device");
+        return;
     }
     
     // Set depth input
@@ -210,8 +207,7 @@ using namespace InfiniTAM::Engine;
     }
     if ([session canAddInput:deviceInput]) {
         [session addInput:deviceInput];
-    }
-    else {
+    } else {
         NSLog(@"Could not add depth device input to the session");
         setupResult = NO;
         [session commitConfiguration];
@@ -225,13 +221,21 @@ using namespace InfiniTAM::Engine;
         // Output to capture queue for depth
         [depthOutput setDelegate:self callbackQueue:self.captureQueue];
         //    depthOutput.alwaysDiscardsLateDepthData = NO;  // deliver unprocessed old data as soon as possible.
-        //    depthOutput.filteringEnabled = NO;
-    }else {
+        depthOutput.filteringEnabled = NO;
+    } else {
         NSLog(@"Could not add depth output to the session");
         setupResult = NO;
         [session commitConfiguration];
         return;
     }
+    
+    // Select output depth video format (resolution).
+    NSArray* formats = device.activeFormat.supportedDepthDataFormats;
+    AVCaptureDeviceFormat* selectedFormat = formats[6]; // kCVPixelFormatType_DepthFloat16: 'dpth'/'hdep'  320x180, { 2- 30 fps}, HRSI: 640x 360, fov:67.564
+    [device lockForConfiguration:NULL];
+    device.activeDepthDataFormat = selectedFormat;
+    [device unlockForConfiguration];
+    NSLog(@"from front depth camera");
     
     [session commitConfiguration];
 }
@@ -378,24 +382,26 @@ using namespace InfiniTAM::Engine;
     else mainEngine->GetImage(result, ITMMainEngine::InfiniTAM_IMAGE_ORIGINAL_DEPTH);
     
     CGContextRef cgContext = CGBitmapContextCreate(result->GetData(MEMORYDEVICE_CPU), imageSize.x, imageSize.y, 8,
-                                                   4 * imageSize.x, rgbSpace, kCGImageAlphaNoneSkipLast);
+                                                     4 * imageSize.x, rgbSpace, kCGImageAlphaNoneSkipLast);
     CGImageRef cgImage = CGBitmapContextCreateImage(cgContext);  // copy original depth from memory to CGImageRef
-    
-    // Mirror rendered image if using front camera
-    CGAffineTransform mirrorTransform = CGAffineTransformMake(1, 0, 0, -1, 0, imageSize.y);
-    CGContextConcatCTM(cgContext, mirrorTransform);  // transforms the user coordinate system in a context using a specified matrix
-    CGContextDrawImage(cgContext, CGRectMake(0, 0, imageSize.x, imageSize.y), cgImage);  // draw cgImage to cgContext memory
-    CGImageRef cgImageMirrored = CGBitmapContextCreateImage(cgContext);  // copy mirrored cgImageMirrored from cgContext memory
+
+    // Mirror and rotate rendered image if using front camera in portrait interfaceOrientation.
+    CGContextScaleCTM(cgContext, 1.0, -1.0);
+    CGContextTranslateCTM(cgContext, 0.0, -imageSize.y);
+    CGContextRotateCTM(cgContext, 90.0/180.0*M_PI);  // rotate the user coordinate system
+    CGContextTranslateCTM(cgContext, 0.0, -imageSize.x);
+    CGContextDrawImage(cgContext, CGRectMake(0, 0, imageSize.y, imageSize.x), cgImage);  // draw cgImage to cgContext memory
+    CGImageRef cgImageTransformed = CGBitmapContextCreateImage(cgContext);  // copy mirrored cgImageMirrored from cgContext memory
     
     // After processing one frame in rendering_queue, callback and send notification to the main_queue.
     dispatch_sync(dispatch_get_main_queue(), ^{
-        self.renderView.layer.contents = (__bridge id)cgImageMirrored;
+        self.renderView.layer.contents = (__bridge id)cgImageTransformed;
         
         NSString *theValue = [NSString stringWithFormat:@"%5.4lf spf", totalProcessingTime / totalProcessedFrames];
         [self.tbOut setText:theValue];
     });
 
-    CGImageRelease(cgImageMirrored);
+    CGImageRelease(cgImageTransformed);
     CGImageRelease(cgImage);
     CGContextRelease(cgContext);
 }
