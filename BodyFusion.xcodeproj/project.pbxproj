@@ -668,7 +668,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6F7C0CB817F0EA0500692EC1 /* Build configuration list for PBXProject "InfiniTAM" */;
+			buildConfigurationList = 6F7C0CB817F0EA0500692EC1 /* Build configuration list for PBXProject "BodyFusion" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -838,7 +838,7 @@
 				INFOPLIST_FILE = "Viewer/InfiniTAM-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_PREPROCESSOR_DEFINITIONS = "COMPILE_WITHOUT_CUDA __METALC__";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shi.BodyFusion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanshi.BodyFusion;
 				PRODUCT_NAME = InfiniTAM;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -865,7 +865,7 @@
 				INFOPLIST_FILE = "Viewer/InfiniTAM-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_PREPROCESSOR_DEFINITIONS = "COMPILE_WITHOUT_CUDA __METALC__";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shi.BodyFusion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanshi.BodyFusion;
 				PRODUCT_NAME = InfiniTAM;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -875,7 +875,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6F7C0CB817F0EA0500692EC1 /* Build configuration list for PBXProject "InfiniTAM" */ = {
+		6F7C0CB817F0EA0500692EC1 /* Build configuration list for PBXProject "BodyFusion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F7C0CF217F0EA0500692EC1 /* Debug */,

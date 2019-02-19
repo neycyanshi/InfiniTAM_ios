@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:InfiniTAM.xcodeproj">
+      location = "self:/Users/gkw/Development/code/InfiniTAM_v2_ios9/BodyFusion.xcodeproj">
    </FileRef>
 </Workspace>
