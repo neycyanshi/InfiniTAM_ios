@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6F7C0CBC17F0EA0500692EC1"
-               BuildableName = "InfiniTAM.app"
-               BlueprintName = "InfiniTAM"
+               BuildableName = "BodyFusion.app"
+               BlueprintName = "BodyFusion"
                ReferencedContainer = "container:BodyFusion.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6F7C0CBC17F0EA0500692EC1"
-            BuildableName = "InfiniTAM.app"
-            BlueprintName = "InfiniTAM"
+            BuildableName = "BodyFusion.app"
+            BlueprintName = "BodyFusion"
             ReferencedContainer = "container:BodyFusion.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6F7C0CBC17F0EA0500692EC1"
-            BuildableName = "InfiniTAM.app"
-            BlueprintName = "InfiniTAM"
+            BuildableName = "BodyFusion.app"
+            BlueprintName = "BodyFusion"
             ReferencedContainer = "container:BodyFusion.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6F7C0CBC17F0EA0500692EC1"
-            BuildableName = "InfiniTAM.app"
-            BlueprintName = "InfiniTAM"
+            BuildableName = "BodyFusion.app"
+            BlueprintName = "BodyFusion"
             ReferencedContainer = "container:BodyFusion.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

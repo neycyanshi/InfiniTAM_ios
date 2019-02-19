@@ -7,90 +7,91 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01FAFAF21964A14700BF040D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01FAFAF11964A14700BF040D /* QuartzCore.framework */; };
-		1F73A01621F5EAA3008ABC26 /* Structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F73A01521F5EAA3008ABC26 /* Structure.framework */; };
-		2DFFE049199142E800761886 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFFE048199142E800761886 /* CoreMotion.framework */; };
-		431C6F5318455ABD00EDB38B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 431C6F5218455ABD00EDB38B /* AVFoundation.framework */; };
-		6F1239081862A59D00BD1D7A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1239071862A59D00BD1D7A /* Accelerate.framework */; };
-		6F12390A1862A5D300BD1D7A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1239091862A5D300BD1D7A /* ImageIO.framework */; };
-		6F2B4EDB1865324D00403B8C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC217F0EA0500692EC1 /* CoreGraphics.framework */; };
-		6F2B4EDD1865325D00403B8C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EDC1865325D00403B8C /* OpenGLES.framework */; };
-		6F2B4EDF1865326B00403B8C /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EDE1865326B00403B8C /* CoreImage.framework */; };
-		6F2B4EE1186532A500403B8C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EE0186532A500403B8C /* CoreMedia.framework */; };
-		6F2B4EE3186532CE00403B8C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EE2186532CE00403B8C /* CoreVideo.framework */; };
-		6F7C0CC117F0EA0500692EC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC017F0EA0500692EC1 /* Foundation.framework */; };
-		6F7C0CC517F0EA0500692EC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC417F0EA0500692EC1 /* UIKit.framework */; };
-		6F7C0CC717F0EA0500692EC1 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC617F0EA0500692EC1 /* ExternalAccessory.framework */; };
-		6F7C0CCD17F0EA0500692EC1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C0CCB17F0EA0500692EC1 /* InfoPlist.strings */; };
-		6F7C0CCF17F0EA0500692EC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C0CCE17F0EA0500692EC1 /* main.m */; };
-		6F7C0CD317F0EA0500692EC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C0CD217F0EA0500692EC1 /* AppDelegate.m */; };
-		6F7C0CDB17F0EA0500692EC1 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C0CDA17F0EA0500692EC1 /* ViewController.mm */; };
-		6F7C0CDE17F0EA0500692EC1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C0CDD17F0EA0500692EC1 /* Images.xcassets */; };
-		A626D7541A0F93660086B8BF /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A626D7531A0F93660086B8BF /* Metal.framework */; };
-		A626D7631A0F96F50086B8BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A626D7621A0F96F50086B8BF /* Main.storyboard */; };
-		A626D7651A0F98CF0086B8BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A626D7641A0F98CF0086B8BF /* LaunchScreen.xib */; };
-		A626D7E31A0F9A220086B8BF /* ImageSourceEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A626D7671A0F9A220086B8BF /* ImageSourceEngine.cpp */; };
-		A626D80B1A0F9A220086B8BF /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A626D7E11A0F9A220086B8BF /* FileUtils.cpp */; };
-		A62ECC4B1BB58439000CC25D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A62ECC4A1BB58439000CC25D /* libz.tbd */; };
-		A62ECD3E1BB59B98000CC25D /* Dummy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD321BB59B98000CC25D /* Dummy.cpp */; };
-		A62ECD3F1BB59B98000CC25D /* MetalContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD3A1BB59B98000CC25D /* MetalContext.mm */; };
-		A62ECDD51BB59BAC000CC25D /* ITMColorTracker_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD531BB59BAB000CC25D /* ITMColorTracker_CPU.cpp */; };
-		A62ECDD61BB59BAC000CC25D /* ITMDepthTracker_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD551BB59BAB000CC25D /* ITMDepthTracker_CPU.cpp */; };
-		A62ECDD71BB59BAC000CC25D /* ITMLowLevelEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD571BB59BAB000CC25D /* ITMLowLevelEngine_CPU.cpp */; };
-		A62ECDD81BB59BAC000CC25D /* ITMMeshingEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD591BB59BAB000CC25D /* ITMMeshingEngine_CPU.cpp */; };
-		A62ECDD91BB59BAC000CC25D /* ITMRenTracker_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD5B1BB59BAB000CC25D /* ITMRenTracker_CPU.cpp */; };
-		A62ECDDA1BB59BAC000CC25D /* ITMSceneReconstructionEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD5D1BB59BAB000CC25D /* ITMSceneReconstructionEngine_CPU.cpp */; };
-		A62ECDDB1BB59BAC000CC25D /* ITMSwappingEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD5F1BB59BAB000CC25D /* ITMSwappingEngine_CPU.cpp */; };
-		A62ECDDC1BB59BAC000CC25D /* ITMViewBuilder_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD611BB59BAB000CC25D /* ITMViewBuilder_CPU.cpp */; };
-		A62ECDDD1BB59BAC000CC25D /* ITMVisualisationEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD631BB59BAB000CC25D /* ITMVisualisationEngine_CPU.cpp */; };
-		A62ECDDE1BB59BAC000CC25D /* ITMWeightedICPTracker_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD651BB59BAB000CC25D /* ITMWeightedICPTracker_CPU.cpp */; };
-		A62ECDDF1BB59BAC000CC25D /* ITMColorTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD681BB59BAB000CC25D /* ITMColorTracker_CUDA.cu */; };
-		A62ECDE01BB59BAC000CC25D /* ITMDepthTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD6B1BB59BAB000CC25D /* ITMDepthTracker_CUDA.cu */; };
-		A62ECDE11BB59BAC000CC25D /* ITMLowLevelEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD6D1BB59BAB000CC25D /* ITMLowLevelEngine_CUDA.cu */; };
-		A62ECDE21BB59BAC000CC25D /* ITMMeshingEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD6F1BB59BAC000CC25D /* ITMMeshingEngine_CUDA.cu */; };
-		A62ECDE31BB59BAC000CC25D /* ITMRenTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD711BB59BAC000CC25D /* ITMRenTracker_CUDA.cu */; };
-		A62ECDE41BB59BAC000CC25D /* ITMSceneReconstructionEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD731BB59BAC000CC25D /* ITMSceneReconstructionEngine_CUDA.cu */; };
-		A62ECDE51BB59BAC000CC25D /* ITMSwappingEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD751BB59BAC000CC25D /* ITMSwappingEngine_CUDA.cu */; };
-		A62ECDE61BB59BAC000CC25D /* ITMViewBuilder_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD771BB59BAC000CC25D /* ITMViewBuilder_CUDA.cu */; };
-		A62ECDE71BB59BAC000CC25D /* ITMVisualisationEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD791BB59BAC000CC25D /* ITMVisualisationEngine_CUDA.cu */; };
-		A62ECDE81BB59BAC000CC25D /* ITMWeightedICPTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD7B1BB59BAC000CC25D /* ITMWeightedICPTracker_CUDA.cu */; };
-		A62ECDE91BB59BAC000CC25D /* ITMColorTracker.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD7E1BB59BAC000CC25D /* ITMColorTracker.metal */; };
-		A62ECDEA1BB59BAC000CC25D /* ITMColorTracker_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD801BB59BAC000CC25D /* ITMColorTracker_Metal.mm */; };
-		A62ECDEB1BB59BAC000CC25D /* ITMDepthTracker.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD811BB59BAC000CC25D /* ITMDepthTracker.metal */; };
-		A62ECDEC1BB59BAC000CC25D /* ITMDepthTracker_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD831BB59BAC000CC25D /* ITMDepthTracker_Metal.mm */; };
-		A62ECDED1BB59BAC000CC25D /* ITMLowLevelEngine.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD841BB59BAC000CC25D /* ITMLowLevelEngine.metal */; };
-		A62ECDEE1BB59BAC000CC25D /* ITMLowLevelEngine_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD861BB59BAC000CC25D /* ITMLowLevelEngine_Metal.mm */; };
-		A62ECDEF1BB59BAC000CC25D /* ITMRenTracker.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD871BB59BAC000CC25D /* ITMRenTracker.metal */; };
-		A62ECDF01BB59BAC000CC25D /* ITMRenTracker_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD891BB59BAC000CC25D /* ITMRenTracker_Metal.mm */; };
-		A62ECDF11BB59BAC000CC25D /* ITMSceneReconstructionEngine.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD8A1BB59BAC000CC25D /* ITMSceneReconstructionEngine.metal */; };
-		A62ECDF21BB59BAC000CC25D /* ITMSceneReconstructionEngine_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD8C1BB59BAC000CC25D /* ITMSceneReconstructionEngine_Metal.mm */; };
-		A62ECDF31BB59BAC000CC25D /* ITMSwappingEngine.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD8D1BB59BAC000CC25D /* ITMSwappingEngine.metal */; };
-		A62ECDF41BB59BAC000CC25D /* ITMSwappingEngine_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD8F1BB59BAC000CC25D /* ITMSwappingEngine_Metal.mm */; };
-		A62ECDF51BB59BAC000CC25D /* ITMViewBuilder.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD901BB59BAC000CC25D /* ITMViewBuilder.metal */; };
-		A62ECDF61BB59BAC000CC25D /* ITMViewBuilder_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD921BB59BAC000CC25D /* ITMViewBuilder_Metal.mm */; };
-		A62ECDF71BB59BAC000CC25D /* ITMVisualisationEngine.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD931BB59BAC000CC25D /* ITMVisualisationEngine.metal */; };
-		A62ECDF81BB59BAC000CC25D /* ITMVisualisationEngine_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD951BB59BAC000CC25D /* ITMVisualisationEngine_Metal.mm */; };
-		A62ECDF91BB59BAC000CC25D /* ITMColorTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD961BB59BAC000CC25D /* ITMColorTracker.cpp */; };
-		A62ECDFA1BB59BAC000CC25D /* ITMDenseMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD991BB59BAC000CC25D /* ITMDenseMapper.cpp */; };
-		A62ECDFB1BB59BAC000CC25D /* ITMDepthTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD9B1BB59BAC000CC25D /* ITMDepthTracker.cpp */; };
-		A62ECDFC1BB59BAC000CC25D /* ITMIMUTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD9E1BB59BAC000CC25D /* ITMIMUTracker.cpp */; };
-		A62ECDFD1BB59BAC000CC25D /* ITMMainEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDA11BB59BAC000CC25D /* ITMMainEngine.cpp */; };
-		A62ECDFE1BB59BAC000CC25D /* ITMRenTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDA41BB59BAC000CC25D /* ITMRenTracker.cpp */; };
-		A62ECDFF1BB59BAC000CC25D /* ITMTrackerFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDA91BB59BAC000CC25D /* ITMTrackerFactory.cpp */; };
-		A62ECE001BB59BAC000CC25D /* ITMTrackingController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDAB1BB59BAC000CC25D /* ITMTrackingController.cpp */; };
-		A62ECE011BB59BAC000CC25D /* ITMVisualisationEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDAE1BB59BAC000CC25D /* ITMVisualisationEngine.cpp */; };
-		A62ECE021BB59BAC000CC25D /* ITMWeightedICPTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDB01BB59BAC000CC25D /* ITMWeightedICPTracker.cpp */; };
-		A62ECE031BB59BAC000CC25D /* ITMPose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDBE1BB59BAC000CC25D /* ITMPose.cpp */; };
-		A62ECE041BB59BAC000CC25D /* ITMCalibIO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDCD1BB59BAC000CC25D /* ITMCalibIO.cpp */; };
-		A62ECE051BB59BAC000CC25D /* ITMLibSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDD01BB59BAC000CC25D /* ITMLibSettings.cpp */; };
-		A65A33E91A7BABA200F65FA2 /* IMUSourceEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A65A33E71A7BABA200F65FA2 /* IMUSourceEngine.cpp */; };
-		A68436821A1F9C190010E0C5 /* calib.txt in Resources */ = {isa = PBXBuildFile; fileRef = A68436811A1F9C190010E0C5 /* calib.txt */; };
-		A6CA7EF91A0FDE0C0070848F /* iPhone_Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CA7EF81A0FDE0C0070848F /* iPhone_Main.storyboard */; };
+		1FA62CF6221C59540064E62B /* ITMDepthTracker.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD811BB59BAC000CC25D /* ITMDepthTracker.metal */; };
+		1FA62CF7221C59540064E62B /* ITMTrackerFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDA91BB59BAC000CC25D /* ITMTrackerFactory.cpp */; };
+		1FA62CF8221C59540064E62B /* ITMColorTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD961BB59BAC000CC25D /* ITMColorTracker.cpp */; };
+		1FA62CF9221C59540064E62B /* ITMTrackingController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDAB1BB59BAC000CC25D /* ITMTrackingController.cpp */; };
+		1FA62CFA221C59540064E62B /* ITMSceneReconstructionEngine.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD8A1BB59BAC000CC25D /* ITMSceneReconstructionEngine.metal */; };
+		1FA62CFB221C59540064E62B /* ImageSourceEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A626D7671A0F9A220086B8BF /* ImageSourceEngine.cpp */; };
+		1FA62CFC221C59540064E62B /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C0CDA17F0EA0500692EC1 /* ViewController.mm */; };
+		1FA62CFD221C59540064E62B /* ITMRenTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDA41BB59BAC000CC25D /* ITMRenTracker.cpp */; };
+		1FA62CFE221C59540064E62B /* ITMColorTracker_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD531BB59BAB000CC25D /* ITMColorTracker_CPU.cpp */; };
+		1FA62CFF221C59540064E62B /* IMUSourceEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A65A33E71A7BABA200F65FA2 /* IMUSourceEngine.cpp */; };
+		1FA62D00221C59540064E62B /* ITMWeightedICPTracker_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD651BB59BAB000CC25D /* ITMWeightedICPTracker_CPU.cpp */; };
+		1FA62D01221C59540064E62B /* ITMDepthTracker_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD551BB59BAB000CC25D /* ITMDepthTracker_CPU.cpp */; };
+		1FA62D02221C59540064E62B /* ITMVisualisationEngine.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD931BB59BAC000CC25D /* ITMVisualisationEngine.metal */; };
+		1FA62D03221C59540064E62B /* Dummy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD321BB59B98000CC25D /* Dummy.cpp */; };
+		1FA62D04221C59540064E62B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C0CD217F0EA0500692EC1 /* AppDelegate.m */; };
+		1FA62D05221C59540064E62B /* ITMSwappingEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD5F1BB59BAB000CC25D /* ITMSwappingEngine_CPU.cpp */; };
+		1FA62D06221C59540064E62B /* ITMRenTracker_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD5B1BB59BAB000CC25D /* ITMRenTracker_CPU.cpp */; };
+		1FA62D07221C59540064E62B /* ITMVisualisationEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDAE1BB59BAC000CC25D /* ITMVisualisationEngine.cpp */; };
+		1FA62D08221C59540064E62B /* ITMMeshingEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD591BB59BAB000CC25D /* ITMMeshingEngine_CPU.cpp */; };
+		1FA62D09221C59540064E62B /* ITMDepthTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD9B1BB59BAC000CC25D /* ITMDepthTracker.cpp */; };
+		1FA62D0A221C59540064E62B /* ITMColorTracker_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD801BB59BAC000CC25D /* ITMColorTracker_Metal.mm */; };
+		1FA62D0B221C59540064E62B /* ITMViewBuilder_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD611BB59BAB000CC25D /* ITMViewBuilder_CPU.cpp */; };
+		1FA62D0C221C59540064E62B /* ITMDenseMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD991BB59BAC000CC25D /* ITMDenseMapper.cpp */; };
+		1FA62D0D221C59540064E62B /* ITMSwappingEngine.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD8D1BB59BAC000CC25D /* ITMSwappingEngine.metal */; };
+		1FA62D0E221C59540064E62B /* ITMCalibIO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDCD1BB59BAC000CC25D /* ITMCalibIO.cpp */; };
+		1FA62D0F221C59540064E62B /* ITMLibSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDD01BB59BAC000CC25D /* ITMLibSettings.cpp */; };
+		1FA62D10221C59540064E62B /* ITMSceneReconstructionEngine_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD8C1BB59BAC000CC25D /* ITMSceneReconstructionEngine_Metal.mm */; };
+		1FA62D11221C59540064E62B /* ITMLowLevelEngine_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD861BB59BAC000CC25D /* ITMLowLevelEngine_Metal.mm */; };
+		1FA62D12221C59540064E62B /* ITMVisualisationEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD631BB59BAB000CC25D /* ITMVisualisationEngine_CPU.cpp */; };
+		1FA62D13221C59540064E62B /* ITMIMUTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD9E1BB59BAC000CC25D /* ITMIMUTracker.cpp */; };
+		1FA62D14221C59540064E62B /* ITMLowLevelEngine.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD841BB59BAC000CC25D /* ITMLowLevelEngine.metal */; };
+		1FA62D15221C59540064E62B /* ITMWeightedICPTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDB01BB59BAC000CC25D /* ITMWeightedICPTracker.cpp */; };
+		1FA62D16221C59540064E62B /* ITMPose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDBE1BB59BAC000CC25D /* ITMPose.cpp */; };
+		1FA62D17221C59540064E62B /* ITMLowLevelEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD571BB59BAB000CC25D /* ITMLowLevelEngine_CPU.cpp */; };
+		1FA62D18221C59540064E62B /* ITMViewBuilder.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD901BB59BAC000CC25D /* ITMViewBuilder.metal */; };
+		1FA62D19221C59540064E62B /* ITMColorTracker.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD7E1BB59BAC000CC25D /* ITMColorTracker.metal */; };
+		1FA62D1A221C59540064E62B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C0CCE17F0EA0500692EC1 /* main.m */; };
+		1FA62D1B221C59540064E62B /* ITMRenTracker.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD871BB59BAC000CC25D /* ITMRenTracker.metal */; };
+		1FA62D1C221C59540064E62B /* ITMMainEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDA11BB59BAC000CC25D /* ITMMainEngine.cpp */; };
+		1FA62D1D221C59540064E62B /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A626D7E11A0F9A220086B8BF /* FileUtils.cpp */; };
+		1FA62D1E221C59540064E62B /* ITMSceneReconstructionEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD5D1BB59BAB000CC25D /* ITMSceneReconstructionEngine_CPU.cpp */; };
+		1FA62D1F221C59540064E62B /* ITMRenTracker_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD891BB59BAC000CC25D /* ITMRenTracker_Metal.mm */; };
+		1FA62D20221C59540064E62B /* MetalContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD3A1BB59B98000CC25D /* MetalContext.mm */; };
+		1FA62D21221C59540064E62B /* ITMVisualisationEngine_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD951BB59BAC000CC25D /* ITMVisualisationEngine_Metal.mm */; };
+		1FA62D22221C59540064E62B /* ITMViewBuilder_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD921BB59BAC000CC25D /* ITMViewBuilder_Metal.mm */; };
+		1FA62D23221C59540064E62B /* ITMDepthTracker_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD831BB59BAC000CC25D /* ITMDepthTracker_Metal.mm */; };
+		1FA62D24221C59540064E62B /* ITMSwappingEngine_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD8F1BB59BAC000CC25D /* ITMSwappingEngine_Metal.mm */; };
+		1FA62D26221C59540064E62B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A62ECC4A1BB58439000CC25D /* libz.tbd */; };
+		1FA62D27221C59540064E62B /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A626D7531A0F93660086B8BF /* Metal.framework */; };
+		1FA62D28221C59540064E62B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFFE048199142E800761886 /* CoreMotion.framework */; };
+		1FA62D29221C59540064E62B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01FAFAF11964A14700BF040D /* QuartzCore.framework */; };
+		1FA62D2A221C59540064E62B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC017F0EA0500692EC1 /* Foundation.framework */; };
+		1FA62D2B221C59540064E62B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 431C6F5218455ABD00EDB38B /* AVFoundation.framework */; };
+		1FA62D2C221C59540064E62B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1239071862A59D00BD1D7A /* Accelerate.framework */; };
+		1FA62D2D221C59540064E62B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EDC1865325D00403B8C /* OpenGLES.framework */; };
+		1FA62D2E221C59540064E62B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1239091862A5D300BD1D7A /* ImageIO.framework */; };
+		1FA62D2F221C59540064E62B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EE0186532A500403B8C /* CoreMedia.framework */; };
+		1FA62D30221C59540064E62B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC217F0EA0500692EC1 /* CoreGraphics.framework */; };
+		1FA62D31221C59540064E62B /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EDE1865326B00403B8C /* CoreImage.framework */; };
+		1FA62D32221C59540064E62B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EE2186532CE00403B8C /* CoreVideo.framework */; };
+		1FA62D33221C59540064E62B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC417F0EA0500692EC1 /* UIKit.framework */; };
+		1FA62D34221C59540064E62B /* Structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F73A01521F5EAA3008ABC26 /* Structure.framework */; };
+		1FA62D35221C59540064E62B /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC617F0EA0500692EC1 /* ExternalAccessory.framework */; };
+		1FA62D37221C59540064E62B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A626D7641A0F98CF0086B8BF /* LaunchScreen.xib */; };
+		1FA62D38221C59540064E62B /* ITMLowLevelEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD6D1BB59BAB000CC25D /* ITMLowLevelEngine_CUDA.cu */; };
+		1FA62D39221C59540064E62B /* calib.txt in Resources */ = {isa = PBXBuildFile; fileRef = A68436811A1F9C190010E0C5 /* calib.txt */; };
+		1FA62D3A221C59540064E62B /* ITMMeshingEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD6F1BB59BAC000CC25D /* ITMMeshingEngine_CUDA.cu */; };
+		1FA62D3B221C59540064E62B /* ITMSwappingEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD751BB59BAC000CC25D /* ITMSwappingEngine_CUDA.cu */; };
+		1FA62D3C221C59540064E62B /* ITMVisualisationEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD791BB59BAC000CC25D /* ITMVisualisationEngine_CUDA.cu */; };
+		1FA62D3D221C59540064E62B /* ITMColorTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD681BB59BAB000CC25D /* ITMColorTracker_CUDA.cu */; };
+		1FA62D3E221C59540064E62B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C0CCB17F0EA0500692EC1 /* InfoPlist.strings */; };
+		1FA62D3F221C59540064E62B /* iPhone_Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CA7EF81A0FDE0C0070848F /* iPhone_Main.storyboard */; };
+		1FA62D40221C59540064E62B /* ITMDepthTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD6B1BB59BAB000CC25D /* ITMDepthTracker_CUDA.cu */; };
+		1FA62D41221C59540064E62B /* ITMSceneReconstructionEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD731BB59BAC000CC25D /* ITMSceneReconstructionEngine_CUDA.cu */; };
+		1FA62D42221C59540064E62B /* ITMRenTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD711BB59BAC000CC25D /* ITMRenTracker_CUDA.cu */; };
+		1FA62D43221C59540064E62B /* ITMWeightedICPTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD7B1BB59BAC000CC25D /* ITMWeightedICPTracker_CUDA.cu */; };
+		1FA62D44221C59540064E62B /* ITMViewBuilder_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD771BB59BAC000CC25D /* ITMViewBuilder_CUDA.cu */; };
+		1FA62D45221C59540064E62B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C0CDD17F0EA0500692EC1 /* Images.xcassets */; };
+		1FA62D46221C59540064E62B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A626D7621A0F96F50086B8BF /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01FAFAF11964A14700BF040D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1F73A01521F5EAA3008ABC26 /* Structure.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Structure.framework; path = Frameworks/Structure.framework; sourceTree = "<group>"; };
+		1FA62D4A221C59540064E62B /* BodyFusion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodyFusion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFFE048199142E800761886 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		431C6F5218455ABD00EDB38B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6F1239071862A59D00BD1D7A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -99,15 +100,14 @@
 		6F2B4EDE1865326B00403B8C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		6F2B4EE0186532A500403B8C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		6F2B4EE2186532CE00403B8C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		6F7C0CBD17F0EA0500692EC1 /* InfiniTAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniTAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F7C0CC017F0EA0500692EC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6F7C0CC217F0EA0500692EC1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6F7C0CC417F0EA0500692EC1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F7C0CC617F0EA0500692EC1 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
-		6F7C0CCA17F0EA0500692EC1 /* InfiniTAM-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InfiniTAM-Info.plist"; sourceTree = "<group>"; };
+		6F7C0CCA17F0EA0500692EC1 /* BodyFusion-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BodyFusion-Info.plist"; sourceTree = "<group>"; };
 		6F7C0CCC17F0EA0500692EC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6F7C0CCE17F0EA0500692EC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6F7C0CD017F0EA0500692EC1 /* InfiniTAM-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InfiniTAM-Prefix.pch"; sourceTree = "<group>"; };
+		6F7C0CD017F0EA0500692EC1 /* BodyFusion-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BodyFusion-Prefix.pch"; sourceTree = "<group>"; };
 		6F7C0CD117F0EA0500692EC1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6F7C0CD217F0EA0500692EC1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6F7C0CDA17F0EA0500692EC1 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
@@ -273,31 +273,31 @@
 		A65A33E71A7BABA200F65FA2 /* IMUSourceEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSourceEngine.cpp; sourceTree = "<group>"; };
 		A65A33E81A7BABA200F65FA2 /* IMUSourceEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSourceEngine.h; sourceTree = "<group>"; };
 		A68436811A1F9C190010E0C5 /* calib.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calib.txt; sourceTree = "<group>"; };
-		A68436831A1F9C430010E0C5 /* InfiniTAM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = InfiniTAM.entitlements; path = ../InfiniTAM.entitlements; sourceTree = "<group>"; };
+		A68436831A1F9C430010E0C5 /* BodyFusion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = BodyFusion.entitlements; path = ../BodyFusion.entitlements; sourceTree = "<group>"; };
 		A6CA7EF81A0FDE0C0070848F /* iPhone_Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6F7C0CBA17F0EA0500692EC1 /* Frameworks */ = {
+		1FA62D25221C59540064E62B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A62ECC4B1BB58439000CC25D /* libz.tbd in Frameworks */,
-				A626D7541A0F93660086B8BF /* Metal.framework in Frameworks */,
-				2DFFE049199142E800761886 /* CoreMotion.framework in Frameworks */,
-				01FAFAF21964A14700BF040D /* QuartzCore.framework in Frameworks */,
-				6F7C0CC117F0EA0500692EC1 /* Foundation.framework in Frameworks */,
-				431C6F5318455ABD00EDB38B /* AVFoundation.framework in Frameworks */,
-				6F1239081862A59D00BD1D7A /* Accelerate.framework in Frameworks */,
-				6F2B4EDD1865325D00403B8C /* OpenGLES.framework in Frameworks */,
-				6F12390A1862A5D300BD1D7A /* ImageIO.framework in Frameworks */,
-				6F2B4EE1186532A500403B8C /* CoreMedia.framework in Frameworks */,
-				6F2B4EDB1865324D00403B8C /* CoreGraphics.framework in Frameworks */,
-				6F2B4EDF1865326B00403B8C /* CoreImage.framework in Frameworks */,
-				6F2B4EE3186532CE00403B8C /* CoreVideo.framework in Frameworks */,
-				6F7C0CC517F0EA0500692EC1 /* UIKit.framework in Frameworks */,
-				1F73A01621F5EAA3008ABC26 /* Structure.framework in Frameworks */,
-				6F7C0CC717F0EA0500692EC1 /* ExternalAccessory.framework in Frameworks */,
+				1FA62D26221C59540064E62B /* libz.tbd in Frameworks */,
+				1FA62D27221C59540064E62B /* Metal.framework in Frameworks */,
+				1FA62D28221C59540064E62B /* CoreMotion.framework in Frameworks */,
+				1FA62D29221C59540064E62B /* QuartzCore.framework in Frameworks */,
+				1FA62D2A221C59540064E62B /* Foundation.framework in Frameworks */,
+				1FA62D2B221C59540064E62B /* AVFoundation.framework in Frameworks */,
+				1FA62D2C221C59540064E62B /* Accelerate.framework in Frameworks */,
+				1FA62D2D221C59540064E62B /* OpenGLES.framework in Frameworks */,
+				1FA62D2E221C59540064E62B /* ImageIO.framework in Frameworks */,
+				1FA62D2F221C59540064E62B /* CoreMedia.framework in Frameworks */,
+				1FA62D30221C59540064E62B /* CoreGraphics.framework in Frameworks */,
+				1FA62D31221C59540064E62B /* CoreImage.framework in Frameworks */,
+				1FA62D32221C59540064E62B /* CoreVideo.framework in Frameworks */,
+				1FA62D33221C59540064E62B /* UIKit.framework in Frameworks */,
+				1FA62D34221C59540064E62B /* Structure.framework in Frameworks */,
+				1FA62D35221C59540064E62B /* ExternalAccessory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +317,7 @@
 		6F7C0CBE17F0EA0500692EC1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6F7C0CBD17F0EA0500692EC1 /* InfiniTAM.app */,
+				1FA62D4A221C59540064E62B /* BodyFusion.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -365,14 +365,14 @@
 		6F7C0CC917F0EA0500692EC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A68436831A1F9C430010E0C5 /* InfiniTAM.entitlements */,
+				A68436831A1F9C430010E0C5 /* BodyFusion.entitlements */,
 				A626D7641A0F98CF0086B8BF /* LaunchScreen.xib */,
 				A626D7621A0F96F50086B8BF /* Main.storyboard */,
 				A6CA7EF81A0FDE0C0070848F /* iPhone_Main.storyboard */,
 				6F7C0CDD17F0EA0500692EC1 /* Images.xcassets */,
 				6F7C0CCB17F0EA0500692EC1 /* InfoPlist.strings */,
-				6F7C0CCA17F0EA0500692EC1 /* InfiniTAM-Info.plist */,
-				6F7C0CD017F0EA0500692EC1 /* InfiniTAM-Prefix.pch */,
+				6F7C0CCA17F0EA0500692EC1 /* BodyFusion-Info.plist */,
+				6F7C0CD017F0EA0500692EC1 /* BodyFusion-Prefix.pch */,
 				6F7C0CCE17F0EA0500692EC1 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -637,21 +637,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6F7C0CBC17F0EA0500692EC1 /* InfiniTAM */ = {
+		1FA62CF4221C59540064E62B /* BodyFusion */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6F7C0CF417F0EA0500692EC1 /* Build configuration list for PBXNativeTarget "InfiniTAM" */;
+			buildConfigurationList = 1FA62D47221C59540064E62B /* Build configuration list for PBXNativeTarget "BodyFusion" */;
 			buildPhases = (
-				6F7C0CB917F0EA0500692EC1 /* Sources */,
-				6F7C0CBA17F0EA0500692EC1 /* Frameworks */,
-				6F7C0CBB17F0EA0500692EC1 /* Resources */,
+				1FA62CF5221C59540064E62B /* Sources */,
+				1FA62D25221C59540064E62B /* Frameworks */,
+				1FA62D36221C59540064E62B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = InfiniTAM;
+			name = BodyFusion;
 			productName = DepthViewer;
-			productReference = 6F7C0CBD17F0EA0500692EC1 /* InfiniTAM.app */;
+			productReference = 1FA62D4A221C59540064E62B /* BodyFusion.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -663,7 +663,7 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Occipital;
 				TargetAttributes = {
-					6F7C0CBC17F0EA0500692EC1 = {
+					1FA62CF4221C59540064E62B = {
 						DevelopmentTeam = JT6G548J8N;
 					};
 				};
@@ -680,89 +680,89 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6F7C0CBC17F0EA0500692EC1 /* InfiniTAM */,
+				1FA62CF4221C59540064E62B /* BodyFusion */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6F7C0CBB17F0EA0500692EC1 /* Resources */ = {
+		1FA62D36221C59540064E62B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A626D7651A0F98CF0086B8BF /* LaunchScreen.xib in Resources */,
-				A62ECDE11BB59BAC000CC25D /* ITMLowLevelEngine_CUDA.cu in Resources */,
-				A62ECDE21BB59BAC000CC25D /* ITMMeshingEngine_CUDA.cu in Resources */,
-				A62ECDE51BB59BAC000CC25D /* ITMSwappingEngine_CUDA.cu in Resources */,
-				A62ECDE71BB59BAC000CC25D /* ITMVisualisationEngine_CUDA.cu in Resources */,
-				A62ECDDF1BB59BAC000CC25D /* ITMColorTracker_CUDA.cu in Resources */,
-				6F7C0CCD17F0EA0500692EC1 /* InfoPlist.strings in Resources */,
-				A6CA7EF91A0FDE0C0070848F /* iPhone_Main.storyboard in Resources */,
-				A62ECDE01BB59BAC000CC25D /* ITMDepthTracker_CUDA.cu in Resources */,
-				A62ECDE41BB59BAC000CC25D /* ITMSceneReconstructionEngine_CUDA.cu in Resources */,
-				A62ECDE31BB59BAC000CC25D /* ITMRenTracker_CUDA.cu in Resources */,
-				A68436821A1F9C190010E0C5 /* calib.txt in Resources */,
-				A62ECDE81BB59BAC000CC25D /* ITMWeightedICPTracker_CUDA.cu in Resources */,
-				A62ECDE61BB59BAC000CC25D /* ITMViewBuilder_CUDA.cu in Resources */,
-				6F7C0CDE17F0EA0500692EC1 /* Images.xcassets in Resources */,
-				A626D7631A0F96F50086B8BF /* Main.storyboard in Resources */,
+				1FA62D37221C59540064E62B /* LaunchScreen.xib in Resources */,
+				1FA62D38221C59540064E62B /* ITMLowLevelEngine_CUDA.cu in Resources */,
+				1FA62D39221C59540064E62B /* calib.txt in Resources */,
+				1FA62D3A221C59540064E62B /* ITMMeshingEngine_CUDA.cu in Resources */,
+				1FA62D3B221C59540064E62B /* ITMSwappingEngine_CUDA.cu in Resources */,
+				1FA62D3C221C59540064E62B /* ITMVisualisationEngine_CUDA.cu in Resources */,
+				1FA62D3D221C59540064E62B /* ITMColorTracker_CUDA.cu in Resources */,
+				1FA62D3E221C59540064E62B /* InfoPlist.strings in Resources */,
+				1FA62D3F221C59540064E62B /* iPhone_Main.storyboard in Resources */,
+				1FA62D40221C59540064E62B /* ITMDepthTracker_CUDA.cu in Resources */,
+				1FA62D41221C59540064E62B /* ITMSceneReconstructionEngine_CUDA.cu in Resources */,
+				1FA62D42221C59540064E62B /* ITMRenTracker_CUDA.cu in Resources */,
+				1FA62D43221C59540064E62B /* ITMWeightedICPTracker_CUDA.cu in Resources */,
+				1FA62D44221C59540064E62B /* ITMViewBuilder_CUDA.cu in Resources */,
+				1FA62D45221C59540064E62B /* Images.xcassets in Resources */,
+				1FA62D46221C59540064E62B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6F7C0CB917F0EA0500692EC1 /* Sources */ = {
+		1FA62CF5221C59540064E62B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A62ECDEB1BB59BAC000CC25D /* ITMDepthTracker.metal in Sources */,
-				A62ECDFF1BB59BAC000CC25D /* ITMTrackerFactory.cpp in Sources */,
-				A62ECDF91BB59BAC000CC25D /* ITMColorTracker.cpp in Sources */,
-				A62ECE001BB59BAC000CC25D /* ITMTrackingController.cpp in Sources */,
-				A62ECDF11BB59BAC000CC25D /* ITMSceneReconstructionEngine.metal in Sources */,
-				A626D7E31A0F9A220086B8BF /* ImageSourceEngine.cpp in Sources */,
-				6F7C0CDB17F0EA0500692EC1 /* ViewController.mm in Sources */,
-				A62ECDFE1BB59BAC000CC25D /* ITMRenTracker.cpp in Sources */,
-				A62ECDD51BB59BAC000CC25D /* ITMColorTracker_CPU.cpp in Sources */,
-				A65A33E91A7BABA200F65FA2 /* IMUSourceEngine.cpp in Sources */,
-				A62ECDDE1BB59BAC000CC25D /* ITMWeightedICPTracker_CPU.cpp in Sources */,
-				A62ECDD61BB59BAC000CC25D /* ITMDepthTracker_CPU.cpp in Sources */,
-				A62ECDF71BB59BAC000CC25D /* ITMVisualisationEngine.metal in Sources */,
-				A62ECD3E1BB59B98000CC25D /* Dummy.cpp in Sources */,
-				6F7C0CD317F0EA0500692EC1 /* AppDelegate.m in Sources */,
-				A62ECDDB1BB59BAC000CC25D /* ITMSwappingEngine_CPU.cpp in Sources */,
-				A62ECDD91BB59BAC000CC25D /* ITMRenTracker_CPU.cpp in Sources */,
-				A62ECE011BB59BAC000CC25D /* ITMVisualisationEngine.cpp in Sources */,
-				A62ECDD81BB59BAC000CC25D /* ITMMeshingEngine_CPU.cpp in Sources */,
-				A62ECDFB1BB59BAC000CC25D /* ITMDepthTracker.cpp in Sources */,
-				A62ECDEA1BB59BAC000CC25D /* ITMColorTracker_Metal.mm in Sources */,
-				A62ECDDC1BB59BAC000CC25D /* ITMViewBuilder_CPU.cpp in Sources */,
-				A62ECDFA1BB59BAC000CC25D /* ITMDenseMapper.cpp in Sources */,
-				A62ECDF31BB59BAC000CC25D /* ITMSwappingEngine.metal in Sources */,
-				A62ECE041BB59BAC000CC25D /* ITMCalibIO.cpp in Sources */,
-				A62ECE051BB59BAC000CC25D /* ITMLibSettings.cpp in Sources */,
-				A62ECDF21BB59BAC000CC25D /* ITMSceneReconstructionEngine_Metal.mm in Sources */,
-				A62ECDEE1BB59BAC000CC25D /* ITMLowLevelEngine_Metal.mm in Sources */,
-				A62ECDDD1BB59BAC000CC25D /* ITMVisualisationEngine_CPU.cpp in Sources */,
-				A62ECDFC1BB59BAC000CC25D /* ITMIMUTracker.cpp in Sources */,
-				A62ECDED1BB59BAC000CC25D /* ITMLowLevelEngine.metal in Sources */,
-				A62ECE021BB59BAC000CC25D /* ITMWeightedICPTracker.cpp in Sources */,
-				A62ECE031BB59BAC000CC25D /* ITMPose.cpp in Sources */,
-				A62ECDD71BB59BAC000CC25D /* ITMLowLevelEngine_CPU.cpp in Sources */,
-				A62ECDF51BB59BAC000CC25D /* ITMViewBuilder.metal in Sources */,
-				A62ECDE91BB59BAC000CC25D /* ITMColorTracker.metal in Sources */,
-				6F7C0CCF17F0EA0500692EC1 /* main.m in Sources */,
-				A62ECDEF1BB59BAC000CC25D /* ITMRenTracker.metal in Sources */,
-				A62ECDFD1BB59BAC000CC25D /* ITMMainEngine.cpp in Sources */,
-				A626D80B1A0F9A220086B8BF /* FileUtils.cpp in Sources */,
-				A62ECDDA1BB59BAC000CC25D /* ITMSceneReconstructionEngine_CPU.cpp in Sources */,
-				A62ECDF01BB59BAC000CC25D /* ITMRenTracker_Metal.mm in Sources */,
-				A62ECD3F1BB59B98000CC25D /* MetalContext.mm in Sources */,
-				A62ECDF81BB59BAC000CC25D /* ITMVisualisationEngine_Metal.mm in Sources */,
-				A62ECDF61BB59BAC000CC25D /* ITMViewBuilder_Metal.mm in Sources */,
-				A62ECDEC1BB59BAC000CC25D /* ITMDepthTracker_Metal.mm in Sources */,
-				A62ECDF41BB59BAC000CC25D /* ITMSwappingEngine_Metal.mm in Sources */,
+				1FA62CF6221C59540064E62B /* ITMDepthTracker.metal in Sources */,
+				1FA62CF7221C59540064E62B /* ITMTrackerFactory.cpp in Sources */,
+				1FA62CF8221C59540064E62B /* ITMColorTracker.cpp in Sources */,
+				1FA62CF9221C59540064E62B /* ITMTrackingController.cpp in Sources */,
+				1FA62CFA221C59540064E62B /* ITMSceneReconstructionEngine.metal in Sources */,
+				1FA62CFB221C59540064E62B /* ImageSourceEngine.cpp in Sources */,
+				1FA62CFC221C59540064E62B /* ViewController.mm in Sources */,
+				1FA62CFD221C59540064E62B /* ITMRenTracker.cpp in Sources */,
+				1FA62CFE221C59540064E62B /* ITMColorTracker_CPU.cpp in Sources */,
+				1FA62CFF221C59540064E62B /* IMUSourceEngine.cpp in Sources */,
+				1FA62D00221C59540064E62B /* ITMWeightedICPTracker_CPU.cpp in Sources */,
+				1FA62D01221C59540064E62B /* ITMDepthTracker_CPU.cpp in Sources */,
+				1FA62D02221C59540064E62B /* ITMVisualisationEngine.metal in Sources */,
+				1FA62D03221C59540064E62B /* Dummy.cpp in Sources */,
+				1FA62D04221C59540064E62B /* AppDelegate.m in Sources */,
+				1FA62D05221C59540064E62B /* ITMSwappingEngine_CPU.cpp in Sources */,
+				1FA62D06221C59540064E62B /* ITMRenTracker_CPU.cpp in Sources */,
+				1FA62D07221C59540064E62B /* ITMVisualisationEngine.cpp in Sources */,
+				1FA62D08221C59540064E62B /* ITMMeshingEngine_CPU.cpp in Sources */,
+				1FA62D09221C59540064E62B /* ITMDepthTracker.cpp in Sources */,
+				1FA62D0A221C59540064E62B /* ITMColorTracker_Metal.mm in Sources */,
+				1FA62D0B221C59540064E62B /* ITMViewBuilder_CPU.cpp in Sources */,
+				1FA62D0C221C59540064E62B /* ITMDenseMapper.cpp in Sources */,
+				1FA62D0D221C59540064E62B /* ITMSwappingEngine.metal in Sources */,
+				1FA62D0E221C59540064E62B /* ITMCalibIO.cpp in Sources */,
+				1FA62D0F221C59540064E62B /* ITMLibSettings.cpp in Sources */,
+				1FA62D10221C59540064E62B /* ITMSceneReconstructionEngine_Metal.mm in Sources */,
+				1FA62D11221C59540064E62B /* ITMLowLevelEngine_Metal.mm in Sources */,
+				1FA62D12221C59540064E62B /* ITMVisualisationEngine_CPU.cpp in Sources */,
+				1FA62D13221C59540064E62B /* ITMIMUTracker.cpp in Sources */,
+				1FA62D14221C59540064E62B /* ITMLowLevelEngine.metal in Sources */,
+				1FA62D15221C59540064E62B /* ITMWeightedICPTracker.cpp in Sources */,
+				1FA62D16221C59540064E62B /* ITMPose.cpp in Sources */,
+				1FA62D17221C59540064E62B /* ITMLowLevelEngine_CPU.cpp in Sources */,
+				1FA62D18221C59540064E62B /* ITMViewBuilder.metal in Sources */,
+				1FA62D19221C59540064E62B /* ITMColorTracker.metal in Sources */,
+				1FA62D1A221C59540064E62B /* main.m in Sources */,
+				1FA62D1B221C59540064E62B /* ITMRenTracker.metal in Sources */,
+				1FA62D1C221C59540064E62B /* ITMMainEngine.cpp in Sources */,
+				1FA62D1D221C59540064E62B /* FileUtils.cpp in Sources */,
+				1FA62D1E221C59540064E62B /* ITMSceneReconstructionEngine_CPU.cpp in Sources */,
+				1FA62D1F221C59540064E62B /* ITMRenTracker_Metal.mm in Sources */,
+				1FA62D20221C59540064E62B /* MetalContext.mm in Sources */,
+				1FA62D21221C59540064E62B /* ITMVisualisationEngine_Metal.mm in Sources */,
+				1FA62D22221C59540064E62B /* ITMViewBuilder_Metal.mm in Sources */,
+				1FA62D23221C59540064E62B /* ITMDepthTracker_Metal.mm in Sources */,
+				1FA62D24221C59540064E62B /* ITMSwappingEngine_Metal.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +780,60 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1FA62D48221C59540064E62B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BodyFusion.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Viewer/BodyFusion-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					COMPILE_WITHOUT_CUDA,
+					COMPILE_WITH_METAL,
+				);
+				INFOPLIST_FILE = "Viewer/BodyFusion-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_PREPROCESSOR_DEFINITIONS = "COMPILE_WITHOUT_CUDA __METALC__";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanshi.BodyFusion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		1FA62D49221C59540064E62B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BodyFusion.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Viewer/BodyFusion-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					COMPILE_WITHOUT_CUDA,
+					COMPILE_WITH_METAL,
+				);
+				INFOPLIST_FILE = "Viewer/BodyFusion-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_PREPROCESSOR_DEFINITIONS = "COMPILE_WITHOUT_CUDA __METALC__";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanshi.BodyFusion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		6F7C0CF217F0EA0500692EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -818,77 +872,23 @@
 			};
 			name = Release;
 		};
-		6F7C0CF517F0EA0500692EC1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = InfiniTAM.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Viewer/InfiniTAM-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					COMPILE_WITHOUT_CUDA,
-					COMPILE_WITH_METAL,
-				);
-				INFOPLIST_FILE = "Viewer/InfiniTAM-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MTL_PREPROCESSOR_DEFINITIONS = "COMPILE_WITHOUT_CUDA __METALC__";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yanshi.BodyFusion;
-				PRODUCT_NAME = InfiniTAM;
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		6F7C0CF617F0EA0500692EC1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = InfiniTAM.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Viewer/InfiniTAM-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					COMPILE_WITHOUT_CUDA,
-					COMPILE_WITH_METAL,
-				);
-				INFOPLIST_FILE = "Viewer/InfiniTAM-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MTL_PREPROCESSOR_DEFINITIONS = "COMPILE_WITHOUT_CUDA __METALC__";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yanshi.BodyFusion;
-				PRODUCT_NAME = InfiniTAM;
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1FA62D47221C59540064E62B /* Build configuration list for PBXNativeTarget "BodyFusion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FA62D48221C59540064E62B /* Debug */,
+				1FA62D49221C59540064E62B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6F7C0CB817F0EA0500692EC1 /* Build configuration list for PBXProject "BodyFusion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F7C0CF217F0EA0500692EC1 /* Debug */,
 				6F7C0CF317F0EA0500692EC1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6F7C0CF417F0EA0500692EC1 /* Build configuration list for PBXNativeTarget "InfiniTAM" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6F7C0CF517F0EA0500692EC1 /* Debug */,
-				6F7C0CF617F0EA0500692EC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -12,3 +12,5 @@
 
 iphone 1.0 0.0
 
+# no need to add this calibration file for iphone
+
