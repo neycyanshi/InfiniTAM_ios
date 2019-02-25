@@ -262,6 +262,7 @@ using namespace InfiniTAM::Engine;
 
     if (!setupResult)
     {
+        // Offline Process
         char calibFile[2000];
         sprintf(calibFile, "%s/Teddy/calib.txt", documentsPath);
         
@@ -278,7 +279,7 @@ using namespace InfiniTAM::Engine;
         inputRawDepthImage = new ITMShortImage(imageSource->getDepthImageSize(), true, false);
         imuSource = new IMUSourceEngine(imageSource_part3);
         
-        [_tbOut setText:@"from file"];
+        [self.tbOut setText:@"from file"];
         
         usingSensor = false;
         imuMeasurement = new ITMIMUMeasurement();
@@ -314,6 +315,8 @@ using namespace InfiniTAM::Engine;
 
 // MARK: - IBAction Functions
 
+// TODO: hold button to record, release to stop record. click button to start/stop fusion.
+
 - (IBAction)bProcessOne_clicked:(id)sender
 {
     if (usingSensor)
@@ -336,7 +339,8 @@ using namespace InfiniTAM::Engine;
     // If usingSensor, update UI when sensorDidOutputDepthFrame()
     if (usingSensor)
     {
-        fullProcess = true;
+        fullProcess = !fullProcess;
+        if (!fullProcess) [self.tbOut setText:@"front depth"];
         return;  // return if usingSensor, using CalibSource imageSource Engine.
     }
     
@@ -345,7 +349,7 @@ using namespace InfiniTAM::Engine;
     // Process and update each frame in another thread other than main_queue
     // dispatch_async allows to operate (e.g. click in main UI) in main thread 1, while processing frames in renderingQueue in another thread.
     dispatch_async(self.renderingQueue, ^{
-        while (imageSource->hasMoreImages()&&imuSource->hasMoreMeasurements())
+        while (imageSource->hasMoreImages() && imuSource->hasMoreMeasurements())
         {
             imageSource->getImages(inputRGBImage, inputRawDepthImage);
             imuSource->getMeasurement(imuMeasurement);
@@ -397,8 +401,10 @@ using namespace InfiniTAM::Engine;
     dispatch_sync(dispatch_get_main_queue(), ^{
         self.renderView.layer.contents = (__bridge id)cgImageTransformed;
         
-        NSString *theValue = [NSString stringWithFormat:@"%5.4lf spf", totalProcessingTime / totalProcessedFrames];
-        [self.tbOut setText:theValue];
+        if (fullProcess && !isRecording) {
+            NSString *theValue = [NSString stringWithFormat:@"%5.4lf spf", totalProcessingTime / totalProcessedFrames];
+            [self.tbOut setText:theValue];
+        }
     });
 
     CGImageRelease(cgImageTransformed);
@@ -477,6 +483,13 @@ using namespace InfiniTAM::Engine;
                 
                 fclose(f);
                 
+                if (currentFrameNo % 5 == 0) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSString *theValue = [NSString stringWithFormat:@"record %d", currentFrameNo];
+                        [self.tbOut setText:theValue];
+                    });
+                }
+
                 currentFrameNo++;
             }
             
