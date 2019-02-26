@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6F7C0CBC17F0EA0500692EC1"
+               BlueprintIdentifier = "1FA62CF4221C59540064E62B"
                BuildableName = "BodyFusion.app"
                BlueprintName = "BodyFusion"
                ReferencedContainer = "container:BodyFusion.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6F7C0CBC17F0EA0500692EC1"
+            BlueprintIdentifier = "1FA62CF4221C59540064E62B"
             BuildableName = "BodyFusion.app"
             BlueprintName = "BodyFusion"
             ReferencedContainer = "container:BodyFusion.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6F7C0CBC17F0EA0500692EC1"
+            BlueprintIdentifier = "1FA62CF4221C59540064E62B"
             BuildableName = "BodyFusion.app"
             BlueprintName = "BodyFusion"
             ReferencedContainer = "container:BodyFusion.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6F7C0CBC17F0EA0500692EC1"
+            BlueprintIdentifier = "1FA62CF4221C59540064E62B"
             BuildableName = "BodyFusion.app"
             BlueprintName = "BodyFusion"
             ReferencedContainer = "container:BodyFusion.xcodeproj">
