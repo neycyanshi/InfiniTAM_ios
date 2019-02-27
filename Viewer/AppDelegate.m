@@ -16,7 +16,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // Delay 1 second for lauch screen information.
+    [NSThread sleepForTimeInterval:1];
     return YES;
 }
 
