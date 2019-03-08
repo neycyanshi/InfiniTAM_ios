@@ -25,7 +25,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<string>1.1.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
@@ -36,8 +36,6 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>iPhone_Main</string>
-	<key>UIMainStoryboardFile~ipad</key>
-	<string>Main</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -45,23 +43,14 @@
 		<string>arkit</string>
 		<string>metal</string>
 		<string>arm64</string>
+		<string>front-facing-camera</string>
 		<string>video-camera</string>
 		<string>gyroscope</string>
 		<string>accelerometer</string>
 	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
-	<key>UISupportedExternalAccessoryProtocols</key>
-	<array>
-		<string>io.structure.control</string>
-		<string>io.structure.infrared</string>
-		<string>io.structure.depth</string>
-	</array>
 	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
