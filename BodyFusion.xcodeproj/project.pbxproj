@@ -54,22 +54,18 @@
 		1FA62D22221C59540064E62B /* ITMViewBuilder_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD921BB59BAC000CC25D /* ITMViewBuilder_Metal.mm */; };
 		1FA62D23221C59540064E62B /* ITMDepthTracker_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD831BB59BAC000CC25D /* ITMDepthTracker_Metal.mm */; };
 		1FA62D24221C59540064E62B /* ITMSwappingEngine_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD8F1BB59BAC000CC25D /* ITMSwappingEngine_Metal.mm */; };
-		1FA62D26221C59540064E62B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A62ECC4A1BB58439000CC25D /* libz.tbd */; };
 		1FA62D27221C59540064E62B /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A626D7531A0F93660086B8BF /* Metal.framework */; };
 		1FA62D28221C59540064E62B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFFE048199142E800761886 /* CoreMotion.framework */; };
 		1FA62D29221C59540064E62B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01FAFAF11964A14700BF040D /* QuartzCore.framework */; };
 		1FA62D2A221C59540064E62B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC017F0EA0500692EC1 /* Foundation.framework */; };
 		1FA62D2B221C59540064E62B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 431C6F5218455ABD00EDB38B /* AVFoundation.framework */; };
 		1FA62D2C221C59540064E62B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1239071862A59D00BD1D7A /* Accelerate.framework */; };
-		1FA62D2D221C59540064E62B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EDC1865325D00403B8C /* OpenGLES.framework */; };
 		1FA62D2E221C59540064E62B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1239091862A5D300BD1D7A /* ImageIO.framework */; };
 		1FA62D2F221C59540064E62B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EE0186532A500403B8C /* CoreMedia.framework */; };
 		1FA62D30221C59540064E62B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC217F0EA0500692EC1 /* CoreGraphics.framework */; };
 		1FA62D31221C59540064E62B /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EDE1865326B00403B8C /* CoreImage.framework */; };
 		1FA62D32221C59540064E62B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2B4EE2186532CE00403B8C /* CoreVideo.framework */; };
 		1FA62D33221C59540064E62B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC417F0EA0500692EC1 /* UIKit.framework */; };
-		1FA62D34221C59540064E62B /* Structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F73A01521F5EAA3008ABC26 /* Structure.framework */; };
-		1FA62D35221C59540064E62B /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC617F0EA0500692EC1 /* ExternalAccessory.framework */; };
 		1FA62D37221C59540064E62B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A626D7641A0F98CF0086B8BF /* LaunchScreen.xib */; };
 		1FA62D38221C59540064E62B /* ITMLowLevelEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD6D1BB59BAB000CC25D /* ITMLowLevelEngine_CUDA.cu */; };
 		1FA62D39221C59540064E62B /* calib.txt in Resources */ = {isa = PBXBuildFile; fileRef = A68436811A1F9C190010E0C5 /* calib.txt */; };
@@ -90,20 +86,17 @@
 
 /* Begin PBXFileReference section */
 		01FAFAF11964A14700BF040D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		1F73A01521F5EAA3008ABC26 /* Structure.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Structure.framework; path = Frameworks/Structure.framework; sourceTree = "<group>"; };
 		1FA62D4A221C59540064E62B /* BodyFusion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodyFusion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFFE048199142E800761886 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		431C6F5218455ABD00EDB38B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6F1239071862A59D00BD1D7A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		6F1239091862A5D300BD1D7A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		6F2B4EDC1865325D00403B8C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		6F2B4EDE1865326B00403B8C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		6F2B4EE0186532A500403B8C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		6F2B4EE2186532CE00403B8C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		6F7C0CC017F0EA0500692EC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6F7C0CC217F0EA0500692EC1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6F7C0CC417F0EA0500692EC1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		6F7C0CC617F0EA0500692EC1 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		6F7C0CCA17F0EA0500692EC1 /* BodyFusion-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BodyFusion-Info.plist"; sourceTree = "<group>"; };
 		6F7C0CCC17F0EA0500692EC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6F7C0CCE17F0EA0500692EC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -120,7 +113,6 @@
 		A626D7681A0F9A220086B8BF /* ImageSourceEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSourceEngine.h; sourceTree = "<group>"; };
 		A626D7E11A0F9A220086B8BF /* FileUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileUtils.cpp; sourceTree = "<group>"; };
 		A626D7E21A0F9A220086B8BF /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
-		A62ECC4A1BB58439000CC25D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		A62ECD2F1BB59B98000CC25D /* Cholesky.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cholesky.h; sourceTree = "<group>"; };
 		A62ECD311BB59B98000CC25D /* CUDADefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUDADefines.h; sourceTree = "<group>"; };
 		A62ECD321BB59B98000CC25D /* Dummy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dummy.cpp; sourceTree = "<group>"; };
@@ -282,22 +274,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FA62D26221C59540064E62B /* libz.tbd in Frameworks */,
 				1FA62D27221C59540064E62B /* Metal.framework in Frameworks */,
 				1FA62D28221C59540064E62B /* CoreMotion.framework in Frameworks */,
 				1FA62D29221C59540064E62B /* QuartzCore.framework in Frameworks */,
 				1FA62D2A221C59540064E62B /* Foundation.framework in Frameworks */,
 				1FA62D2B221C59540064E62B /* AVFoundation.framework in Frameworks */,
 				1FA62D2C221C59540064E62B /* Accelerate.framework in Frameworks */,
-				1FA62D2D221C59540064E62B /* OpenGLES.framework in Frameworks */,
 				1FA62D2E221C59540064E62B /* ImageIO.framework in Frameworks */,
 				1FA62D2F221C59540064E62B /* CoreMedia.framework in Frameworks */,
 				1FA62D30221C59540064E62B /* CoreGraphics.framework in Frameworks */,
 				1FA62D31221C59540064E62B /* CoreImage.framework in Frameworks */,
 				1FA62D32221C59540064E62B /* CoreVideo.framework in Frameworks */,
 				1FA62D33221C59540064E62B /* UIKit.framework in Frameworks */,
-				1FA62D34221C59540064E62B /* Structure.framework in Frameworks */,
-				1FA62D35221C59540064E62B /* ExternalAccessory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,22 +313,18 @@
 		6F7C0CBF17F0EA0500692EC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A62ECC4A1BB58439000CC25D /* libz.tbd */,
 				A626D7531A0F93660086B8BF /* Metal.framework */,
 				2DFFE048199142E800761886 /* CoreMotion.framework */,
 				01FAFAF11964A14700BF040D /* QuartzCore.framework */,
 				6F7C0CC017F0EA0500692EC1 /* Foundation.framework */,
 				431C6F5218455ABD00EDB38B /* AVFoundation.framework */,
 				6F1239071862A59D00BD1D7A /* Accelerate.framework */,
-				6F2B4EDC1865325D00403B8C /* OpenGLES.framework */,
 				6F1239091862A5D300BD1D7A /* ImageIO.framework */,
 				6F2B4EE0186532A500403B8C /* CoreMedia.framework */,
 				6F7C0CC217F0EA0500692EC1 /* CoreGraphics.framework */,
 				6F2B4EDE1865326B00403B8C /* CoreImage.framework */,
 				6F2B4EE2186532CE00403B8C /* CoreVideo.framework */,
 				6F7C0CC417F0EA0500692EC1 /* UIKit.framework */,
-				1F73A01521F5EAA3008ABC26 /* Structure.framework */,
-				6F7C0CC617F0EA0500692EC1 /* ExternalAccessory.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
