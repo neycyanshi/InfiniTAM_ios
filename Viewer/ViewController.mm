@@ -435,9 +435,9 @@ using namespace InfiniTAM::Engine;
         if (!calibrated)
         {
             AVCameraCalibrationData* calibData = depthData.cameraCalibrationData;
-            float pixelSize = calibData.pixelSize;  // The size, in millimeters, of one image pixel.
+//            float pixelSize = calibData.pixelSize;  // The size, in millimeters, of one image pixel.
             matrix_float3x3 intrinsicMatrix = calibData.intrinsicMatrix;
-            matrix_float4x3 extrinsicMatrix = calibData.extrinsicMatrix;  // translation vector's units are millimeters.
+//            matrix_float4x3 extrinsicMatrix = calibData.extrinsicMatrix;  // translation vector's units are millimeters.
             CGSize imgDim = calibData.intrinsicMatrixReferenceDimensions;
 
             float refPixelX = imgDim.width;  // 3840
