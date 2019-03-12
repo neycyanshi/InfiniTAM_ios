@@ -29,9 +29,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>use camera</string>
+	<string>App would like to use front camera as the input device.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>use photo library</string>
+	<string>App would like to access your photo gallery for your profile photo upload.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
