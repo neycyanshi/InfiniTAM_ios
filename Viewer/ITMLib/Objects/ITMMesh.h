@@ -1,5 +1,3 @@
-// Copyright 2014-2015 Isis Innovation Limited and the authors of InfiniTAM
-
 #pragma once
 
 #include "../Utils/ITMLibDefines.h"
@@ -33,12 +31,12 @@ namespace ITMLib
 
 			void WriteOBJ(const char *fileName)
 			{
-				ORUtils::MemoryBlock<Triangle> *cpu_triangles; bool shoulDelete = false;
+				ORUtils::MemoryBlock<Triangle> *cpu_triangles; bool shouldDelete = false;
 				if (memoryType == MEMORYDEVICE_CUDA)
 				{
 					cpu_triangles = new ORUtils::MemoryBlock<Triangle>(noMaxTriangles, MEMORYDEVICE_CPU);
 					cpu_triangles->SetFrom(triangles, ORUtils::MemoryBlock<Triangle>::CUDA_TO_CPU);
-					shoulDelete = true;
+					shouldDelete = true;
 				}
 				else cpu_triangles = triangles;
 
@@ -58,17 +56,17 @@ namespace ITMLib
 					fclose(f);
 				}
 
-				if (shoulDelete) delete cpu_triangles;
+				if (shouldDelete) delete cpu_triangles;
 			}
 
 			void WriteSTL(const char *fileName)
 			{
-				ORUtils::MemoryBlock<Triangle> *cpu_triangles; bool shoulDelete = false;
+				ORUtils::MemoryBlock<Triangle> *cpu_triangles; bool shouldDelete = false;
 				if (memoryType == MEMORYDEVICE_CUDA)
 				{
 					cpu_triangles = new ORUtils::MemoryBlock<Triangle>(noMaxTriangles, MEMORYDEVICE_CPU);
 					cpu_triangles->SetFrom(triangles, ORUtils::MemoryBlock<Triangle>::CUDA_TO_CPU);
-					shoulDelete = true;
+					shouldDelete = true;
 				}
 				else cpu_triangles = triangles;
 
@@ -109,7 +107,7 @@ namespace ITMLib
 					fclose(f);
 				}
 
-				if (shoulDelete) delete cpu_triangles;
+				if (shouldDelete) delete cpu_triangles;
 			}
 
 			~ITMMesh()
