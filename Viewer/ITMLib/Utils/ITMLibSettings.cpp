@@ -1,5 +1,3 @@
-// Copyright 2014-2015 Isis Innovation Limited and the authors of InfiniTAM
-
 #include "ITMLibSettings.h"
 
 #include <stdio.h>
@@ -27,8 +25,6 @@ ITMLibSettings::ITMLibSettings(void)
 	deviceType = DEVICE_CPU;
 #endif
 #endif
-
-	//deviceType = DEVICE_CPU;
 
 	/// enables or disables swapping. HERE BE DRAGONS: It should work, but requires more testing
 	useSwapping = false;

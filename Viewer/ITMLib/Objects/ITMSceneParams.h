@@ -1,5 +1,3 @@
-// Copyright 2014-2015 Isis Innovation Limited and the authors of InfiniTAM
-
 #pragma once
 
 #include "../Objects/ITMIntrinsics.h"
@@ -52,7 +50,8 @@ namespace ITMLib
 				this->mu = mu;
 				this->maxW = maxW;
 				this->voxelSize = voxelSize;
-				this->viewFrustum_min = viewFrustum_min; this->viewFrustum_max = viewFrustum_max;
+				this->viewFrustum_min = viewFrustum_min;
+                this->viewFrustum_max = viewFrustum_max;
 				this->stopIntegratingAtMaxW = stopIntegratingAtMaxW;
 			}
 
