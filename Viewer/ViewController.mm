@@ -18,12 +18,20 @@
 
 using namespace InfiniTAM::Engine;
 
+typedef NS_ENUM(NSInteger, SetupResult) {
+    SetupResultSuccess,
+    SetupResultCameraNotAuthorized,
+    SetupResultDepthCameraNotFound,
+    SetupResultSessionConfigurationFailed
+};
+
 @interface ViewController()
 
 @property (nonatomic, strong) dispatch_queue_t captureQueue;
 @property (nonatomic, strong) dispatch_queue_t renderingQueue;
 @property (nonatomic, strong) MetalContext *context;
 @property (nonatomic, strong) CMMotionManager *motionManager;
+@property (nonatomic) SetupResult setupResult;
 
 @end
 
@@ -49,8 +57,7 @@ using namespace InfiniTAM::Engine;
     
     AVCaptureSession* session;
     AVCaptureDepthDataOutput *depthOutput;
-    
-    bool setupResult;
+
     bool calibrated;
     bool isDone;
     bool fullProcess;
@@ -85,7 +92,7 @@ using namespace InfiniTAM::Engine;
     self.captureQueue = dispatch_queue_create("capture", DISPATCH_QUEUE_SERIAL);
     self.renderingQueue = dispatch_queue_create("rendering", DISPATCH_QUEUE_SERIAL);
     
-    setupResult = YES;
+    self.setupResult = SetupResultSuccess;
     imageSize = Vector2i(320, 180);
     
     /*
@@ -113,7 +120,7 @@ using namespace InfiniTAM::Engine;
             dispatch_suspend(self.captureQueue);
             [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
                 if (!granted) {
-                    setupResult = NO;
+                    self.setupResult = SetupResultCameraNotAuthorized;
                 }
                 dispatch_resume(self.captureQueue);
             }];
@@ -122,7 +129,7 @@ using namespace InfiniTAM::Engine;
         default:
         {
             // The user has previously denied access.
-            setupResult = NO;
+            self.setupResult = SetupResultCameraNotAuthorized;
             break;
         }
     }
@@ -152,16 +159,64 @@ using namespace InfiniTAM::Engine;
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     dispatch_async(self.captureQueue, ^{
-        [session startRunning];
-        NSLog(@"session startRunning.");
+        switch (self.setupResult)
+        {
+            case SetupResultSuccess:
+            {
+                // Only start the session running if setup succeeded.
+                [session startRunning];
+                break;
+            }
+            case SetupResultCameraNotAuthorized:
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSString* message = NSLocalizedString(@"App doesn't have permission to use the camera, please change privacy settings", @"Alert message when the user has denied access to the camera");
+                    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Front Depth Camera" message:message preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"Alert OK button") style:UIAlertActionStyleCancel handler:nil];
+                    [alertController addAction:cancelAction];
+                    // Provide quick access to Settings.
+                    UIAlertAction* settingsAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Settings", @"Alert button to open Settings") style:UIAlertActionStyleDefault handler:^(UIAlertAction* action) {
+                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+                    }];
+                    [alertController addAction:settingsAction];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                });
+                break;
+            }
+            case SetupResultDepthCameraNotFound:
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSString* message = NSLocalizedString(@"Cannot find front depth camera, requires iPhoneX, XS, XS Max or XR.", @"Alert message when TrueDepth camera not found");
+                    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"TrueDepth Camera" message:message preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"Alert OK button") style:UIAlertActionStyleCancel handler:nil];
+                    [alertController addAction:cancelAction];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                });
+                break;
+            }
+            case SetupResultSessionConfigurationFailed:
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSString* message = NSLocalizedString(@"Unable to capture media", @"Alert message when something goes wrong during capture session configuration");
+                    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Session Configuration" message:message preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"Alert OK button") style:UIAlertActionStyleCancel handler:nil];
+                    [alertController addAction:cancelAction];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                });
+                break;
+            }
+        }
     });
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
     dispatch_async(self.captureQueue, ^{
-        [session stopRunning];
+        if (self.setupResult == SetupResultSuccess) {
+            [session stopRunning];
+        }
     });
     
     [super viewDidDisappear:animated];
@@ -177,7 +232,7 @@ using namespace InfiniTAM::Engine;
 // Call this on the captureQueue.
 - (void) configureSession
 {
-    if (setupResult != YES) {
+    if (self.setupResult != SetupResultSuccess) {
         return;
     }
     
@@ -190,10 +245,9 @@ using namespace InfiniTAM::Engine;
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInTrueDepthCamera
                                                                  mediaType:AVMediaTypeDepthData
                                                                   position:AVCaptureDevicePositionFront];
-    if (device != nil){
-        setupResult = YES;
-    } else{
+    if (!device){
         NSLog(@"Could not find any depth device");
+        self.setupResult = SetupResultDepthCameraNotFound;
         return;
     }
     
@@ -201,7 +255,7 @@ using namespace InfiniTAM::Engine;
     AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
     if (!deviceInput) {
         NSLog(@"Could not create depth device input: %@", error);
-        setupResult = NO;
+        self.setupResult = SetupResultSessionConfigurationFailed;
         [session commitConfiguration];
         return;
     }
@@ -209,7 +263,7 @@ using namespace InfiniTAM::Engine;
         [session addInput:deviceInput];
     } else {
         NSLog(@"Could not add depth device input to the session");
-        setupResult = NO;
+        self.setupResult = SetupResultSessionConfigurationFailed;
         [session commitConfiguration];
         return;
     }
@@ -224,7 +278,7 @@ using namespace InfiniTAM::Engine;
         depthOutput.filteringEnabled = NO;
     } else {
         NSLog(@"Could not add depth output to the session");
-        setupResult = NO;
+        self.setupResult = SetupResultSessionConfigurationFailed;
         [session commitConfiguration];
         return;
     }
@@ -260,7 +314,24 @@ using namespace InfiniTAM::Engine;
     if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
         [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error];
 
-    if (!setupResult)
+    if (self.setupResult == SetupResultSuccess)
+    {
+        fullProcess = false;
+        [self.tbOut setText:@"front depth"];
+        
+        [_motionManager startDeviceMotionUpdates];
+        
+        imuMeasurement = new ITMIMUMeasurement();
+        //        const char *calibFile = [[[NSBundle mainBundle]pathForResource:@"calib" ofType:@"txt"] cStringUsingEncoding:[NSString defaultCStringEncoding]];
+        //        imageSource = new CalibSource(calibFile, Vector2i(320, 240), 0.5f);
+        imageSource = new iPhoneSource(imageSize);
+        
+        inputRGBImage = new ITMUChar4Image(imageSource->getRGBImageSize(), true, false);
+        inputRawDepthImage = new ITMShortImage(imageSource->getDepthImageSize(), true, false);
+        
+        usingSensor = true;
+    }
+    else
     {
         // Offline Process
         char calibFile[2000];
@@ -283,23 +354,6 @@ using namespace InfiniTAM::Engine;
         
         usingSensor = false;
         imuMeasurement = new ITMIMUMeasurement();
-    }
-    else
-    {
-        fullProcess = false;
-        [self.tbOut setText:@"front depth"];
-        
-        [_motionManager startDeviceMotionUpdates];
-        
-        imuMeasurement = new ITMIMUMeasurement();
-//        const char *calibFile = [[[NSBundle mainBundle]pathForResource:@"calib" ofType:@"txt"] cStringUsingEncoding:[NSString defaultCStringEncoding]];
-//        imageSource = new CalibSource(calibFile, Vector2i(320, 240), 0.5f);
-        imageSource = new iPhoneSource(imageSize);
-        
-        inputRGBImage = new ITMUChar4Image(imageSource->getRGBImageSize(), true, false);
-        inputRawDepthImage = new ITMShortImage(imageSource->getDepthImageSize(), true, false);
-
-        usingSensor = true;
     }
     
     imageSize = imageSource->getDepthImageSize();
@@ -354,7 +408,6 @@ using namespace InfiniTAM::Engine;
             imageSource->getImages(inputRGBImage, inputRawDepthImage);
             imuSource->getMeasurement(imuMeasurement);
             [self updateImage];
-            
         }
     });
 }
