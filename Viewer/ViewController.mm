@@ -18,6 +18,8 @@
 
 using namespace InfiniTAM::Engine;
 
+static void*  SessionRunningContext = &SessionRunningContext;
+
 typedef NS_ENUM(NSInteger, SetupResult) {
     SetupResultSuccess,
     SetupResultCameraNotAuthorized,
@@ -160,6 +162,11 @@ typedef NS_ENUM(NSInteger, SetupResult) {
 {
     [super viewWillAppear:animated];
     
+    NSProcessInfoThermalState initialThermalState = [[NSProcessInfo processInfo] thermalState];
+    if (initialThermalState == NSProcessInfoThermalStateSerious || initialThermalState == NSProcessInfoThermalStateCritical) {
+        [self showThermalState:initialThermalState];
+    }
+
     dispatch_async(self.captureQueue, ^{
         switch (self.setupResult)
         {
@@ -225,6 +232,61 @@ typedef NS_ENUM(NSInteger, SetupResult) {
 - (void) didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+// You can use this opportunity to take corrective action to help cool the system down.
+-(void) thermalStateChanged:(NSNotification*) notification
+{
+    NSProcessInfo* processInfo = notification.object;
+    [self showThermalState: [processInfo thermalState]];
+}
+
+-(void) showThermalState:(NSProcessInfoThermalState) state
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString* thermalStateString=@"UNKNOWN";
+        if (state == NSProcessInfoThermalStateNominal) {
+            thermalStateString = @"NOMINAL";
+        } else if (state == NSProcessInfoThermalStateFair) {
+            thermalStateString = @"FAIR";
+        } else if (state == NSProcessInfoThermalStateSerious) {
+            thermalStateString = @"SERIOUS";
+        } else if (state == NSProcessInfoThermalStateCritical) {
+            thermalStateString = @"CRITICAL";
+        }
+        NSString* theMessage = [NSString stringWithFormat:@"Thermal state: %@", thermalStateString];
+        NSString* message = NSLocalizedString(theMessage, @"Alert message when thermal state has changed");
+        UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"BodyFusion" message:message preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"Alert OK button") style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    });
+}
+
+// MARK: -  KVO and Notifications
+
+- (void) addObservers
+{
+    [session addObserver:self forKeyPath:@"running" options:NSKeyValueObservingOptionNew context:SessionRunningContext];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(thermalStateChanged:) name:NSProcessInfoThermalStateDidChangeNotification object:nil];
+}
+
+- (void) removeObservers
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [session removeObserver:self forKeyPath:@"running" context:SessionRunningContext];
+}
+
+- (void) observeValueForKeyPath:(NSString*)keyPath
+                       ofObject:(id)object
+                         change:(NSDictionary*)change
+                        context:(void*)context
+{
+    if (context != SessionRunningContext) {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 // MARK: - Session Management
@@ -305,12 +367,12 @@ typedef NS_ENUM(NSInteger, SetupResult) {
     
     self.context = [MetalContext instance];
     
-    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSArray* dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsPath = (char*)[[dirPaths objectAtIndex:0]cStringUsingEncoding:[NSString defaultCStringEncoding]];
     memcpy(documentsPath, docsPath, strlen(docsPath));
     
-    NSError *error;
-    NSString *dataPath = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:@"/Output"];
+    NSError* error;
+    NSString* dataPath = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:@"/Output"];
     if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
         [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error];
 
