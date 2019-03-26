@@ -14,6 +14,7 @@ inline float base(float val) {
 	else return 0.0;
 }
 
+// TODO: visualize original depth using metal instead of for_loops.
 void IITMVisualisationEngine::DepthToUchar4(ITMUChar4Image *dst, ITMFloatImage *src)
 {
 	Vector4u *dest = dst->GetData(MEMORYDEVICE_CPU);

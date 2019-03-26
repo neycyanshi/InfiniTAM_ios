@@ -46,7 +46,6 @@
 		1FA62D1A221C59540064E62B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C0CCE17F0EA0500692EC1 /* main.m */; };
 		1FA62D1B221C59540064E62B /* ITMRenTracker.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD871BB59BAC000CC25D /* ITMRenTracker.metal */; };
 		1FA62D1C221C59540064E62B /* ITMMainEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDA11BB59BAC000CC25D /* ITMMainEngine.cpp */; };
-		1FA62D1D221C59540064E62B /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A626D7E11A0F9A220086B8BF /* FileUtils.cpp */; };
 		1FA62D1E221C59540064E62B /* ITMSceneReconstructionEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD5D1BB59BAB000CC25D /* ITMSceneReconstructionEngine_CPU.cpp */; };
 		1FA62D1F221C59540064E62B /* ITMRenTracker_Metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD891BB59BAC000CC25D /* ITMRenTracker_Metal.mm */; };
 		1FA62D20221C59540064E62B /* MetalContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD3A1BB59B98000CC25D /* MetalContext.mm */; };
@@ -68,12 +67,10 @@
 		1FA62D33221C59540064E62B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7C0CC417F0EA0500692EC1 /* UIKit.framework */; };
 		1FA62D37221C59540064E62B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A626D7641A0F98CF0086B8BF /* LaunchScreen.xib */; };
 		1FA62D38221C59540064E62B /* ITMLowLevelEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD6D1BB59BAB000CC25D /* ITMLowLevelEngine_CUDA.cu */; };
-		1FA62D39221C59540064E62B /* calib.txt in Resources */ = {isa = PBXBuildFile; fileRef = A68436811A1F9C190010E0C5 /* calib.txt */; };
 		1FA62D3A221C59540064E62B /* ITMMeshingEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD6F1BB59BAC000CC25D /* ITMMeshingEngine_CUDA.cu */; };
 		1FA62D3B221C59540064E62B /* ITMSwappingEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD751BB59BAC000CC25D /* ITMSwappingEngine_CUDA.cu */; };
 		1FA62D3C221C59540064E62B /* ITMVisualisationEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD791BB59BAC000CC25D /* ITMVisualisationEngine_CUDA.cu */; };
 		1FA62D3D221C59540064E62B /* ITMColorTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD681BB59BAB000CC25D /* ITMColorTracker_CUDA.cu */; };
-		1FA62D3E221C59540064E62B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C0CCB17F0EA0500692EC1 /* InfoPlist.strings */; };
 		1FA62D3F221C59540064E62B /* iPhone_Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CA7EF81A0FDE0C0070848F /* iPhone_Main.storyboard */; };
 		1FA62D40221C59540064E62B /* ITMDepthTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD6B1BB59BAB000CC25D /* ITMDepthTracker_CUDA.cu */; };
 		1FA62D41221C59540064E62B /* ITMSceneReconstructionEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD731BB59BAC000CC25D /* ITMSceneReconstructionEngine_CUDA.cu */; };
@@ -81,11 +78,30 @@
 		1FA62D43221C59540064E62B /* ITMWeightedICPTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD7B1BB59BAC000CC25D /* ITMWeightedICPTracker_CUDA.cu */; };
 		1FA62D44221C59540064E62B /* ITMViewBuilder_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD771BB59BAC000CC25D /* ITMViewBuilder_CUDA.cu */; };
 		1FA62D45221C59540064E62B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C0CDD17F0EA0500692EC1 /* Images.xcassets */; };
+		1FEF90FF224A220100E8AA35 /* AAPLTransforms.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF90FC224A220100E8AA35 /* AAPLTransforms.mm */; };
+		1FEF9100224A220100E8AA35 /* PointCloudMetalView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF90FE224A220100E8AA35 /* PointCloudMetalView.mm */; };
+		1FEF9102224A246C00E8AA35 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEF9101224A246C00E8AA35 /* MetalKit.framework */; };
+		1FEF9106224A25F200E8AA35 /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF9105224A25F200E8AA35 /* FileUtils.cpp */; };
+		1FEF910C224A28CD00E8AA35 /* PointCloud.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF9108224A28CD00E8AA35 /* PointCloud.metal */; };
+		1FEF910D224A28CD00E8AA35 /* Mixer.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF9109224A28CD00E8AA35 /* Mixer.metal */; };
+		1FEF910E224A28CD00E8AA35 /* DepthToJET.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF910A224A28CD00E8AA35 /* DepthToJET.metal */; };
+		1FEF910F224A28CD00E8AA35 /* PassThrough.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF910B224A28CD00E8AA35 /* PassThrough.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01FAFAF11964A14700BF040D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1FA62D4A221C59540064E62B /* BodyFusion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodyFusion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FEF90FB224A220100E8AA35 /* PointCloudMetalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointCloudMetalView.h; sourceTree = "<group>"; };
+		1FEF90FC224A220100E8AA35 /* AAPLTransforms.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AAPLTransforms.mm; sourceTree = "<group>"; };
+		1FEF90FD224A220100E8AA35 /* AAPLTransforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLTransforms.h; sourceTree = "<group>"; };
+		1FEF90FE224A220100E8AA35 /* PointCloudMetalView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PointCloudMetalView.mm; sourceTree = "<group>"; };
+		1FEF9101224A246C00E8AA35 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		1FEF9104224A25F200E8AA35 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
+		1FEF9105224A25F200E8AA35 /* FileUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileUtils.cpp; sourceTree = "<group>"; };
+		1FEF9108224A28CD00E8AA35 /* PointCloud.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = PointCloud.metal; sourceTree = "<group>"; };
+		1FEF9109224A28CD00E8AA35 /* Mixer.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Mixer.metal; sourceTree = "<group>"; };
+		1FEF910A224A28CD00E8AA35 /* DepthToJET.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = DepthToJET.metal; sourceTree = "<group>"; };
+		1FEF910B224A28CD00E8AA35 /* PassThrough.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = PassThrough.metal; sourceTree = "<group>"; };
 		2DFFE048199142E800761886 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		431C6F5218455ABD00EDB38B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6F1239071862A59D00BD1D7A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -97,7 +113,6 @@
 		6F7C0CC217F0EA0500692EC1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6F7C0CC417F0EA0500692EC1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F7C0CCA17F0EA0500692EC1 /* BodyFusion-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BodyFusion-Info.plist"; sourceTree = "<group>"; };
-		6F7C0CCC17F0EA0500692EC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6F7C0CCE17F0EA0500692EC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6F7C0CD017F0EA0500692EC1 /* BodyFusion-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BodyFusion-Prefix.pch"; sourceTree = "<group>"; };
 		6F7C0CD117F0EA0500692EC1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,8 +124,6 @@
 		A626D7641A0F98CF0086B8BF /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		A626D7671A0F9A220086B8BF /* ImageSourceEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageSourceEngine.cpp; sourceTree = "<group>"; };
 		A626D7681A0F9A220086B8BF /* ImageSourceEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSourceEngine.h; sourceTree = "<group>"; };
-		A626D7E11A0F9A220086B8BF /* FileUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileUtils.cpp; sourceTree = "<group>"; };
-		A626D7E21A0F9A220086B8BF /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
 		A62ECD2F1BB59B98000CC25D /* Cholesky.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cholesky.h; sourceTree = "<group>"; };
 		A62ECD311BB59B98000CC25D /* CUDADefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUDADefines.h; sourceTree = "<group>"; };
 		A62ECD321BB59B98000CC25D /* Dummy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dummy.cpp; sourceTree = "<group>"; };
@@ -262,8 +275,6 @@
 		A62ECDD21BB59BAC000CC25D /* ITMMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMMath.h; sourceTree = "<group>"; };
 		A65A33E71A7BABA200F65FA2 /* IMUSourceEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSourceEngine.cpp; sourceTree = "<group>"; };
 		A65A33E81A7BABA200F65FA2 /* IMUSourceEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSourceEngine.h; sourceTree = "<group>"; };
-		A68436811A1F9C190010E0C5 /* calib.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calib.txt; sourceTree = "<group>"; };
-		A68436831A1F9C430010E0C5 /* BodyFusion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = BodyFusion.entitlements; path = ../BodyFusion.entitlements; sourceTree = "<group>"; };
 		A6CA7EF81A0FDE0C0070848F /* iPhone_Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -272,6 +283,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FEF9102224A246C00E8AA35 /* MetalKit.framework in Frameworks */,
 				1FA62D27221C59540064E62B /* Metal.framework in Frameworks */,
 				1FA62D28221C59540064E62B /* CoreMotion.framework in Frameworks */,
 				1FA62D29221C59540064E62B /* QuartzCore.framework in Frameworks */,
@@ -290,10 +302,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1FEF90FA224A220100E8AA35 /* PointCloud */ = {
+			isa = PBXGroup;
+			children = (
+				1FEF90FB224A220100E8AA35 /* PointCloudMetalView.h */,
+				1FEF90FC224A220100E8AA35 /* AAPLTransforms.mm */,
+				1FEF90FD224A220100E8AA35 /* AAPLTransforms.h */,
+				1FEF90FE224A220100E8AA35 /* PointCloudMetalView.mm */,
+			);
+			path = PointCloud;
+			sourceTree = "<group>";
+		};
+		1FEF9103224A25F200E8AA35 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1FEF9104224A25F200E8AA35 /* FileUtils.h */,
+				1FEF9105224A25F200E8AA35 /* FileUtils.cpp */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1FEF9107224A28CD00E8AA35 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				1FEF9108224A28CD00E8AA35 /* PointCloud.metal */,
+				1FEF9109224A28CD00E8AA35 /* Mixer.metal */,
+				1FEF910A224A28CD00E8AA35 /* DepthToJET.metal */,
+				1FEF910B224A28CD00E8AA35 /* PassThrough.metal */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
 		6F7C0CB417F0EA0500692EC1 = {
 			isa = PBXGroup;
 			children = (
-				A68436801A1F9C190010E0C5 /* Files */,
 				6F7C0CC817F0EA0500692EC1 /* Main */,
 				6F7C0CBF17F0EA0500692EC1 /* Frameworks */,
 				6F7C0CBE17F0EA0500692EC1 /* Products */,
@@ -311,6 +353,7 @@
 		6F7C0CBF17F0EA0500692EC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FEF9101224A246C00E8AA35 /* MetalKit.framework */,
 				A626D7531A0F93660086B8BF /* Metal.framework */,
 				2DFFE048199142E800761886 /* CoreMotion.framework */,
 				01FAFAF11964A14700BF040D /* QuartzCore.framework */,
@@ -333,7 +376,9 @@
 				A62ECD401BB59BAB000CC25D /* ITMLib */,
 				A62ECD2E1BB59B98000CC25D /* ORUtils */,
 				A626D7661A0F9A220086B8BF /* Engine */,
-				A626D7E01A0F9A220086B8BF /* Utils */,
+				1FEF9103224A25F200E8AA35 /* Utils */,
+				1FEF90FA224A220100E8AA35 /* PointCloud */,
+				1FEF9107224A28CD00E8AA35 /* Shaders */,
 				6F7C0CD117F0EA0500692EC1 /* AppDelegate.h */,
 				6F7C0CD217F0EA0500692EC1 /* AppDelegate.m */,
 				6F7C0CDC17F0EA0500692EC1 /* ViewController.h */,
@@ -347,11 +392,9 @@
 		6F7C0CC917F0EA0500692EC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A68436831A1F9C430010E0C5 /* BodyFusion.entitlements */,
 				A626D7641A0F98CF0086B8BF /* LaunchScreen.xib */,
 				A6CA7EF81A0FDE0C0070848F /* iPhone_Main.storyboard */,
 				6F7C0CDD17F0EA0500692EC1 /* Images.xcassets */,
-				6F7C0CCB17F0EA0500692EC1 /* InfoPlist.strings */,
 				6F7C0CCA17F0EA0500692EC1 /* BodyFusion-Info.plist */,
 				6F7C0CD017F0EA0500692EC1 /* BodyFusion-Prefix.pch */,
 				6F7C0CCE17F0EA0500692EC1 /* main.m */,
@@ -368,15 +411,6 @@
 				A626D7681A0F9A220086B8BF /* ImageSourceEngine.h */,
 			);
 			path = Engine;
-			sourceTree = "<group>";
-		};
-		A626D7E01A0F9A220086B8BF /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				A626D7E11A0F9A220086B8BF /* FileUtils.cpp */,
-				A626D7E21A0F9A220086B8BF /* FileUtils.h */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		A62ECD2E1BB59B98000CC25D /* ORUtils */ = {
@@ -606,15 +640,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		A68436801A1F9C190010E0C5 /* Files */ = {
-			isa = PBXGroup;
-			children = (
-				A68436811A1F9C190010E0C5 /* calib.txt */,
-			);
-			name = Files;
-			path = Viewer/Files;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -646,6 +671,11 @@
 				TargetAttributes = {
 					1FA62CF4221C59540064E62B = {
 						DevelopmentTeam = JT6G548J8N;
+						SystemCapabilities = {
+							com.apple.WAC = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -673,12 +703,10 @@
 			files = (
 				1FA62D37221C59540064E62B /* LaunchScreen.xib in Resources */,
 				1FA62D38221C59540064E62B /* ITMLowLevelEngine_CUDA.cu in Resources */,
-				1FA62D39221C59540064E62B /* calib.txt in Resources */,
 				1FA62D3A221C59540064E62B /* ITMMeshingEngine_CUDA.cu in Resources */,
 				1FA62D3B221C59540064E62B /* ITMSwappingEngine_CUDA.cu in Resources */,
 				1FA62D3C221C59540064E62B /* ITMVisualisationEngine_CUDA.cu in Resources */,
 				1FA62D3D221C59540064E62B /* ITMColorTracker_CUDA.cu in Resources */,
-				1FA62D3E221C59540064E62B /* InfoPlist.strings in Resources */,
 				1FA62D3F221C59540064E62B /* iPhone_Main.storyboard in Resources */,
 				1FA62D40221C59540064E62B /* ITMDepthTracker_CUDA.cu in Resources */,
 				1FA62D41221C59540064E62B /* ITMSceneReconstructionEngine_CUDA.cu in Resources */,
@@ -700,8 +728,10 @@
 				1FA62CF7221C59540064E62B /* ITMTrackerFactory.cpp in Sources */,
 				1FA62CF8221C59540064E62B /* ITMColorTracker.cpp in Sources */,
 				1FA62CF9221C59540064E62B /* ITMTrackingController.cpp in Sources */,
+				1FEF910C224A28CD00E8AA35 /* PointCloud.metal in Sources */,
 				1FA62CFA221C59540064E62B /* ITMSceneReconstructionEngine.metal in Sources */,
 				1FA62CFB221C59540064E62B /* ImageSourceEngine.cpp in Sources */,
+				1FEF90FF224A220100E8AA35 /* AAPLTransforms.mm in Sources */,
 				1FA62CFC221C59540064E62B /* ViewController.mm in Sources */,
 				1FA62CFD221C59540064E62B /* ITMRenTracker.cpp in Sources */,
 				1FA62CFE221C59540064E62B /* ITMColorTracker_CPU.cpp in Sources */,
@@ -721,21 +751,25 @@
 				1FA62D0C221C59540064E62B /* ITMDenseMapper.cpp in Sources */,
 				1FA62D0D221C59540064E62B /* ITMSwappingEngine.metal in Sources */,
 				1FA62D0E221C59540064E62B /* ITMCalibIO.cpp in Sources */,
+				1FEF910D224A28CD00E8AA35 /* Mixer.metal in Sources */,
+				1FEF910F224A28CD00E8AA35 /* PassThrough.metal in Sources */,
 				1FA62D0F221C59540064E62B /* ITMLibSettings.cpp in Sources */,
 				1FA62D10221C59540064E62B /* ITMSceneReconstructionEngine_Metal.mm in Sources */,
 				1FA62D11221C59540064E62B /* ITMLowLevelEngine_Metal.mm in Sources */,
 				1FA62D12221C59540064E62B /* ITMVisualisationEngine_CPU.cpp in Sources */,
 				1FA62D13221C59540064E62B /* ITMIMUTracker.cpp in Sources */,
+				1FEF9100224A220100E8AA35 /* PointCloudMetalView.mm in Sources */,
 				1FA62D14221C59540064E62B /* ITMLowLevelEngine.metal in Sources */,
 				1FA62D15221C59540064E62B /* ITMWeightedICPTracker.cpp in Sources */,
 				1FA62D16221C59540064E62B /* ITMPose.cpp in Sources */,
 				1FA62D17221C59540064E62B /* ITMLowLevelEngine_CPU.cpp in Sources */,
 				1FA62D18221C59540064E62B /* ITMViewBuilder.metal in Sources */,
 				1FA62D19221C59540064E62B /* ITMColorTracker.metal in Sources */,
+				1FEF9106224A25F200E8AA35 /* FileUtils.cpp in Sources */,
 				1FA62D1A221C59540064E62B /* main.m in Sources */,
 				1FA62D1B221C59540064E62B /* ITMRenTracker.metal in Sources */,
 				1FA62D1C221C59540064E62B /* ITMMainEngine.cpp in Sources */,
-				1FA62D1D221C59540064E62B /* FileUtils.cpp in Sources */,
+				1FEF910E224A28CD00E8AA35 /* DepthToJET.metal in Sources */,
 				1FA62D1E221C59540064E62B /* ITMSceneReconstructionEngine_CPU.cpp in Sources */,
 				1FA62D1F221C59540064E62B /* ITMRenTracker_Metal.mm in Sources */,
 				1FA62D20221C59540064E62B /* MetalContext.mm in Sources */,
@@ -748,23 +782,11 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		6F7C0CCB17F0EA0500692EC1 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6F7C0CCC17F0EA0500692EC1 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		1FA62D48221C59540064E62B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = BodyFusion.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
@@ -789,7 +811,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = BodyFusion.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";

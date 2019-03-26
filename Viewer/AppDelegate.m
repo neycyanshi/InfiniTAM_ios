@@ -16,8 +16,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Delay 1 second for lauch screen information.
-    [NSThread sleepForTimeInterval:1];
+    // Delay 0.5 second for lauch screen information.
+    [NSThread sleepForTimeInterval:0.5];
     return YES;
 }
 

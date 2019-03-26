@@ -14,8 +14,6 @@
 #include "ITMLib/ITMLib.h"
 #include "ORUtils/MetalContext.h"
 
-#include "Utils/FileUtils.h"
-
 using namespace InfiniTAM::Engine;
 
 static void*  SessionRunningContext = &SessionRunningContext;
