@@ -158,6 +158,7 @@ typedef NS_ENUM(NSInteger, SetupResult) {
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    [self.navigationController setNavigationBarHidden:YES];
     [super viewWillAppear:animated];
     
     NSProcessInfoThermalState initialThermalState = [[NSProcessInfo processInfo] thermalState];
@@ -224,6 +225,7 @@ typedef NS_ENUM(NSInteger, SetupResult) {
         }
     });
     
+    [self.navigationController setNavigationBarHidden:NO];
     [super viewDidDisappear:animated];
 }
 
@@ -453,6 +455,7 @@ typedef NS_ENUM(NSInteger, SetupResult) {
     // If usingSensor, update UI when sensorDidOutputDepthFrame()
     if (usingSensor)
     {
+        // TODO: when click the second time, end fullProcess and navigation to PointCloudViewController
         fullProcess = !fullProcess;
         if (!fullProcess) [self.tbOut setText:@"front depth"];
         return;  // return if usingSensor, using CalibSource imageSource Engine.

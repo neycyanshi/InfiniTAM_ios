@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F412885225493F500ADB6D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F412884225493F500ADB6D0 /* main.m */; };
+		1F41288822549ABE00ADB6D0 /* PointCloudViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F41288722549ABE00ADB6D0 /* PointCloudViewController.m */; };
 		1FA62CF6221C59540064E62B /* ITMDepthTracker.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD811BB59BAC000CC25D /* ITMDepthTracker.metal */; };
 		1FA62CF7221C59540064E62B /* ITMTrackerFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDA91BB59BAC000CC25D /* ITMTrackerFactory.cpp */; };
 		1FA62CF8221C59540064E62B /* ITMColorTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD961BB59BAC000CC25D /* ITMColorTracker.cpp */; };
@@ -43,7 +45,6 @@
 		1FA62D17221C59540064E62B /* ITMLowLevelEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD571BB59BAB000CC25D /* ITMLowLevelEngine_CPU.cpp */; };
 		1FA62D18221C59540064E62B /* ITMViewBuilder.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD901BB59BAC000CC25D /* ITMViewBuilder.metal */; };
 		1FA62D19221C59540064E62B /* ITMColorTracker.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD7E1BB59BAC000CC25D /* ITMColorTracker.metal */; };
-		1FA62D1A221C59540064E62B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C0CCE17F0EA0500692EC1 /* main.m */; };
 		1FA62D1B221C59540064E62B /* ITMRenTracker.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD871BB59BAC000CC25D /* ITMRenTracker.metal */; };
 		1FA62D1C221C59540064E62B /* ITMMainEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDA11BB59BAC000CC25D /* ITMMainEngine.cpp */; };
 		1FA62D1E221C59540064E62B /* ITMSceneReconstructionEngine_CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD5D1BB59BAB000CC25D /* ITMSceneReconstructionEngine_CPU.cpp */; };
@@ -90,6 +91,9 @@
 
 /* Begin PBXFileReference section */
 		01FAFAF11964A14700BF040D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1F412884225493F500ADB6D0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1F41288622549ABE00ADB6D0 /* PointCloudViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PointCloudViewController.h; sourceTree = "<group>"; };
+		1F41288722549ABE00ADB6D0 /* PointCloudViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PointCloudViewController.m; sourceTree = "<group>"; };
 		1FA62D4A221C59540064E62B /* BodyFusion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodyFusion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FEF90FB224A220100E8AA35 /* PointCloudMetalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointCloudMetalView.h; sourceTree = "<group>"; };
 		1FEF90FC224A220100E8AA35 /* AAPLTransforms.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AAPLTransforms.mm; sourceTree = "<group>"; };
@@ -113,7 +117,6 @@
 		6F7C0CC217F0EA0500692EC1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6F7C0CC417F0EA0500692EC1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F7C0CCA17F0EA0500692EC1 /* BodyFusion-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BodyFusion-Info.plist"; sourceTree = "<group>"; };
-		6F7C0CCE17F0EA0500692EC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6F7C0CD017F0EA0500692EC1 /* BodyFusion-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BodyFusion-Prefix.pch"; sourceTree = "<group>"; };
 		6F7C0CD117F0EA0500692EC1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6F7C0CD217F0EA0500692EC1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -305,6 +308,8 @@
 		1FEF90FA224A220100E8AA35 /* PointCloud */ = {
 			isa = PBXGroup;
 			children = (
+				1F41288622549ABE00ADB6D0 /* PointCloudViewController.h */,
+				1F41288722549ABE00ADB6D0 /* PointCloudViewController.m */,
 				1FEF90FB224A220100E8AA35 /* PointCloudMetalView.h */,
 				1FEF90FC224A220100E8AA35 /* AAPLTransforms.mm */,
 				1FEF90FD224A220100E8AA35 /* AAPLTransforms.h */,
@@ -392,12 +397,12 @@
 		6F7C0CC917F0EA0500692EC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1F412884225493F500ADB6D0 /* main.m */,
 				A626D7641A0F98CF0086B8BF /* LaunchScreen.xib */,
 				A6CA7EF81A0FDE0C0070848F /* iPhone_Main.storyboard */,
 				6F7C0CDD17F0EA0500692EC1 /* Images.xcassets */,
 				6F7C0CCA17F0EA0500692EC1 /* BodyFusion-Info.plist */,
 				6F7C0CD017F0EA0500692EC1 /* BodyFusion-Prefix.pch */,
-				6F7C0CCE17F0EA0500692EC1 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -741,6 +746,7 @@
 				1FA62D01221C59540064E62B /* ITMDepthTracker_CPU.cpp in Sources */,
 				1FA62D02221C59540064E62B /* ITMVisualisationEngine.metal in Sources */,
 				1FA62D03221C59540064E62B /* Dummy.cpp in Sources */,
+				1F412885225493F500ADB6D0 /* main.m in Sources */,
 				1FA62D04221C59540064E62B /* AppDelegate.m in Sources */,
 				1FA62D05221C59540064E62B /* ITMSwappingEngine_CPU.cpp in Sources */,
 				1FA62D06221C59540064E62B /* ITMRenTracker_CPU.cpp in Sources */,
@@ -763,11 +769,11 @@
 				1FA62D14221C59540064E62B /* ITMLowLevelEngine.metal in Sources */,
 				1FA62D15221C59540064E62B /* ITMWeightedICPTracker.cpp in Sources */,
 				1FA62D16221C59540064E62B /* ITMPose.cpp in Sources */,
+				1F41288822549ABE00ADB6D0 /* PointCloudViewController.m in Sources */,
 				1FA62D17221C59540064E62B /* ITMLowLevelEngine_CPU.cpp in Sources */,
 				1FA62D18221C59540064E62B /* ITMViewBuilder.metal in Sources */,
 				1FA62D19221C59540064E62B /* ITMColorTracker.metal in Sources */,
 				1FEF9106224A25F200E8AA35 /* FileUtils.cpp in Sources */,
-				1FA62D1A221C59540064E62B /* main.m in Sources */,
 				1FA62D1B221C59540064E62B /* ITMRenTracker.metal in Sources */,
 				1FA62D1C221C59540064E62B /* ITMMainEngine.cpp in Sources */,
 				1FEF910E224A28CD00E8AA35 /* DepthToJET.metal in Sources */,
