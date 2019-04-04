@@ -72,7 +72,7 @@
 		1FA62D3B221C59540064E62B /* ITMSwappingEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD751BB59BAC000CC25D /* ITMSwappingEngine_CUDA.cu */; };
 		1FA62D3C221C59540064E62B /* ITMVisualisationEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD791BB59BAC000CC25D /* ITMVisualisationEngine_CUDA.cu */; };
 		1FA62D3D221C59540064E62B /* ITMColorTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD681BB59BAB000CC25D /* ITMColorTracker_CUDA.cu */; };
-		1FA62D3F221C59540064E62B /* iPhone_Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CA7EF81A0FDE0C0070848F /* iPhone_Main.storyboard */; };
+		1FA62D3F221C59540064E62B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CA7EF81A0FDE0C0070848F /* Main.storyboard */; };
 		1FA62D40221C59540064E62B /* ITMDepthTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD6B1BB59BAB000CC25D /* ITMDepthTracker_CUDA.cu */; };
 		1FA62D41221C59540064E62B /* ITMSceneReconstructionEngine_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD731BB59BAC000CC25D /* ITMSceneReconstructionEngine_CUDA.cu */; };
 		1FA62D42221C59540064E62B /* ITMRenTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD711BB59BAC000CC25D /* ITMRenTracker_CUDA.cu */; };
@@ -278,7 +278,7 @@
 		A62ECDD21BB59BAC000CC25D /* ITMMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMMath.h; sourceTree = "<group>"; };
 		A65A33E71A7BABA200F65FA2 /* IMUSourceEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSourceEngine.cpp; sourceTree = "<group>"; };
 		A65A33E81A7BABA200F65FA2 /* IMUSourceEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSourceEngine.h; sourceTree = "<group>"; };
-		A6CA7EF81A0FDE0C0070848F /* iPhone_Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_Main.storyboard; sourceTree = "<group>"; };
+		A6CA7EF81A0FDE0C0070848F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,7 +399,7 @@
 			children = (
 				1F412884225493F500ADB6D0 /* main.m */,
 				A626D7641A0F98CF0086B8BF /* LaunchScreen.xib */,
-				A6CA7EF81A0FDE0C0070848F /* iPhone_Main.storyboard */,
+				A6CA7EF81A0FDE0C0070848F /* Main.storyboard */,
 				6F7C0CDD17F0EA0500692EC1 /* Images.xcassets */,
 				6F7C0CCA17F0EA0500692EC1 /* BodyFusion-Info.plist */,
 				6F7C0CD017F0EA0500692EC1 /* BodyFusion-Prefix.pch */,
@@ -713,7 +713,7 @@
 				1FA62D3B221C59540064E62B /* ITMSwappingEngine_CUDA.cu in Resources */,
 				1FA62D3C221C59540064E62B /* ITMVisualisationEngine_CUDA.cu in Resources */,
 				1FA62D3D221C59540064E62B /* ITMColorTracker_CUDA.cu in Resources */,
-				1FA62D3F221C59540064E62B /* iPhone_Main.storyboard in Resources */,
+				1FA62D3F221C59540064E62B /* Main.storyboard in Resources */,
 				1FA62D40221C59540064E62B /* ITMDepthTracker_CUDA.cu in Resources */,
 				1FA62D41221C59540064E62B /* ITMSceneReconstructionEngine_CUDA.cu in Resources */,
 				1FA62D42221C59540064E62B /* ITMRenTracker_CUDA.cu in Resources */,

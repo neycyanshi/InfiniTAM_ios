@@ -24,17 +24,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adq-2P-kO8">
                                 <rect key="frame" x="0.0" y="44" width="375" height="666.66666666666663"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDK-im-dzz">
-                                        <rect key="frame" x="104" y="221" width="126" height="92"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Show Cloud"/>
-                                        <connections>
-                                            <segue destination="E9s-hq-Kwz" kind="show" identifier="Show Cloud" id="UdI-G0-YS0"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" red="0.60065498740000001" green="0.60065498740000001" blue="0.60065498740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="adq-2P-kO8" secondAttribute="height" multiplier="9:16" id="vx6-J9-6L5"/>
@@ -97,6 +86,7 @@
                     <connections>
                         <outlet property="renderView" destination="adq-2P-kO8" id="ygG-XR-MpY"/>
                         <outlet property="tbOut" destination="lxq-i5-Rhl" id="R4x-lQ-p3r"/>
+                        <segue destination="E9s-hq-Kwz" kind="show" identifier="Show Cloud" animates="NO" id="rZh-Kh-2Al"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QrS-yb-mX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -114,7 +104,20 @@
                     <view key="view" contentMode="scaleToFill" id="pEi-h8-XSA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L5C-2T-bmb">
+                                <rect key="frame" x="0.0" y="44" width="375" height="666.66666666666663"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="L5C-2T-bmb" secondAttribute="height" multiplier="9:16" id="KIw-fQ-Mee"/>
+                                </constraints>
+                            </sceneKitView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="L5C-2T-bmb" firstAttribute="leading" secondItem="pEi-h8-XSA" secondAttribute="leading" id="PoX-EZ-mfB"/>
+                            <constraint firstItem="L5C-2T-bmb" firstAttribute="top" secondItem="hKf-0Y-lOt" secondAttribute="bottom" id="XSt-Yq-fe3"/>
+                            <constraint firstAttribute="trailing" secondItem="L5C-2T-bmb" secondAttribute="trailing" id="jNl-S5-rV7"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFg-oA-NMl" userLabel="First Responder" sceneMemberID="firstResponder"/>

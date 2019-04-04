@@ -5,7 +5,7 @@
 using namespace ITMLib::Objects;
 
 ITMLibSettings::ITMLibSettings(void)
-	: sceneParams(0.01f, 32, 0.002f, 0.2f, 1.5f, false)
+	: sceneParams(0.01f, 32, 0.002f, 0.05f, 1.0f, false)
 {
 	/// depth threashold for the ICP tracker
 	depthTrackerICPThreshold = 0.1f * 0.1f;

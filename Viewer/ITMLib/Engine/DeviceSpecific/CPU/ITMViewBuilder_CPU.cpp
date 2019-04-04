@@ -140,7 +140,7 @@ void ITMViewBuilder_CPU::ConvertFP16ToFP32(ITMFloatImage *depth_out, const ITMSh
         rlt = fs | fe | fm;
 
         float depth_out = *((float *)&rlt);
-        d_out[locId] = ((depth_out < 0.01) || (depth_out > 1.5)) ? -1.0f : depth_out;
+        d_out[locId] = ((depth_out < 0.05) || (depth_out > 1.0)) ? -1.0f : depth_out;
 //        d_out[locId] = (depth_out > 0) ? depth_out * depthCalibParams.x + depthCalibParams.y : -1.0f;
     }
 }

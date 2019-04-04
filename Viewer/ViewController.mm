@@ -59,12 +59,13 @@ typedef NS_ENUM(NSInteger, SetupResult) {
     AVCaptureDepthDataOutput *depthOutput;
 
     bool calibrated;
-    bool isDone;
+    bool setupDone;
     bool fullProcess;
     bool isRecording;
     bool usingSensor;
     
     int currentFrameNo;
+    int numFusionButtonClicked;
     
     NSTimeInterval totalProcessingTime;
     int totalProcessedFrames;
@@ -359,11 +360,12 @@ typedef NS_ENUM(NSInteger, SetupResult) {
 - (void) setupEngine
 {
     calibrated = false;
-    isDone = false;
+    setupDone = false;
     fullProcess = false;
     isRecording = false;
     
     currentFrameNo = 0;
+    numFusionButtonClicked = 0;
     
     self.context = [MetalContext instance];
     
@@ -426,10 +428,19 @@ typedef NS_ENUM(NSInteger, SetupResult) {
     mainEngine = new ITMMainEngine(internalSettings, &imageSource->calib, imageSource->getRGBImageSize(),
                                    imageSource->getDepthImageSize());
     
-    isDone = true;
+    setupDone = true;
 }
 
-// MARK: - IBAction Functions
+// MARK: - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the point cloud to the new view controller.
+    if ([segue.identifier  isEqual: @"Show Cloud"]) {
+        NSLog(@"Show Cloud Segue");
+    }
+}
+
+// MARK: - Actions
 
 // TODO: hold button to record, release to stop record. click button to start/stop fusion.
 
@@ -452,12 +463,16 @@ typedef NS_ENUM(NSInteger, SetupResult) {
 
 - (IBAction)bProcessCont_clicked:(id)sender
 {
+    ++numFusionButtonClicked;
     // If usingSensor, update UI when sensorDidOutputDepthFrame()
     if (usingSensor)
     {
-        // TODO: when click the second time, end fullProcess and navigation to PointCloudViewController
+        // When click every the second time, end fullProcess and navigation to PointCloudViewController
         fullProcess = !fullProcess;
-        if (!fullProcess) [self.tbOut setText:@"front depth"];
+        if (numFusionButtonClicked > 0 && numFusionButtonClicked%2 == 0) {
+            [self performSegueWithIdentifier:@"Show Cloud" sender:sender];
+        }
+        [self.tbOut setText:@"front depth"];
         return;  // return if usingSensor, using CalibSource imageSource Engine.
     }
     
@@ -533,10 +548,8 @@ typedef NS_ENUM(NSInteger, SetupResult) {
 // Once receive one depth frame, reload rotationMatrix and inputRawDepthImage, then update rendering image in UI.
 - (void)depthDataOutput:(AVCaptureDepthDataOutput *)output didOutputDepthData:(AVDepthData *)depthData timestamp:(CMTime)timestamp connection:(AVCaptureConnection *)connection
 {
-    if (isDone)
+    if (setupDone)
     {
-        isDone = false;
-        
         CMRotationMatrix rotationMatrix = self.motionManager.deviceMotion.attitude.rotationMatrix;
         
         if (imuMeasurement != NULL)
@@ -610,8 +623,6 @@ typedef NS_ENUM(NSInteger, SetupResult) {
             }
             
             [self updateImage];
-            
-            isDone = true;
         });
     }
 }
