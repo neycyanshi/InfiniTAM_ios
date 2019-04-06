@@ -17,7 +17,7 @@
     // MARK: - Properties
     
     SCNScene* scene;
-    SCNNode* pointNode;
+//    SCNNode* pointNode;
     float zCamera;
 }
 
@@ -29,14 +29,15 @@
 }
 
 - (void)setupScene {
+    scene = [SCNScene scene];
     zCamera = 0.3f;
+
     SCNNode* cameraNode;
     cameraNode.camera = [SCNCamera camera];
     cameraNode.camera.zNear = 0.0;
     cameraNode.camera.zFar = 10.0;
-    [scene.rootNode addChildNode:cameraNode];
-    
     cameraNode.position = SCNVector3Make(0.0, 0.0, zCamera);
+    [scene.rootNode addChildNode:cameraNode];
     
     SCNNode* lightNode;
     lightNode.light = [SCNLight light];
@@ -44,9 +45,9 @@
     lightNode.position = SCNVector3Make(0.0, 0.0, 3.0);
     [scene.rootNode addChildNode:lightNode];
     
-    SCNSphere* sphere = [SCNSphere sphereWithRadius:0.001];
-    sphere.firstMaterial.diffuse.contents = UIColor.blueColor;
-    pointNode = [SCNNode nodeWithGeometry:sphere];
+//    SCNSphere* sphere = [SCNSphere sphereWithRadius:0.001];
+//    sphere.firstMaterial.diffuse.contents = UIColor.blueColor;
+//    pointNode = [SCNNode nodeWithGeometry:sphere];
     
     self.scnView.scene = scene;
     self.scnView.allowsCameraControl = YES;
@@ -55,6 +56,11 @@
 }
 
 - (void)drawPointCloud {
+    SCNGeometry* torus = [SCNTorus torusWithRingRadius:0.1 pipeRadius:0.05];
+    torus.firstMaterial.diffuse.contents = UIColor.purpleColor;
+    SCNNode* torusNode = [SCNNode nodeWithGeometry:torus];
+    torusNode.position = SCNVector3Make(0.0, 0.0, 0.0);
+    [scene.rootNode addChildNode:torusNode];
 //    guard let colorImage = image, let cgColorImage = colorImage.cgImage else { fatalError() }
 //    guard let depthData = depthData else { fatalError() }
 //
