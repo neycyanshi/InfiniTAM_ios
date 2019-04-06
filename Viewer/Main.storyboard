@@ -84,6 +84,8 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="bProcessCont" destination="fc7-hz-MGe" id="RGR-uf-ryv"/>
+                        <outlet property="bProcessOne" destination="Jw5-ul-gXZ" id="fcq-ap-gdc"/>
                         <outlet property="renderView" destination="adq-2P-kO8" id="ygG-XR-MpY"/>
                         <outlet property="tbOut" destination="lxq-i5-Rhl" id="R4x-lQ-p3r"/>
                         <segue destination="E9s-hq-Kwz" kind="show" identifier="Show Cloud" animates="NO" id="rZh-Kh-2Al"/>
@@ -119,6 +121,9 @@
                             <constraint firstAttribute="trailing" secondItem="L5C-2T-bmb" secondAttribute="trailing" id="jNl-S5-rV7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scnView" destination="L5C-2T-bmb" id="oUz-g6-1On"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFg-oA-NMl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

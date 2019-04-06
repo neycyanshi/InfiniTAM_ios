@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  InfiniTAM
+//  BodyFusion
 //
 //  Created by yanshi on 23/01/2019.
 //  Copyright (c) 2019 yanshi. All rights reserved.
@@ -157,10 +157,12 @@ typedef NS_ENUM(NSInteger, SetupResult) {
     [self setupEngine];
 }
 
+// viewWillAppear() may be called several times, but viewDidLoad() only once.
 - (void) viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES];
     [super viewWillAppear:animated];
+    [self.tbOut setText:@"front depth"];
     
     NSProcessInfoThermalState initialThermalState = [[NSProcessInfo processInfo] thermalState];
     if (initialThermalState == NSProcessInfoThermalStateSerious || initialThermalState == NSProcessInfoThermalStateCritical) {
@@ -472,7 +474,6 @@ typedef NS_ENUM(NSInteger, SetupResult) {
         if (numFusionButtonClicked > 0 && numFusionButtonClicked%2 == 0) {
             [self performSegueWithIdentifier:@"Show Cloud" sender:sender];
         }
-        [self.tbOut setText:@"front depth"];
         return;  // return if usingSensor, using CalibSource imageSource Engine.
     }
     

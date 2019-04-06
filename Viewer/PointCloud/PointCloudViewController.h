@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SceneKit/SceneKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PointCloudViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet SCNView *scnView;
 
 @end
 
