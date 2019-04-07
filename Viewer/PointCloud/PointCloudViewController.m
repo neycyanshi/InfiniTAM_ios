@@ -32,16 +32,17 @@
     scene = [SCNScene scene];
     zCamera = 0.3f;
 
-    SCNNode* cameraNode;
+    SCNNode* cameraNode = [SCNNode node];
     cameraNode.camera = [SCNCamera camera];
     cameraNode.camera.zNear = 0.0;
     cameraNode.camera.zFar = 10.0;
     cameraNode.position = SCNVector3Make(0.0, 0.0, zCamera);
     [scene.rootNode addChildNode:cameraNode];
     
-    SCNNode* lightNode;
+    SCNNode* lightNode = [SCNNode node];
     lightNode.light = [SCNLight light];
     lightNode.light.type = SCNLightTypeOmni;
+//    lightNode.light.color = UIColor.whiteColor;
     lightNode.position = SCNVector3Make(0.0, 0.0, 3.0);
     [scene.rootNode addChildNode:lightNode];
     
@@ -56,11 +57,19 @@
 }
 
 - (void)drawPointCloud {
-    SCNGeometry* torus = [SCNTorus torusWithRingRadius:0.1 pipeRadius:0.05];
-    torus.firstMaterial.diffuse.contents = UIColor.purpleColor;
+    SCNGeometry* torus = [SCNTorus torusWithRingRadius:0.05 pipeRadius:0.02];
     SCNNode* torusNode = [SCNNode nodeWithGeometry:torus];
+    torus.firstMaterial.diffuse.contents = UIColor.cyanColor;
+    torus.firstMaterial.specular.contents = UIColor.whiteColor;
+    torus.firstMaterial.shininess = 1.0;
+    SKTexture* noiseTexture = [SKTexture textureNoiseWithSmoothness:0.25 size:CGSizeMake(512, 512) grayscale:NO];
+//    SKTexture* noiseNormalMapTexture = [noiseTexture textureByGeneratingNormalMap];
+    SKTexture* noiseNormalMapTexture = [noiseTexture textureByGeneratingNormalMapWithSmoothness:1.0 contrast:1.0];
+    torus.firstMaterial.normal.contents = noiseNormalMapTexture;
+    [torus.firstMaterial setLightingModelName:SCNLightingModelBlinn];
     torusNode.position = SCNVector3Make(0.0, 0.0, 0.0);
     [scene.rootNode addChildNode:torusNode];
+    
 //    guard let colorImage = image, let cgColorImage = colorImage.cgImage else { fatalError() }
 //    guard let depthData = depthData else { fatalError() }
 //

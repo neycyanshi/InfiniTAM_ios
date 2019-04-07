@@ -10,6 +10,7 @@
 		1F412885225493F500ADB6D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F412884225493F500ADB6D0 /* main.m */; };
 		1F41288822549ABE00ADB6D0 /* PointCloudViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F41288722549ABE00ADB6D0 /* PointCloudViewController.m */; };
 		1F41288A2258912A00ADB6D0 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4128892258912A00ADB6D0 /* SceneKit.framework */; };
+		1F41288C225A3ED100ADB6D0 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41288B225A3ED100ADB6D0 /* SpriteKit.framework */; };
 		1FA62CF6221C59540064E62B /* ITMDepthTracker.metal in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD811BB59BAC000CC25D /* ITMDepthTracker.metal */; };
 		1FA62CF7221C59540064E62B /* ITMTrackerFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECDA91BB59BAC000CC25D /* ITMTrackerFactory.cpp */; };
 		1FA62CF8221C59540064E62B /* ITMColorTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A62ECD961BB59BAC000CC25D /* ITMColorTracker.cpp */; };
@@ -96,6 +97,7 @@
 		1F41288622549ABE00ADB6D0 /* PointCloudViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PointCloudViewController.h; sourceTree = "<group>"; };
 		1F41288722549ABE00ADB6D0 /* PointCloudViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PointCloudViewController.m; sourceTree = "<group>"; };
 		1F4128892258912A00ADB6D0 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		1F41288B225A3ED100ADB6D0 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		1FA62D4A221C59540064E62B /* BodyFusion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodyFusion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FEF90FB224A220100E8AA35 /* PointCloudMetalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointCloudMetalView.h; sourceTree = "<group>"; };
 		1FEF90FC224A220100E8AA35 /* AAPLTransforms.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AAPLTransforms.mm; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F41288C225A3ED100ADB6D0 /* SpriteKit.framework in Frameworks */,
 				1F41288A2258912A00ADB6D0 /* SceneKit.framework in Frameworks */,
 				1FEF9102224A246C00E8AA35 /* MetalKit.framework in Frameworks */,
 				1FA62D27221C59540064E62B /* Metal.framework in Frameworks */,
@@ -361,6 +364,7 @@
 		6F7C0CBF17F0EA0500692EC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F41288B225A3ED100ADB6D0 /* SpriteKit.framework */,
 				1F4128892258912A00ADB6D0 /* SceneKit.framework */,
 				1FEF9101224A246C00E8AA35 /* MetalKit.framework */,
 				A626D7531A0F93660086B8BF /* Metal.framework */,
