@@ -8,6 +8,9 @@
 
 #import "PointCloudViewController.h"
 
+#import <ModelIO/ModelIO.h>
+#import <MetalKit/MetalKit.h>
+
 @interface PointCloudViewController ()
 
 @end
@@ -25,7 +28,7 @@
     [super viewDidLoad];
     
     [self setupScene];
-    [self drawPointCloud];
+    [self drawModel];
 }
 
 - (void)setupScene {
@@ -56,19 +59,14 @@
     self.scnView.backgroundColor = UIColor.blackColor;
 }
 
+- (void)drawModel {
+    NSLog(@"draw model: %@", self.modelPath);
+    MDLAsset* asset = [[MDLAsset alloc] initWithURL:[NSURL URLWithString:self.modelPath]
+                                   vertexDescriptor:<#(nullable MDLVertexDescriptor *)#>
+                                    bufferAllocator:[MTKMeshBufferAllocator ]];
+}
+
 - (void)drawPointCloud {
-    SCNGeometry* torus = [SCNTorus torusWithRingRadius:0.05 pipeRadius:0.02];
-    SCNNode* torusNode = [SCNNode nodeWithGeometry:torus];
-    torus.firstMaterial.diffuse.contents = UIColor.cyanColor;
-    torus.firstMaterial.specular.contents = UIColor.whiteColor;
-    torus.firstMaterial.shininess = 1.0;
-    SKTexture* noiseTexture = [SKTexture textureNoiseWithSmoothness:0.25 size:CGSizeMake(512, 512) grayscale:NO];
-//    SKTexture* noiseNormalMapTexture = [noiseTexture textureByGeneratingNormalMap];
-    SKTexture* noiseNormalMapTexture = [noiseTexture textureByGeneratingNormalMapWithSmoothness:1.0 contrast:1.0];
-    torus.firstMaterial.normal.contents = noiseNormalMapTexture;
-    [torus.firstMaterial setLightingModelName:SCNLightingModelBlinn];
-    torusNode.position = SCNVector3Make(0.0, 0.0, 0.0);
-    [scene.rootNode addChildNode:torusNode];
     
 //    guard let colorImage = image, let cgColorImage = colorImage.cgImage else { fatalError() }
 //    guard let depthData = depthData else { fatalError() }
@@ -109,6 +107,21 @@
 //    let pcNode = pc.pointCloudNode()
 //    pcNode.position = SCNVector3(x: 0, y: 0, z: 0)
 //    scene.rootNode.addChildNode(pcNode)
+}
+
+- (void)drawTorus{
+    SCNGeometry* torus = [SCNTorus torusWithRingRadius:0.05 pipeRadius:0.02];
+    SCNNode* torusNode = [SCNNode nodeWithGeometry:torus];
+    torus.firstMaterial.diffuse.contents = UIColor.cyanColor;
+    torus.firstMaterial.specular.contents = UIColor.whiteColor;
+    torus.firstMaterial.shininess = 1.0;
+    SKTexture* noiseTexture = [SKTexture textureNoiseWithSmoothness:0.25 size:CGSizeMake(512, 512) grayscale:NO];
+    //    SKTexture* noiseNormalMapTexture = [noiseTexture textureByGeneratingNormalMap];
+    SKTexture* noiseNormalMapTexture = [noiseTexture textureByGeneratingNormalMapWithSmoothness:1.0 contrast:1.0];
+    torus.firstMaterial.normal.contents = noiseNormalMapTexture;
+    [torus.firstMaterial setLightingModelName:SCNLightingModelBlinn];
+    torusNode.position = SCNVector3Make(0.0, 0.0, 0.0);
+    [scene.rootNode addChildNode:torusNode];
 }
 
 

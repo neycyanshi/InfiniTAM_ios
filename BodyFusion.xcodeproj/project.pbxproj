@@ -81,6 +81,7 @@
 		1FA62D43221C59540064E62B /* ITMWeightedICPTracker_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD7B1BB59BAC000CC25D /* ITMWeightedICPTracker_CUDA.cu */; };
 		1FA62D44221C59540064E62B /* ITMViewBuilder_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD771BB59BAC000CC25D /* ITMViewBuilder_CUDA.cu */; };
 		1FA62D45221C59540064E62B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C0CDD17F0EA0500692EC1 /* Images.xcassets */; };
+		1FB91A91225BA4F500810321 /* ModelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB91A90225BA4F500810321 /* ModelIO.framework */; };
 		1FEF90FF224A220100E8AA35 /* AAPLTransforms.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF90FC224A220100E8AA35 /* AAPLTransforms.mm */; };
 		1FEF9100224A220100E8AA35 /* PointCloudMetalView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF90FE224A220100E8AA35 /* PointCloudMetalView.mm */; };
 		1FEF9102224A246C00E8AA35 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEF9101224A246C00E8AA35 /* MetalKit.framework */; };
@@ -99,6 +100,7 @@
 		1F4128892258912A00ADB6D0 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		1F41288B225A3ED100ADB6D0 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		1FA62D4A221C59540064E62B /* BodyFusion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodyFusion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FB91A90225BA4F500810321 /* ModelIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ModelIO.framework; path = System/Library/Frameworks/ModelIO.framework; sourceTree = SDKROOT; };
 		1FEF90FB224A220100E8AA35 /* PointCloudMetalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointCloudMetalView.h; sourceTree = "<group>"; };
 		1FEF90FC224A220100E8AA35 /* AAPLTransforms.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AAPLTransforms.mm; sourceTree = "<group>"; };
 		1FEF90FD224A220100E8AA35 /* AAPLTransforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLTransforms.h; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB91A91225BA4F500810321 /* ModelIO.framework in Frameworks */,
 				1F41288C225A3ED100ADB6D0 /* SpriteKit.framework in Frameworks */,
 				1F41288A2258912A00ADB6D0 /* SceneKit.framework in Frameworks */,
 				1FEF9102224A246C00E8AA35 /* MetalKit.framework in Frameworks */,
@@ -364,6 +367,7 @@
 		6F7C0CBF17F0EA0500692EC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FB91A90225BA4F500810321 /* ModelIO.framework */,
 				1F41288B225A3ED100ADB6D0 /* SpriteKit.framework */,
 				1F4128892258912A00ADB6D0 /* SceneKit.framework */,
 				1FEF9101224A246C00E8AA35 /* MetalKit.framework */,

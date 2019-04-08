@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "PointCloudViewController.h"
 
 #include "Engine/ImageSourceEngine.h"
 #include "Engine/IMUSourceEngine.h"
@@ -247,7 +248,7 @@ typedef NS_ENUM(NSInteger, SetupResult) {
 -(void) showThermalState:(NSProcessInfoThermalState) state
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSString* thermalStateString=@"UNKNOWN";
+        NSString* thermalStateString = @"UNKNOWN";
         if (state == NSProcessInfoThermalStateNominal) {
             thermalStateString = @"NOMINAL";
         } else if (state == NSProcessInfoThermalStateFair) {
@@ -437,7 +438,9 @@ typedef NS_ENUM(NSInteger, SetupResult) {
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the point cloud to the new view controller.
-    if ([segue.identifier  isEqual: @"Show Cloud"]) {
+    if ([segue.identifier isEqual: @"Show Cloud"]) {
+        PointCloudViewController* pointCloudVC = segue.destinationViewController;
+        pointCloudVC.modelPath = [self saveModel:numFusionButtonClicked/2];
         NSLog(@"Show Cloud Segue");
     }
 }
@@ -489,6 +492,20 @@ typedef NS_ENUM(NSInteger, SetupResult) {
             [self updateImage];
         }
     });
+}
+
+- (NSString*) saveModel:(int)index
+{
+    char modelPath[1000];
+    sprintf(modelPath, "%s/model%04d.stl", documentsPath, index);
+    mainEngine->SaveSceneToMesh(modelPath);
+    return [NSString stringWithCString:modelPath encoding:NSUTF8StringEncoding];
+}
+
+// TODO: delete model if needed.
+- (BOOL) deleteModel:(NSString*) modelPath
+{
+    return [[NSFileManager defaultManager] removeItemAtPath:modelPath error:NULL];
 }
 
 // MARK: - UI Utility Functions
