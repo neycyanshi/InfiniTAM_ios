@@ -441,7 +441,7 @@ typedef NS_ENUM(NSInteger, SetupResult) {
     if ([segue.identifier isEqual: @"Show Cloud"]) {
         PointCloudViewController* pointCloudVC = segue.destinationViewController;
         pointCloudVC.modelPath = [self saveModel:numFusionButtonClicked/2];
-        NSLog(@"Show Cloud Segue");
+//        NSLog(@"Show Cloud Segue: %@", pointCloudVC.modelPath);
     }
 }
 

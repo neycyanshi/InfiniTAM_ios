@@ -31,6 +31,8 @@
     [self drawModel];
 }
 
+// MARK: - Draw Scene
+
 - (void)setupScene {
     scene = [SCNScene scene];
     zCamera = 0.3f;
@@ -42,12 +44,12 @@
     cameraNode.position = SCNVector3Make(0.0, 0.0, zCamera);
     [scene.rootNode addChildNode:cameraNode];
     
-    SCNNode* lightNode = [SCNNode node];
-    lightNode.light = [SCNLight light];
-    lightNode.light.type = SCNLightTypeOmni;
-//    lightNode.light.color = UIColor.whiteColor;
-    lightNode.position = SCNVector3Make(0.0, 0.0, 3.0);
-    [scene.rootNode addChildNode:lightNode];
+//    SCNNode* lightNode = [SCNNode node];
+//    lightNode.light = [SCNLight light];
+//    lightNode.light.type = SCNLightTypeOmni;
+////    lightNode.light.color = UIColor.whiteColor;
+//    lightNode.position = SCNVector3Make(0.0, 0.0, 3.0);
+//    [scene.rootNode addChildNode:lightNode];
     
 //    SCNSphere* sphere = [SCNSphere sphereWithRadius:0.001];
 //    sphere.firstMaterial.diffuse.contents = UIColor.blueColor;
@@ -55,15 +57,34 @@
     
     self.scnView.scene = scene;
     self.scnView.allowsCameraControl = YES;
+    self.scnView.autoenablesDefaultLighting = YES;
     self.scnView.showsStatistics = YES;
     self.scnView.backgroundColor = UIColor.blackColor;
 }
 
 - (void)drawModel {
     NSLog(@"draw model: %@", self.modelPath);
-    MDLAsset* asset = [[MDLAsset alloc] initWithURL:[NSURL URLWithString:self.modelPath]
-                                   vertexDescriptor:<#(nullable MDLVertexDescriptor *)#>
-                                    bufferAllocator:[MTKMeshBufferAllocator ]];
+    SCNNode *modelNode = [self loadSTLWithPath:self.modelPath];
+    // Set 3D model material
+    modelNode.geometry.firstMaterial.diffuse.contents = UIColor.cyanColor;
+    modelNode.geometry.firstMaterial.specular.contents = UIColor.whiteColor;
+    modelNode.geometry.firstMaterial.shininess = 1.0;
+//    SKTexture* noiseTexture = [SKTexture textureNoiseWithSmoothness:0.25 size:CGSizeMake(512, 512) grayscale:NO];
+//    //    SKTexture* noiseNormalMapTexture = [noiseTexture textureByGeneratingNormalMap];
+//    SKTexture* noiseNormalMapTexture = [noiseTexture textureByGeneratingNormalMapWithSmoothness:1.0 contrast:1.0];
+//    modelNode.geometry.firstMaterial.normal.contents = noiseNormalMapTexture;
+//    [modelNode.geometry.firstMaterial setLightingModelName:SCNLightingModelBlinn];
+//    modelNode.geometry.firstMaterial.diffuse.contents = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1];
+    modelNode.position = SCNVector3Make(0.0, 0.0, 0.0);
+    [scene.rootNode addChildNode:modelNode];
+    
+//    id<MTLDevice> device = self.scnView.device;
+//    MTLVertexDescriptor* mtlVertexDesc = [MTLVertexDescriptor vertexDescriptor];
+//    mtlVertexDesc.attributes[0].format = MTLVertexFormatFloat3;
+////    MTKMeshBufferAllocator* bufAllocator = [[MTKMeshBufferAllocator alloc] initWithDevice:device];
+//    MDLAsset* asset = [[MDLAsset alloc] initWithURL:[NSURL URLWithString:self.modelPath]
+//                                   vertexDescriptor:<#(nullable MDLVertexDescriptor *)#>
+//                                    bufferAllocator:[[MTKMeshBufferAllocator alloc] initWithDevice:device]];
 }
 
 - (void)drawPointCloud {
@@ -122,6 +143,104 @@
     [torus.firstMaterial setLightingModelName:SCNLightingModelBlinn];
     torusNode.position = SCNVector3Make(0.0, 0.0, 0.0);
     [scene.rootNode addChildNode:torusNode];
+}
+
+// MARK: - Utility Functions
+
+- (SCNNode *)loadSTLWithPath:(NSString *)path
+{
+    SCNNode *node = nil;
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    if (data.length > 80)
+    {
+        // STL header contains 80 chars
+        NSData *headerData = [data subdataWithRange:NSMakeRange(0, 80)];
+        NSString *headerStr = [[NSString alloc] initWithData:headerData encoding:NSASCIIStringEncoding];
+        if ([headerStr containsString:@"solid"])
+        {
+            //ASCII encoded STL file
+            node = [self loadASCIISTLWithData:data];
+        }
+        else
+        {
+            //Binary encoded STL file
+            node = [self loadBinarySTLWithData:[data subdataWithRange:NSMakeRange(84, data.length - 84)]];
+        }
+    }
+    return node;
+}
+
+- (SCNNode *)loadBinarySTLWithData:(NSData *)data
+{
+    NSMutableData *vertices = [NSMutableData data];
+    NSMutableData *normals = [NSMutableData data];
+    NSMutableData *elements = [NSMutableData data];
+    if (data.length % 50 != 0)
+    {
+        NSLog(@"STL(Binary) file error");
+        return nil;
+    }
+    NSInteger allCount = data.length/50;
+    // Parse STL
+    for (int i = 0; i < allCount; i ++)
+    {
+        for (int j = 1; j <= 3; j ++)
+        {
+            [normals appendData:[data subdataWithRange:NSMakeRange(i * 50, 12)]];
+            [vertices appendData:[data subdataWithRange:NSMakeRange(i * 50 + j*12, 12)]];
+        }
+        int element[3] = {(int)i * 3,(int)i*3 + 1,(int)i*3 + 2};
+        [elements appendBytes:&element[0] length:sizeof(element)];
+    }
+    SCNGeometrySource *verticesSource = [SCNGeometrySource geometrySourceWithData:vertices semantic:SCNGeometrySourceSemanticVertex vectorCount:allCount*3 floatComponents:YES componentsPerVector:3 bytesPerComponent:sizeof(float) dataOffset:0 dataStride:sizeof(SCNVector3)];
+//    SCNGeometrySource *normalsSource = [SCNGeometrySource geometrySourceWithData:normals semantic:SCNGeometrySourceSemanticNormal vectorCount:allCount*3 floatComponents:YES componentsPerVector:3 bytesPerComponent:sizeof(float) dataOffset:0 dataStride:sizeof(SCNVector3)];
+//    SCNGeometryElement *geometryElement = [SCNGeometryElement geometryElementWithData:elements primitiveType:SCNGeometryPrimitiveTypeTriangles primitiveCount:allCount bytesPerIndex:sizeof(int)];
+    SCNGeometryElement *geometryElement = [SCNGeometryElement geometryElementWithData:nil primitiveType:SCNGeometryPrimitiveTypeTriangles primitiveCount:allCount bytesPerIndex:sizeof(int)];
+//    SCNGeometry *geometry = [SCNGeometry geometryWithSources:@[verticesSource,normalsSource] elements:@[geometryElement]];
+    SCNGeometry *geometry = [SCNGeometry geometryWithSources:@[verticesSource] elements:@[geometryElement]];
+    // Create SCNNode
+    SCNNode *node = [SCNNode nodeWithGeometry:geometry];
+    return node;
+}
+
+- (SCNNode *)loadASCIISTLWithData:(NSData *)data
+{
+    NSMutableData *vertices = [NSMutableData data];
+    NSMutableData *normals = [NSMutableData data];
+    NSMutableData *elements = [NSMutableData data];
+    NSString *asciiStr = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    NSArray *asciiStrArr = [asciiStr componentsSeparatedByString:@"\n"];
+    int elementCount = 0;
+    for (int i = 0; i < asciiStrArr.count; i ++)
+    {
+        NSString *currentStr = asciiStrArr[i];
+        if ([currentStr containsString:@"facet"])
+        {
+            if ([currentStr containsString:@"normal"])
+            {
+                for (int j = 1; j <= 3; j++)
+                {
+                    NSArray *subNormal = [currentStr componentsSeparatedByString:@" "];
+                    SCNVector3 normal = SCNVector3Make([subNormal[subNormal.count - 3] floatValue], [subNormal[subNormal.count - 2] floatValue], [subNormal[subNormal.count - 1] floatValue]);
+                    [normals appendBytes:&normal length:sizeof(normal)];
+                    NSArray *subVertice = [asciiStrArr[i+j+1] componentsSeparatedByString:@" "];
+                    SCNVector3 vertice = SCNVector3Make([subVertice[subVertice.count - 3] floatValue], [subVertice[subVertice.count - 2] floatValue], [subVertice[subVertice.count - 1] floatValue]);
+                    [vertices appendBytes:&vertice length:sizeof(vertice)];
+                }
+                int element[3] = {elementCount * 3,elementCount * 3 + 1,elementCount * 3 + 2};
+                elementCount++;
+                [elements appendBytes:&element length:sizeof(element)];
+                i = i+6;
+            }
+        }
+    }
+    SCNGeometrySource *verticesSource = [SCNGeometrySource geometrySourceWithData:vertices semantic:SCNGeometrySourceSemanticVertex vectorCount:(elementCount-1)*3 floatComponents:YES componentsPerVector:3 bytesPerComponent:sizeof(float) dataOffset:0 dataStride:sizeof(SCNVector3)];
+    SCNGeometrySource *normalsSource = [SCNGeometrySource geometrySourceWithData:normals semantic:SCNGeometrySourceSemanticNormal vectorCount:(elementCount-1)*3 floatComponents:YES componentsPerVector:3 bytesPerComponent:sizeof(float) dataOffset:0 dataStride:sizeof(SCNVector3)];
+    SCNGeometryElement *geoMetryElement = [SCNGeometryElement geometryElementWithData:elements primitiveType:SCNGeometryPrimitiveTypeTriangles primitiveCount:elementCount - 1 bytesPerIndex:sizeof(int)];
+    SCNGeometry *geometry = [SCNGeometry geometryWithSources:@[verticesSource,normalsSource] elements:@[geoMetryElement]];
+    // Create SCNNode
+    SCNNode *node = [SCNNode nodeWithGeometry:geometry];
+    return node;
 }
 
 

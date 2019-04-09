@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PointCloudViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet SCNView* scnView;
-@property (weak, nonatomic) NSString* modelPath;
+@property (strong, nonatomic) NSString* modelPath;
 
 @end
 
