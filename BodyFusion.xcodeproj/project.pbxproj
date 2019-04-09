@@ -82,14 +82,8 @@
 		1FA62D44221C59540064E62B /* ITMViewBuilder_CUDA.cu in Resources */ = {isa = PBXBuildFile; fileRef = A62ECD771BB59BAC000CC25D /* ITMViewBuilder_CUDA.cu */; };
 		1FA62D45221C59540064E62B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C0CDD17F0EA0500692EC1 /* Images.xcassets */; };
 		1FB91A91225BA4F500810321 /* ModelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB91A90225BA4F500810321 /* ModelIO.framework */; };
-		1FEF90FF224A220100E8AA35 /* AAPLTransforms.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF90FC224A220100E8AA35 /* AAPLTransforms.mm */; };
-		1FEF9100224A220100E8AA35 /* PointCloudMetalView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF90FE224A220100E8AA35 /* PointCloudMetalView.mm */; };
 		1FEF9102224A246C00E8AA35 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEF9101224A246C00E8AA35 /* MetalKit.framework */; };
 		1FEF9106224A25F200E8AA35 /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF9105224A25F200E8AA35 /* FileUtils.cpp */; };
-		1FEF910C224A28CD00E8AA35 /* PointCloud.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF9108224A28CD00E8AA35 /* PointCloud.metal */; };
-		1FEF910D224A28CD00E8AA35 /* Mixer.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF9109224A28CD00E8AA35 /* Mixer.metal */; };
-		1FEF910E224A28CD00E8AA35 /* DepthToJET.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF910A224A28CD00E8AA35 /* DepthToJET.metal */; };
-		1FEF910F224A28CD00E8AA35 /* PassThrough.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF910B224A28CD00E8AA35 /* PassThrough.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,17 +95,9 @@
 		1F41288B225A3ED100ADB6D0 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		1FA62D4A221C59540064E62B /* BodyFusion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodyFusion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB91A90225BA4F500810321 /* ModelIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ModelIO.framework; path = System/Library/Frameworks/ModelIO.framework; sourceTree = SDKROOT; };
-		1FEF90FB224A220100E8AA35 /* PointCloudMetalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointCloudMetalView.h; sourceTree = "<group>"; };
-		1FEF90FC224A220100E8AA35 /* AAPLTransforms.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AAPLTransforms.mm; sourceTree = "<group>"; };
-		1FEF90FD224A220100E8AA35 /* AAPLTransforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLTransforms.h; sourceTree = "<group>"; };
-		1FEF90FE224A220100E8AA35 /* PointCloudMetalView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PointCloudMetalView.mm; sourceTree = "<group>"; };
 		1FEF9101224A246C00E8AA35 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		1FEF9104224A25F200E8AA35 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
 		1FEF9105224A25F200E8AA35 /* FileUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileUtils.cpp; sourceTree = "<group>"; };
-		1FEF9108224A28CD00E8AA35 /* PointCloud.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = PointCloud.metal; sourceTree = "<group>"; };
-		1FEF9109224A28CD00E8AA35 /* Mixer.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Mixer.metal; sourceTree = "<group>"; };
-		1FEF910A224A28CD00E8AA35 /* DepthToJET.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = DepthToJET.metal; sourceTree = "<group>"; };
-		1FEF910B224A28CD00E8AA35 /* PassThrough.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = PassThrough.metal; sourceTree = "<group>"; };
 		2DFFE048199142E800761886 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		431C6F5218455ABD00EDB38B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6F1239071862A59D00BD1D7A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -319,10 +305,6 @@
 			children = (
 				1F41288622549ABE00ADB6D0 /* PointCloudViewController.h */,
 				1F41288722549ABE00ADB6D0 /* PointCloudViewController.m */,
-				1FEF90FB224A220100E8AA35 /* PointCloudMetalView.h */,
-				1FEF90FC224A220100E8AA35 /* AAPLTransforms.mm */,
-				1FEF90FD224A220100E8AA35 /* AAPLTransforms.h */,
-				1FEF90FE224A220100E8AA35 /* PointCloudMetalView.mm */,
 			);
 			path = PointCloud;
 			sourceTree = "<group>";
@@ -334,17 +316,6 @@
 				1FEF9105224A25F200E8AA35 /* FileUtils.cpp */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		1FEF9107224A28CD00E8AA35 /* Shaders */ = {
-			isa = PBXGroup;
-			children = (
-				1FEF9108224A28CD00E8AA35 /* PointCloud.metal */,
-				1FEF9109224A28CD00E8AA35 /* Mixer.metal */,
-				1FEF910A224A28CD00E8AA35 /* DepthToJET.metal */,
-				1FEF910B224A28CD00E8AA35 /* PassThrough.metal */,
-			);
-			path = Shaders;
 			sourceTree = "<group>";
 		};
 		6F7C0CB417F0EA0500692EC1 = {
@@ -395,7 +366,6 @@
 				A626D7661A0F9A220086B8BF /* Engine */,
 				1FEF9103224A25F200E8AA35 /* Utils */,
 				1FEF90FA224A220100E8AA35 /* PointCloud */,
-				1FEF9107224A28CD00E8AA35 /* Shaders */,
 				6F7C0CD117F0EA0500692EC1 /* AppDelegate.h */,
 				6F7C0CD217F0EA0500692EC1 /* AppDelegate.m */,
 				6F7C0CDC17F0EA0500692EC1 /* ViewController.h */,
@@ -746,10 +716,8 @@
 				1FA62CF7221C59540064E62B /* ITMTrackerFactory.cpp in Sources */,
 				1FA62CF8221C59540064E62B /* ITMColorTracker.cpp in Sources */,
 				1FA62CF9221C59540064E62B /* ITMTrackingController.cpp in Sources */,
-				1FEF910C224A28CD00E8AA35 /* PointCloud.metal in Sources */,
 				1FA62CFA221C59540064E62B /* ITMSceneReconstructionEngine.metal in Sources */,
 				1FA62CFB221C59540064E62B /* ImageSourceEngine.cpp in Sources */,
-				1FEF90FF224A220100E8AA35 /* AAPLTransforms.mm in Sources */,
 				1FA62CFC221C59540064E62B /* ViewController.mm in Sources */,
 				1FA62CFD221C59540064E62B /* ITMRenTracker.cpp in Sources */,
 				1FA62CFE221C59540064E62B /* ITMColorTracker_CPU.cpp in Sources */,
@@ -770,14 +738,11 @@
 				1FA62D0C221C59540064E62B /* ITMDenseMapper.cpp in Sources */,
 				1FA62D0D221C59540064E62B /* ITMSwappingEngine.metal in Sources */,
 				1FA62D0E221C59540064E62B /* ITMCalibIO.cpp in Sources */,
-				1FEF910D224A28CD00E8AA35 /* Mixer.metal in Sources */,
-				1FEF910F224A28CD00E8AA35 /* PassThrough.metal in Sources */,
 				1FA62D0F221C59540064E62B /* ITMLibSettings.cpp in Sources */,
 				1FA62D10221C59540064E62B /* ITMSceneReconstructionEngine_Metal.mm in Sources */,
 				1FA62D11221C59540064E62B /* ITMLowLevelEngine_Metal.mm in Sources */,
 				1FA62D12221C59540064E62B /* ITMVisualisationEngine_CPU.cpp in Sources */,
 				1FA62D13221C59540064E62B /* ITMIMUTracker.cpp in Sources */,
-				1FEF9100224A220100E8AA35 /* PointCloudMetalView.mm in Sources */,
 				1FA62D14221C59540064E62B /* ITMLowLevelEngine.metal in Sources */,
 				1FA62D15221C59540064E62B /* ITMWeightedICPTracker.cpp in Sources */,
 				1FA62D16221C59540064E62B /* ITMPose.cpp in Sources */,
@@ -788,7 +753,6 @@
 				1FEF9106224A25F200E8AA35 /* FileUtils.cpp in Sources */,
 				1FA62D1B221C59540064E62B /* ITMRenTracker.metal in Sources */,
 				1FA62D1C221C59540064E62B /* ITMMainEngine.cpp in Sources */,
-				1FEF910E224A28CD00E8AA35 /* DepthToJET.metal in Sources */,
 				1FA62D1E221C59540064E62B /* ITMSceneReconstructionEngine_CPU.cpp in Sources */,
 				1FA62D1F221C59540064E62B /* ITMRenTracker_Metal.mm in Sources */,
 				1FA62D20221C59540064E62B /* MetalContext.mm in Sources */,

@@ -221,7 +221,7 @@ typedef NS_ENUM(NSInteger, SetupResult) {
     });
 }
 
-- (void) viewWillDisappear:(BOOL)animated
+- (void) viewDidDisappear:(BOOL)animated
 {
     dispatch_async(self.captureQueue, ^{
         if (self.setupResult == SetupResultSuccess) {
@@ -376,10 +376,10 @@ typedef NS_ENUM(NSInteger, SetupResult) {
     docsPath = (char*)[[dirPaths objectAtIndex:0]cStringUsingEncoding:[NSString defaultCStringEncoding]];
     memcpy(documentsPath, docsPath, strlen(docsPath));
     
-    NSError* error;
-    NSString* dataPath = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:@"/Output"];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
-        [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error];
+//    NSError* error;
+//    NSString* dataPath = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:@"/Output"];
+//    if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
+//        [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error];
 
     if (self.setupResult == SetupResultSuccess)
     {
@@ -502,11 +502,6 @@ typedef NS_ENUM(NSInteger, SetupResult) {
     return [NSString stringWithCString:modelPath encoding:NSUTF8StringEncoding];
 }
 
-// TODO: delete model if needed.
-- (BOOL) deleteModel:(NSString*) modelPath
-{
-    return [[NSFileManager defaultManager] removeItemAtPath:modelPath error:NULL];
-}
 
 // MARK: - UI Utility Functions
 

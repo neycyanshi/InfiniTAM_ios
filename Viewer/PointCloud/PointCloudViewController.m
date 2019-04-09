@@ -17,19 +17,36 @@
 
 @implementation PointCloudViewController
 {
-    // MARK: - Properties
+    // MARK: - Private Variables
     
-    SCNScene* scene;
-//    SCNNode* pointNode;
+    SCNScene *scene;
+    SCNNode *modelNode;
     float zCamera;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
+
     [self setupScene];
-    [self drawModel];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    [self createModelNode];
+    [scene.rootNode addChildNode:modelNode];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self deleteModel:self.modelPath];
+    [modelNode removeFromParentNode];
+
+    [super viewWillDisappear:animated];
+}
+
 
 // MARK: - Draw Scene
 
@@ -43,18 +60,7 @@
     cameraNode.camera.zFar = 10.0;
     cameraNode.position = SCNVector3Make(0.0, 0.0, zCamera);
     [scene.rootNode addChildNode:cameraNode];
-    
-//    SCNNode* lightNode = [SCNNode node];
-//    lightNode.light = [SCNLight light];
-//    lightNode.light.type = SCNLightTypeOmni;
-////    lightNode.light.color = UIColor.whiteColor;
-//    lightNode.position = SCNVector3Make(0.0, 0.0, 3.0);
-//    [scene.rootNode addChildNode:lightNode];
-    
-//    SCNSphere* sphere = [SCNSphere sphereWithRadius:0.001];
-//    sphere.firstMaterial.diffuse.contents = UIColor.blueColor;
-//    pointNode = [SCNNode nodeWithGeometry:sphere];
-    
+
     self.scnView.scene = scene;
     self.scnView.allowsCameraControl = YES;
     self.scnView.autoenablesDefaultLighting = YES;
@@ -62,29 +68,25 @@
     self.scnView.backgroundColor = UIColor.blackColor;
 }
 
-- (void)drawModel {
-    NSLog(@"draw model: %@", self.modelPath);
-    SCNNode *modelNode = [self loadSTLWithPath:self.modelPath];
+- (void)createModelNode {
+    NSLog(@"create modelNode from: %@", self.modelPath);
+    modelNode = [self loadSTLWithPath:self.modelPath];
+
     // Set 3D model material
+//    modelNode.geometry.firstMaterial.diffuse.contents = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1];
     modelNode.geometry.firstMaterial.diffuse.contents = UIColor.cyanColor;
     modelNode.geometry.firstMaterial.specular.contents = UIColor.whiteColor;
     modelNode.geometry.firstMaterial.shininess = 1.0;
-//    SKTexture* noiseTexture = [SKTexture textureNoiseWithSmoothness:0.25 size:CGSizeMake(512, 512) grayscale:NO];
-//    //    SKTexture* noiseNormalMapTexture = [noiseTexture textureByGeneratingNormalMap];
-//    SKTexture* noiseNormalMapTexture = [noiseTexture textureByGeneratingNormalMapWithSmoothness:1.0 contrast:1.0];
-//    modelNode.geometry.firstMaterial.normal.contents = noiseNormalMapTexture;
-//    [modelNode.geometry.firstMaterial setLightingModelName:SCNLightingModelBlinn];
-//    modelNode.geometry.firstMaterial.diffuse.contents = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1];
-    modelNode.position = SCNVector3Make(0.0, 0.0, 0.0);
-    [scene.rootNode addChildNode:modelNode];
+    modelNode.geometry.firstMaterial.lightingModelName = SCNLightingModelBlinn;
     
-//    id<MTLDevice> device = self.scnView.device;
-//    MTLVertexDescriptor* mtlVertexDesc = [MTLVertexDescriptor vertexDescriptor];
-//    mtlVertexDesc.attributes[0].format = MTLVertexFormatFloat3;
-////    MTKMeshBufferAllocator* bufAllocator = [[MTKMeshBufferAllocator alloc] initWithDevice:device];
-//    MDLAsset* asset = [[MDLAsset alloc] initWithURL:[NSURL URLWithString:self.modelPath]
-//                                   vertexDescriptor:<#(nullable MDLVertexDescriptor *)#>
-//                                    bufferAllocator:[[MTKMeshBufferAllocator alloc] initWithDevice:device]];
+    // Set position, transform and scale
+    modelNode.position = SCNVector3Make(0.0, 0.0, 0.0);
+    SCNMatrix4 transform = SCNMatrix4Identity;
+    transform = SCNMatrix4Rotate(transform, M_PI/2, 0, 0, -1);
+    transform = SCNMatrix4Rotate(transform, M_PI, 0, 1, 0);
+    float scaleFactor = 10.0;
+    transform = SCNMatrix4Scale(transform, scaleFactor, scaleFactor, scaleFactor);
+    modelNode.transform = transform;
 }
 
 - (void)drawPointCloud {
@@ -147,6 +149,12 @@
 
 // MARK: - Utility Functions
 
+// Delete model if needed.
+- (BOOL) deleteModel:(NSString*) modelPath
+{
+    return [[NSFileManager defaultManager] removeItemAtPath:modelPath error:NULL];
+}
+
 - (SCNNode *)loadSTLWithPath:(NSString *)path
 {
     SCNNode *node = nil;
@@ -173,31 +181,25 @@
 - (SCNNode *)loadBinarySTLWithData:(NSData *)data
 {
     NSMutableData *vertices = [NSMutableData data];
-    NSMutableData *normals = [NSMutableData data];
-    NSMutableData *elements = [NSMutableData data];
     if (data.length % 50 != 0)
     {
         NSLog(@"STL(Binary) file error");
         return nil;
     }
     NSInteger allCount = data.length/50;
-    // Parse STL
+
+    // Parse simple STL without normal
     for (int i = 0; i < allCount; i ++)
     {
         for (int j = 1; j <= 3; j ++)
         {
-            [normals appendData:[data subdataWithRange:NSMakeRange(i * 50, 12)]];
             [vertices appendData:[data subdataWithRange:NSMakeRange(i * 50 + j*12, 12)]];
         }
-        int element[3] = {(int)i * 3,(int)i*3 + 1,(int)i*3 + 2};
-        [elements appendBytes:&element[0] length:sizeof(element)];
     }
     SCNGeometrySource *verticesSource = [SCNGeometrySource geometrySourceWithData:vertices semantic:SCNGeometrySourceSemanticVertex vectorCount:allCount*3 floatComponents:YES componentsPerVector:3 bytesPerComponent:sizeof(float) dataOffset:0 dataStride:sizeof(SCNVector3)];
-//    SCNGeometrySource *normalsSource = [SCNGeometrySource geometrySourceWithData:normals semantic:SCNGeometrySourceSemanticNormal vectorCount:allCount*3 floatComponents:YES componentsPerVector:3 bytesPerComponent:sizeof(float) dataOffset:0 dataStride:sizeof(SCNVector3)];
-//    SCNGeometryElement *geometryElement = [SCNGeometryElement geometryElementWithData:elements primitiveType:SCNGeometryPrimitiveTypeTriangles primitiveCount:allCount bytesPerIndex:sizeof(int)];
     SCNGeometryElement *geometryElement = [SCNGeometryElement geometryElementWithData:nil primitiveType:SCNGeometryPrimitiveTypeTriangles primitiveCount:allCount bytesPerIndex:sizeof(int)];
-//    SCNGeometry *geometry = [SCNGeometry geometryWithSources:@[verticesSource,normalsSource] elements:@[geometryElement]];
     SCNGeometry *geometry = [SCNGeometry geometryWithSources:@[verticesSource] elements:@[geometryElement]];
+
     // Create SCNNode
     SCNNode *node = [SCNNode nodeWithGeometry:geometry];
     return node;
