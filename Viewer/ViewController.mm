@@ -17,7 +17,7 @@
 
 using namespace InfiniTAM::Engine;
 
-static void*  SessionRunningContext = &SessionRunningContext;
+static void* SessionRunningContext = &SessionRunningContext;
 
 typedef NS_ENUM(NSInteger, SetupResult) {
     SetupResultSuccess,
