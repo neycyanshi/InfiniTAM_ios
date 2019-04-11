@@ -123,6 +123,12 @@ void ITMMainEngine::ProcessFrame(ITMUChar4Image *rgbImage, ITMShortImage *rawDep
 	trackingController->Prepare(trackingState, view, renderState_live);
 }
 
+void ITMMainEngine::resetAll()
+{
+    denseMapper->ResetScene(scene);
+    trackingState->Reset();
+}
+
 Vector2i ITMMainEngine::GetImageSize(void) const
 {
 	return renderState_live->raycastImage->noDims;

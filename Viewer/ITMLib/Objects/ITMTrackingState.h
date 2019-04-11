@@ -1,5 +1,3 @@
-// Copyright 2014-2015 Isis Innovation Limited and the authors of InfiniTAM
-
 #pragma once
 
 #include "../Utils/ITMLibDefines.h"
@@ -35,6 +33,17 @@ namespace ITMLib
 
 			/// Current pose of the depth camera.
 			ITMPose *pose_d;
+            
+//            /// Tracking quality: 1.0: success, 0.0: failure
+//            enum TrackingResult
+//            {
+//                TRACKING_GOOD = 2,
+//                TRACKING_POOR = 1,
+//                TRACKING_FAILED = 0
+//            } trackerResult;
+//
+//            /// Score associated to the tracking result.
+//            float trackerScore;
 
 			bool requiresFullRendering;
 
@@ -78,6 +87,15 @@ namespace ITMLib
 				delete pose_d;
 				delete pose_pointCloud;
 			}
+            
+            void Reset()
+            {
+                this->age_pointCloud = -1;
+                this->pose_d->SetFrom(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+                this->pose_pointCloud->SetFrom(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+//                this->trackerResult = TRACKING_GOOD;
+//                this->trackerScore = 0.0f;
+            }
 
 			// Suppress the default copy constructor and assignment operator
 			ITMTrackingState(const ITMTrackingState&);

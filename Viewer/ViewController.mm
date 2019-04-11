@@ -165,6 +165,9 @@ typedef NS_ENUM(NSInteger, SetupResult) {
     [super viewWillAppear:animated];
     [self.tbOut setText:@"front depth"];
     
+    // Reset/Clear previous reconstruction scene and tracking state.
+    mainEngine->resetAll();
+    
     NSProcessInfoThermalState initialThermalState = [[NSProcessInfo processInfo] thermalState];
     if (initialThermalState == NSProcessInfoThermalStateSerious || initialThermalState == NSProcessInfoThermalStateCritical) {
         [self showThermalState:initialThermalState];
@@ -376,10 +379,10 @@ typedef NS_ENUM(NSInteger, SetupResult) {
     docsPath = (char*)[[dirPaths objectAtIndex:0]cStringUsingEncoding:[NSString defaultCStringEncoding]];
     memcpy(documentsPath, docsPath, strlen(docsPath));
     
-//    NSError* error;
-//    NSString* dataPath = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:@"/Output"];
-//    if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
-//        [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error];
+    NSError* error;
+    NSString* dataPath = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:@"/Output"];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
+        [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error];
 
     if (self.setupResult == SetupResultSuccess)
     {
