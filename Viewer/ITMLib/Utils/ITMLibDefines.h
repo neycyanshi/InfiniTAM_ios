@@ -92,7 +92,7 @@ struct ITMVoxel_f_rgb
 	float sdf;
 	/** Number of fused observations that make up @p sdf. */
 	uchar w_depth;
-	/** RGB colour information stored for this voxel. */
+	/** RGB color information stored for this voxel. */
 	Vector3u clr;
 	/** Number of observations that made up @p clr. */
 	uchar w_color;
@@ -123,7 +123,7 @@ struct ITMVoxel_s_rgb
 	uchar w_depth;
 	/** Padding that may or may not improve performance on certain GPUs */
 	//uchar pad;
-	/** RGB colour information stored for this voxel. */
+	/** RGB color information stored for this voxel. */
 	Vector3u clr;
 	/** Number of observations that made up @p clr. */
 	uchar w_color;
