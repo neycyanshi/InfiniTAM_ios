@@ -46,7 +46,7 @@ _CPU_AND_GPU_CODE_ inline bool ProjectSingleBlock(const THREADPTR(Vector3s) & bl
 		pt2d.x = (intrinsics.x * pt3d.x / pt3d.z + intrinsics.z) / minmaximg_subsample;
 		pt2d.y = (intrinsics.y * pt3d.y / pt3d.z + intrinsics.w) / minmaximg_subsample;
 
-		// remember bounding box, zmin and zmax
+		// expand and remember bounding box, zmin and zmax
 		if (upperLeft.x > floor(pt2d.x)) upperLeft.x = (int)floor(pt2d.x);
 		if (lowerRight.x < ceil(pt2d.x)) lowerRight.x = (int)ceil(pt2d.x);
 		if (upperLeft.y > floor(pt2d.y)) upperLeft.y = (int)floor(pt2d.y);
@@ -62,7 +62,7 @@ _CPU_AND_GPU_CODE_ inline bool ProjectSingleBlock(const THREADPTR(Vector3s) & bl
 	if (lowerRight.y >= imgSize.y) lowerRight.y = imgSize.y - 1;
 	if (upperLeft.x > lowerRight.x) return false;
 	if (upperLeft.y > lowerRight.y) return false;
-	//if (zRange.y <= VERY_CLOSE) return false; never seems to happen
+	// if (zRange.y <= VERY_CLOSE) return false; never seems to happen
 	if (zRange.x < VERY_CLOSE) zRange.x = VERY_CLOSE;
 	if (zRange.y < VERY_CLOSE) return false;
 
@@ -76,7 +76,7 @@ _CPU_AND_GPU_CODE_ inline void CreateRenderingBlocks(DEVICEPTR(RenderingBlock) *
 	for (int by = 0; by < ceil((float)(1 + lowerRight.y - upperLeft.y) / renderingBlockSizeY); ++by) {
 		for (int bx = 0; bx < ceil((float)(1 + lowerRight.x - upperLeft.x) / renderingBlockSizeX); ++bx) {
 			if (offset >= MAX_RENDERING_BLOCKS) return;
-			//for each rendering block: add it to the list
+			// for each rendering block: add it to the list, coordinate calculated from upperLeft corner and block offset.
 			DEVICEPTR(RenderingBlock) & b(renderingBlockList[offset++]);
 			b.upperLeft.x = upperLeft.x + bx*renderingBlockSizeX;
 			b.upperLeft.y = upperLeft.y + by*renderingBlockSizeY;
