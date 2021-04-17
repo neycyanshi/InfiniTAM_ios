@@ -41,7 +41,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self deleteModel:self.modelPath];
+//    [self deleteModel:self.modelPath];
     [modelNode removeFromParentNode];
 
     [super viewWillDisappear:animated];
@@ -82,7 +82,7 @@
     // Set position, transform and scale
     modelNode.position = SCNVector3Make(0.0, 0.0, 0.0);
     SCNMatrix4 transform = SCNMatrix4Identity;
-    transform = SCNMatrix4Rotate(transform, M_PI/2, 0, 0, -1);
+    transform = SCNMatrix4Rotate(transform, M_PI/2, 0, 0, 1);
     transform = SCNMatrix4Rotate(transform, M_PI, 0, 1, 0);
     float scaleFactor = 10.0;
     transform = SCNMatrix4Scale(transform, scaleFactor, scaleFactor, scaleFactor);

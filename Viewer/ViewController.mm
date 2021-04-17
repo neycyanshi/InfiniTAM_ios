@@ -441,7 +441,7 @@ typedef NS_ENUM(NSInteger, SetupResult) {
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the point cloud to the new view controller.
-    if ([segue.identifier isEqual: @"Show Cloud"]) {
+    if ([segue.identifier isEqual: @"Show3D"]) {
         PointCloudViewController* pointCloudVC = segue.destinationViewController;
         pointCloudVC.modelPath = [self saveModel:numFusionButtonClicked/2];
 //        NSLog(@"Show Cloud Segue: %@", pointCloudVC.modelPath);
@@ -477,8 +477,8 @@ typedef NS_ENUM(NSInteger, SetupResult) {
     {
         // When click every the second time, end fullProcess and navigation to PointCloudViewController
         fullProcess = !fullProcess;
-        if (numFusionButtonClicked > 0 && numFusionButtonClicked%2 == 0) {
-            [self performSegueWithIdentifier:@"Show Cloud" sender:sender];
+        if (numFusionButtonClicked > 0 && numFusionButtonClicked % 2 == 0) {
+            [self performSegueWithIdentifier:@"Show3D" sender:sender];
         }
         return;  // return if usingSensor, using CalibSource imageSource Engine.
     }
