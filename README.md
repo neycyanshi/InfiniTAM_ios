@@ -13,9 +13,11 @@ The STL mesh are saved in Files -> On My iPhone -> BodyFusion.
 
 Each time you open the app and perform reconstructions, it will override these saved files. So you need to export them to other places.
 
-<figure>
-<img src="doc/Depth.PNG" width=150/>
-<img src="doc/Fusion.PNG" width=150/>
-<img src="doc/Mesh.PNG" width=150/>
-<img src="doc/Saved.PNG" width=150/>
-</figure>
+<table>
+<tr>
+<td><center><img src="doc/Depth.PNG">Depth</center></td>
+<td><center><img src="doc/Fusion.PNG">Fusion</center></td>
+<td><center><img src="doc/Mesh.PNG">Mesh</center></td>
+<td><center><img src="doc/Saved.PNG">Saved</center></td>
+</tr>
+</table>
